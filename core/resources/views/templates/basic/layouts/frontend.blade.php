@@ -9,9 +9,7 @@
     @include('partials.seo')
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Josefin+Sans:400,400i,500,500i,600,600i,700,700i&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&family=Noto+Sans+Bengali:wght@100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('assets/global/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/global/css/all.min.css') }}">

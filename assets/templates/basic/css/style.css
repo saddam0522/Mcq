@@ -5,14 +5,30 @@
 /*-------------------------------------------------
     [ ## reset ]
 */
+:root {
+  --blue: #3A65C7;
+  --light-bg: #E8F2FF;
+  --orange: #DF6F1A;
+  --dark: #242328;
+  --text-color: #5E6670;
+  --white: #fff;
+  --noto: "Noto Sans Bengali", sans-serif;
+  --balooda: "Baloo Da 2", sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Baloo Da 2", sans-serif;
+}
+p,span,small,a {
+  font-family: "Noto Sans Bengali", sans-serif;
+}
+
 html {
   font-size: 100%;
   scroll-behavior: smooth;
 }
-
 body {
   background-color: #fff;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Noto Sans Bengali", sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1.5em;
@@ -675,7 +691,7 @@ blockquote .quote-icon {
   border: none;
   font-weight: 600;
   text-align: center;
-  color: white;
+  color: var(--white);
   font-size: 14px;
   padding: 8px 20px;
 }
@@ -757,7 +773,7 @@ blockquote .quote-icon {
   width: 40px;
   height: 40px;
   background: #2ecc71;
-  color: white;
+  color: var(--white);
   line-height: 45px;
   font-size: 20px;
   text-align: center;
@@ -774,7 +790,7 @@ blockquote .quote-icon {
 
 .scrollToTop:hover,
 .scrollToTop:focus {
-  color: white;
+  color: var(--white);
 }
 
 /*-------------------------------------------------
@@ -812,7 +828,7 @@ blockquote .quote-icon {
   font-size: 18px;
   background-color: #2ecc71;
   border-radius: 3px;
-  color: white;
+  color: var(--white);
   display: inline-block;
   text-align: center;
   cursor: pointer;
@@ -868,7 +884,7 @@ blockquote .quote-icon {
 .pagination .page-item.disabled span {
   background: #2ecc71;
   border-color: #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 .pagination .page-item .page-link {
@@ -879,7 +895,7 @@ blockquote .quote-icon {
 .pagination .page-item:hover .page-link {
   background: #2ecc71;
   border-color: #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 /*-------------------------------------------------
@@ -908,13 +924,13 @@ blockquote .quote-icon {
 
 .tab-menu .nav-item:hover {
   background-color: #040a2c;
-  color: white;
+  color: var(--white);
 }
 
 .tab-menu .nav-item.active {
   background-color: #2ecc71;
   border: 2px solid #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 /*-------------------------------------------------
@@ -1087,7 +1103,7 @@ h4 a:hover {
     [ ## Buttons ]
 */
 input[type="submit"]:hover {
-  color: white;
+  color: var(--white);
 }
 
 button,
@@ -1174,12 +1190,12 @@ a.icon-btn {
 */
 .btn--primary {
   background-color: hsl(var(--base));
-  color: white;
+  color: var(--white);
 }
 
 .btn--primary:hover {
   background-color: hsl(var(--base));
-  color: white;
+  color: var(--white);
 }
 
 .btn--secondary {
@@ -1205,7 +1221,7 @@ a.icon-btn {
 .btn--dark,
 .btn--dark:hover {
   background-color: #10163a;
-  color: white;
+  color: var(--white);
 }
 
 .badge--primary {
@@ -1266,12 +1282,12 @@ a.icon-btn {
 
 .btn--base {
   position: relative;
-  color: white;
-  padding: 6px 25px;
+  color: var(--white);
+  padding: 10px 30px;
   text-transform: capitalize;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: var(--noto);
   font-size: 16px;
-  border-radius: 3px;
+  border-radius: 10px;
   font-weight: 600;
   z-index: 2;
   overflow: hidden;
@@ -1299,7 +1315,7 @@ a.icon-btn {
   height: 100%;
   top: 0;
   content: "";
-  background-color: #2ecc71;
+  background-color: var(--orange);
   z-index: -1;
   -webkit-transition: all ease 0.5s;
   -moz-transition: all ease 0.5s;
@@ -1307,24 +1323,24 @@ a.icon-btn {
 }
 
 .btn--base.active {
-  color: #2ecc71;
+  color: var(--white);
 }
 
 .btn--base.active::before,
 .btn--base.active::after {
-  background-color: white;
+  background-color: var(--blue);
 }
 
 .btn--base.active:focus,
 .btn--base.active:hover {
-  color: white;
-  background-color: #2ecc71;
+  color: var(--white);
+  background-color: var(--dark);
 }
 
 .btn--base:focus,
 .btn--base:hover {
-  color: hsl(var(--base));
-  background: white;
+  color: var(--white);
+  background: var(--dark);
 }
 
 .btn--base:focus::before,
@@ -1532,7 +1548,7 @@ textarea.form--control {
 
 .checkbox-wrapper .checkbox-item label {
   margin: 0;
-  color: white;
+  color: var(--white);
   font-size: 14px;
 }
 
@@ -1548,7 +1564,7 @@ textarea.form--control {
 .submit-btn {
   padding: 6px 30px;
   width: 100%;
-  color: white;
+  color: var(--white);
   background-color: #2ecc71;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
@@ -1904,7 +1920,7 @@ textarea.form--control {
 
 ::selection {
   background-color: #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 .container-fluid.custom-container {
@@ -2012,11 +2028,11 @@ textarea.form--control {
   }
 
   .header-bottom-area .navbar-collapse .main-menu li a {
-    color: white !important;
+    color: var(--white) !important;
   }
 
   .header-bottom-area .navbar-collapse .main-menu li .sub-menu li a {
-    color: white !important;
+    color: var(--white) !important;
   }
 
   .header-bottom-area .menu_has_children .sub-menu {
@@ -2080,7 +2096,7 @@ textarea.form--control {
 .header-bottom-area .navbar-collapse .main-menu li a {
   position: relative;
   padding: 20px 0 20px 0;
-  color: white;
+  color: var(--white);
   font-weight: 600;
   align-items: center;
   display: inline-block;
@@ -2115,7 +2131,7 @@ textarea.form--control {
   top: 105%;
   left: 0;
   width: 170px;
-  background-color: white;
+  background-color: var(--white);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   opacity: 0;
   visibility: hidden;
@@ -2150,7 +2166,7 @@ textarea.form--control {
 }
 
 .header-bottom-area .navbar-collapse .main-menu li .sub-menu li:hover a {
-  color: white;
+  color: var(--white);
 }
 
 .header-bottom-area .navbar-collapse .main-menu li .sub-menu li:hover::before {
@@ -2205,7 +2221,7 @@ textarea.form--control {
 
 .language-select {
   font-size: 15px;
-  color: white;
+  color: var(--white);
   font-weight: 600;
   border: none;
   background-color: transparent;
@@ -2236,7 +2252,7 @@ textarea.form--control {
 }
 
 .header-social li a {
-  color: white;
+  color: var(--white);
   font-size: 14px;
 }
 
@@ -2375,7 +2391,7 @@ textarea.form--control {
 }
 
 .breadcrumb li {
-  color: white;
+  color: var(--white);
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -2441,7 +2457,7 @@ textarea.form--control {
 
 .footer-social li:hover {
   background-color: #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 .footer-social li+li {
@@ -2457,7 +2473,7 @@ textarea.form--control {
 }
 
 .footer-bottom-area p {
-  color: white;
+  color: var(--white);
   font-size: 14px;
 }
 
@@ -2467,7 +2483,7 @@ textarea.form--control {
 }
 
 .footer-bottom-area .copyright-area p {
-  color: white;
+  color: var(--white);
   font-size: 14px;
   font-weight: 400;
 }
@@ -2480,7 +2496,7 @@ textarea.form--control {
 
 .footer-bottom-area .copyright-list li {
   display: inline-block;
-  color: white;
+  color: var(--white);
   font-size: 14px;
 }
 
@@ -2568,7 +2584,7 @@ textarea.form--control {
   height: 32px;
   font-size: 12px;
   font-weight: 600;
-  color: white;
+  color: var(--white);
   display: initial;
   text-align: left;
   width: 32px;
@@ -2581,7 +2597,7 @@ textarea.form--control {
 }
 
 .team-content {
-  background-color: white;
+  background-color: var(--white);
   box-shadow: 7px 5px 30px 0px rgba(72, 73, 121, 0.15);
   padding: 20px;
   position: relative;
@@ -3182,7 +3198,7 @@ textarea.form--control {
   text-align: center;
   background-color: #2ecc71;
   border-radius: 50%;
-  color: white;
+  color: var(--white);
   font-size: 30px;
 }
 
@@ -3336,7 +3352,7 @@ textarea.form--control {
   bottom: 7px;
   padding: 3px 10px;
   font-size: 13px;
-  color: white;
+  color: var(--white);
   background-color: #2ecc71;
 }
 
@@ -3474,7 +3490,7 @@ textarea.form--control {
 .account-header .title {
   font-weight: 500;
   font-size: 26px;
-  color: white;
+  color: var(--white);
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -3487,7 +3503,7 @@ textarea.form--control {
 .account-header .sub-title {
   font-weight: 600;
   font-size: 16px;
-  color: white;
+  color: var(--white);
 }
 
 @media only screen and (max-width: 991px) {
@@ -3789,7 +3805,7 @@ textarea.form--control {
   content: "\f105";
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
-  color: white;
+  color: var(--white);
   font-size: 11px;
   right: 20px;
   top: 10px;
@@ -3799,7 +3815,7 @@ textarea.form--control {
   position: relative;
   display: block;
   padding: 8px 20px;
-  color: white;
+  color: var(--white);
   z-index: 2;
   transition: all 0.3s;
 }
@@ -3873,7 +3889,7 @@ textarea.form--control {
   display: inline-block;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  color: var(--white);
   border-radius: 3px;
   transition: all 0.3s;
 }
@@ -3916,7 +3932,7 @@ textarea.form--control {
 }
 
 .body-header-area {
-  background-color: white;
+  background-color: var(--white);
   padding: 10px 20px;
   border-radius: 3px;
 }
@@ -4037,7 +4053,7 @@ textarea.form--control {
 }
 
 .panel-default {
-  background-color: white;
+  background-color: var(--white);
   border-radius: 3px;
 }
 
@@ -4067,7 +4083,7 @@ textarea.form--control {
 
 .panel-form-area {
   padding: 20px;
-  background-color: white;
+  background-color: var(--white);
 }
 
 .profile-thumb-area {
@@ -4094,7 +4110,7 @@ textarea.form--control {
   padding: 7px 10px 7px 10px;
   border-radius: 25px;
   font-size: 14px;
-  color: white;
+  color: var(--white);
   display: initial;
   cursor: pointer;
 }
@@ -4118,8 +4134,8 @@ textarea.form--control {
 }
 
 .panel-table-area {
-  background-color: white;
-  background-color: white;
+  background-color: var(--white);
+  background-color: var(--white);
   padding: 20px;
   border-radius: 3px;
 }
@@ -4218,13 +4234,13 @@ textarea.form--control {
 }
 
 .reset-area {
-  background-color: white;
+  background-color: var(--white);
   border-radius: 3px;
   overflow: hidden;
 }
 
 .dashboard-area {
-  background-color: white;
+  background-color: var(--white);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -4240,7 +4256,7 @@ textarea.form--control {
   position: absolute;
   right: 5px;
   bottom: -25px;
-  color: white;
+  color: var(--white);
   opacity: 0.2;
 }
 
@@ -4278,7 +4294,7 @@ textarea.form--control {
 }
 
 .deposit-area {
-  background-color: white;
+  background-color: var(--white);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -4356,7 +4372,7 @@ textarea.form--control {
 }
 
 .quiz-area {
-  background-color: white;
+  background-color: var(--white);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -4428,7 +4444,7 @@ textarea.form--control {
   width: 18px;
   height: 18px;
   border-radius: 100%;
-  background: white;
+  background: var(--white);
   border: 1px solid #e5e5e5;
 }
 
@@ -4466,7 +4482,7 @@ textarea.form--control {
   width: 18px;
   height: 18px;
   border-radius: 100%;
-  background: white;
+  background: var(--white);
   border: 1px solid #e5e5e5;
 }
 
@@ -4488,7 +4504,7 @@ textarea.form--control {
 
 .action-button {
   background: #2ecc71;
-  color: white;
+  color: var(--white);
   border: 0 none;
   border-radius: 5px;
   font-size: 14px;
@@ -4503,7 +4519,7 @@ textarea.form--control {
 .action-button:hover,
 .action-button:focus {
   background: #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 @media only screen and (max-width: 435px) {
@@ -4514,17 +4530,17 @@ textarea.form--control {
 
 .previous_button {
   background: #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 .previous_button:hover,
 .previous_button:focus {
   background: #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 .quiz-instruction-area {
-  background-color: white;
+  background-color: var(--white);
   padding: 20px;
   border-radius: 3px;
   overflow: hidden;
@@ -4675,7 +4691,7 @@ textarea.form--control {
 
 .blog-social-area .blog-social li:hover {
   background-color: #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 .blog-social-area .blog-social li+li {
@@ -4803,7 +4819,7 @@ textarea.form--control {
 
 .tag-item-wrapper .tag-item:hover {
   background-color: #2ecc71;
-  color: white;
+  color: var(--white);
 }
 
 .card {
@@ -4938,13 +4954,13 @@ textarea.form--control {
   font-size: 14px;
   display: flex;
   transition: all linear 0.2s;
-  color: white;
+  color: var(--white);
 }
 
 .language_text_select {
   font-size: 14px;
   font-weight: 400;
-  color: white;
+  color: var(--white);
   margin-top: 5px;
 }
 

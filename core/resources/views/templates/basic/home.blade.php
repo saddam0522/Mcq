@@ -28,7 +28,7 @@
         @endforeach
     @endif --}}
   {{-- Hero Section start here  --}}
-  <section class="">
+  <section class="hero-section">
     <div class="container">
       @include('templates.basic.sections.hero_section')
     </div>
