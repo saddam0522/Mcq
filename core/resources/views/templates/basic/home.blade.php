@@ -1,9 +1,9 @@
 @extends($activeTemplate . 'layouts.frontend')
 @section('content')
-    @php
-        $banner = @getContent('banner.content', true)->data_values;
-    @endphp
-    <section class="banner-section bg-overlay-white bg_img"
+  @php
+    $banner = @getContent('banner.content', true)->data_values;
+  @endphp
+  {{-- <section class="banner-section bg-overlay-white bg_img"
         data-background="{{ frontendImage('banner', @$banner->background_image) }}">
         <div class="container">
             <div class="row justify-content-center align-items-center mb-30-none">
@@ -21,10 +21,17 @@
                 </div>
             </div>
         </div>
-    </section>
-    @if ($sections->secs != null)
+    </section> --}}
+  {{-- @if ($sections->secs != null)
         @foreach (json_decode($sections->secs) as $sec)
             @include($activeTemplate . 'sections.' . $sec)
         @endforeach
-    @endif
+    @endif --}}
+  {{-- Hero Section start here  --}}
+  <section class="">
+    <div class="container">
+      @include('templates.basic.sections.hero_section')
+    </div>
+  </section>
+  {{-- Hero Section end here  --}}
 @endsection

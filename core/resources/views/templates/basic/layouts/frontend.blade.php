@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/style.css') }}">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/new-custom.css') }}">
 
     @stack('style-lib')
     @stack('style')
