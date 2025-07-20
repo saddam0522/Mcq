@@ -15,10 +15,20 @@
   --noto: "Noto Sans Bengali", sans-serif;
   --balooda: "Baloo Da 2", sans-serif;
 }
-h1,h2,h3,h4,h5,h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Baloo Da 2", sans-serif;
 }
-p,span,small,a {
+
+p,
+span,
+small,
+a {
   font-family: "Noto Sans Bengali", sans-serif;
 }
 
@@ -26,6 +36,7 @@ html {
   font-size: 100%;
   scroll-behavior: smooth;
 }
+
 body {
   background-color: #fff;
   font-family: "Noto Sans Bengali", sans-serif;

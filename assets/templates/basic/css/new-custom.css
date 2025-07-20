@@ -8,10 +8,20 @@
   --noto: "Noto Sans Bengali", sans-serif;
   --balooda: "Baloo Da 2", sans-serif;
 }
-h1,h2,h3,h4,h5,h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Baloo Da 2", sans-serif;
 }
-p,span,small,a {
+
+p,
+span,
+small,
+a {
   font-family: "Noto Sans Bengali", sans-serif;
 }
 
@@ -19,25 +29,29 @@ p,span,small,a {
 .header-section .navbar .logo-area {
   width: 20%;
 }
+
 .header-section .navbar .collapse.navbar-collapse {
   width: 80%;
 }
+
 .header-section .navbar .header-nav-menus {
-    width: 75%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--light-bg);
-    padding: 20px 0;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-bg);
+  padding: 20px 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
+
 .header-section .navbar .header-nav-btns {
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
+
 /* Header end */
 /* Hero section start */
 .hero-section {
@@ -46,12 +60,14 @@ p,span,small,a {
   margin: 70px 10px 0px;
   border-radius: 20px;
 }
+
 .hero-content .hero-title {
   font-size: 55px;
   font-weight: 800;
   line-height: 80px;
   color: var(--dark);
 }
+
 .hero-content p {
   font-size: 18px;
   font-weight: 400;
@@ -60,45 +76,54 @@ p,span,small,a {
   width: 100%;
   max-width: 600px;
 }
+
 .hero-cards {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-content: space-between;
   gap: 20px;
 }
+
 .hero-cards .hero-card {
   background-color: var(--white);
   padding: 20px;
   border-radius: 8px;
   transition: all .3s ease-in-out;
 }
+
 .hero-card .card-icon {
-    background-color: var(--light-bg);
-    padding: 8px 12px;
-    border-radius: 5px;
+  background-color: var(--light-bg);
+  padding: 8px 12px;
+  border-radius: 5px;
   transition: all .3s ease-in-out;
 }
+
 .hero-card .card-icon svg {
-    height: 30px;
-    width: 30px;
+  height: 30px;
+  width: 30px;
 }
+
 .hero-card h6 {
   font-size: 22px;
   color: var(--dark);
 }
+
 .hero-card span {
   font-size: 16px;
   color: var(--text-color);
 }
+
 .hero-card:hover {
   transform: translateY(-8px);
 }
+
 .hero-card:hover .card-icon {
-    background-color: var(--blue);
+  background-color: var(--blue);
 }
+
 .hero-card:hover .card-icon svg path {
-    stroke: var(--white);
+  stroke: var(--white);
   transition: all .3s ease-in-out;
 }
 
@@ -110,18 +135,21 @@ p,span,small,a {
   background-color: var(--white);
   overflow: hidden;
 }
-.job-title-area {
-}
+
+.job-title-area {}
+
 .job-title-middle {
   background-color: var(--light-bg);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+
 .job-section-title h2 {
   font-size: 35px;
   font-weight: 800;
   line-height: 45px;
 }
+
 .job-section-btn {
   display: inline-flex;
   padding: 12px 24px;
@@ -129,6 +157,7 @@ p,span,small,a {
   border: 1px solid var(--light-bg);
   cursor: pointer;
 }
+
 .job-section-btn a {
   color: var(--blue);
   font-size: 16px;
@@ -137,20 +166,23 @@ p,span,small,a {
   line-height: 24px;
   text-transform: capitalize;
 }
+
 .job-section-btn i {
   color: var(--blue);
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
 }
+
 .job-cards {
   padding-top: 50px;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   gap: 20px;
-  
+
 }
+
 .job-card {
   border-radius: 10px;
   border: 1px solid var(--light-bg);
@@ -158,11 +190,13 @@ p,span,small,a {
   padding: 15px 15px 20px;
   min-width: 360px;
 }
+
 .job-card .card-top {
   padding: 15px;
   border-radius: 10px;
-background: var(--light-bg);
+  background: var(--light-bg);
 }
+
 .job-card .date {
   padding: 8px 15px;
   background-color: var(--white);
@@ -171,6 +205,7 @@ background: var(--light-bg);
   font-weight: 400;
   border-radius: 50px;
 }
+
 .job-card .bookmark svg {
   background-color: var(--white);
   padding: 10px;
@@ -178,26 +213,31 @@ background: var(--light-bg);
   height: 40px;
   width: 40px;
 }
+
 .job-card .job-title {
   color: var(--dark);
   font-size: 18px;
   font-weight: 700;
 }
+
 .job-card .company {
   color: var(--text-color);
   font-size: 15px;
   font-weight: 400;
 }
+
 .job-card .company-logo img {
   height: 50px;
   width: 50px;
   object-fit: contain;
 }
+
 .job-info span {
   font-size: 16px;
   font-weight: 400;
   color: var(--text-color);
 }
+
 .job-card .job-require-btns .rq-btn {
   display: flex;
   padding: 6px 15px;
@@ -208,21 +248,25 @@ background: var(--light-bg);
   border: 1px solid var(--dark);
   color: var(--dark);
 }
+
 .card-top>p {
   font-size: 16px;
   font-weight: 400;
   color: var(--dark);
 }
+
 .card-bottom p {
-color: var(--dark);
-font-size: 16px;
-font-weight: 700;
+  color: var(--dark);
+  font-size: 16px;
+  font-weight: 700;
 }
+
 .card-bottom span {
   font-size: 16px;
   font-weight: 400;
   color: var(--text-color);
 }
+
 .dark-btn a {
   color: var(--white);
   padding: 10px 30px;
@@ -232,7 +276,78 @@ font-weight: 700;
   border-radius: 10px;
   background: var(--dark);
 }
+
 /* Job section end */
+/* mcq section start */
+.mcq-section {
+  padding: 0 0 120px;
+  margin: 0 10px;
+  background-color: var(--light-bg);
+  border-radius: 20px;
+}
+.mcq-section .job-section-btn {
+  border: 1px solid var(--white);
+}
+.mcq-section .mcq-middle {
+  background-color: var(--white);
+}
+.mcq-middle .nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F9F9F9;
+  border-radius: 10px;
+}
+.mcq-middle .nav-pills .nav-link.active,
+.mcq-middle .nav-pills .show>.nav-link {
+  border-radius: 10px;
+    background: var(--blue) !important;
+    box-shadow: 0px 5px 7px 0px rgba(58, 101, 199, 0.23);
+    color: var(--white);
+}
+.mcq-middle .nav-pills .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.mcq-middle .nav-pills .nav-link {
+  width: 100%;
+  padding: 10px 15px;
+  color: var(--dark);
+}
+.category-cards {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  align-items: center;
+  gap: 20px;
+}
+.category-cards .category-card {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--white);
+}
+.category-cards .category-card h5 {
+  color: var(--dark);
+  font-size: 18px;
+  font-weight: 500;
+}
+.category-cards .category-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+/* mcq section end */
+/* Guidline section end */
+.guidline-section {
+  padding: 70px 0px 120px 0;
+  background-color: var(--white);
+}
+.section-title {
+
+}
+/* Guidline section end */
 
 
 
@@ -240,28 +355,35 @@ font-weight: 700;
 
 
 /* Media Quaries  */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {.category-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }}
 
-}
 @media screen and (max-width: 768px) {
-    .hero-section {
-      padding: 70px 0 35px 0;
+  .hero-section {
+    padding: 70px 0 35px 0;
   }
+
   .hero-content .hero-title {
-      font-size: 30px;
-      line-height: 48px;
+    font-size: 30px;
+    line-height: 48px;
   }
+
   .hero-cards {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
-  .hero-cards .hero-card {
-      padding: 10px;
-  }
-  .hero-card .card-icon {
-      padding: 6px 10px;
-  }
-}
-@media screen and (max-width: 767px) {
 
+  .hero-cards .hero-card {
+    padding: 10px;
+  }
+
+  .hero-card .card-icon {
+    padding: 6px 10px;
+  }
+    
 }
+
+@media screen and (max-width: 767px) {.category-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }}
