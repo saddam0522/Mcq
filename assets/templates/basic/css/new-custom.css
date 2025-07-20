@@ -285,12 +285,15 @@ a {
   background-color: var(--light-bg);
   border-radius: 20px;
 }
+
 .mcq-section .job-section-btn {
   border: 1px solid var(--white);
 }
+
 .mcq-section .mcq-middle {
   background-color: var(--white);
 }
+
 .mcq-middle .nav {
   width: 100%;
   display: flex;
@@ -299,54 +302,166 @@ a {
   background-color: #F9F9F9;
   border-radius: 10px;
 }
+
 .mcq-middle .nav-pills .nav-link.active,
 .mcq-middle .nav-pills .show>.nav-link {
   border-radius: 10px;
-    background: var(--blue) !important;
-    box-shadow: 0px 5px 7px 0px rgba(58, 101, 199, 0.23);
-    color: var(--white);
+  background: var(--blue) !important;
+  box-shadow: 0px 5px 7px 0px rgba(58, 101, 199, 0.23);
+  color: var(--white);
 }
+
 .mcq-middle .nav-pills .nav-item {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 50%;
 }
+
 .mcq-middle .nav-pills .nav-link {
   width: 100%;
   padding: 10px 15px;
   color: var(--dark);
 }
+
 .category-cards {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   gap: 20px;
 }
+
 .category-cards .category-card {
   padding: 20px;
   border-radius: 12px;
   background: var(--white);
 }
+
 .category-cards .category-card h5 {
   color: var(--dark);
   font-size: 18px;
   font-weight: 500;
 }
+
 .category-cards .category-card img {
   width: 70px;
   height: 70px;
   object-fit: contain;
 }
+
 /* mcq section end */
 /* Guidline section end */
 .guidline-section {
-  padding: 70px 0px 120px 0;
+  padding: 0 0px 120px 0;
   background-color: var(--white);
 }
-.section-title {
 
+.section-title {
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 45px;
+  color: var(--dark);
 }
+
+.guidline-section .section-title {
+  padding: 20px 70px;
+  background-color: var(--white);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  margin-top: -75px;
+  display: inline-block;
+}
+
+.guidline-card {
+  padding: 20px 20px 30px;
+  transition: all .3s ease-in-out;
+}
+.popular {
+  background: var(--blue);
+  color: var(--white);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.833px;
+  padding: 10px 15px 6px;
+  line-height: 10px;
+  text-transform: uppercase;
+  border-radius: 50px;
+}
+
+.guidline-card .price {
+  color: var(--dark);
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 46px;
+}
+
+.guidline-card .price span {
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.g-title {
+  color: var(--dark);
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 42px;
+}
+
+.guidline-card p {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+.g-info span {
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.g-btn {
+  text-decoration: none;
+  display: block;
+  padding: 12px 20px;
+  color: var(--blue);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--light-bg);
+  margin-top: 25px;
+}
+
+.g-btn:hover {
+  color: var(--blue);
+}
+.guidline-card:hover {
+  border-radius: 10px;
+  background: var(--blue);
+  box-shadow: 0px 42px 34px 0px #f1f1f1;
+  transform: translateY(-30px);
+  background-image: url('../../../../assets/images/img/premium.png');
+    background-repeat: no-repeat;
+      background-size: cover;
+}
+.guidline-card:hover .g-btn {
+  background-color: var(--orange);
+  color: var(--white);
+}
+.guidline-card:hover .g-info span,
+.guidline-card:hover  .price,
+.guidline-card:hover  .price span,
+.guidline-card:hover .g-title,
+.guidline-card:hover  p
+  {
+  color: var(--white);
+}
+.guidline-card:hover svg path {
+  fill: var(--white);
+}
+
 /* Guidline section end */
 
 
@@ -355,9 +470,11 @@ a {
 
 
 /* Media Quaries  */
-@media screen and (max-width: 1024px) {.category-cards {
+@media screen and (max-width: 1024px) {
+  .category-cards {
     grid-template-columns: repeat(2, 1fr);
-  }}
+  }
+}
 
 @media screen and (max-width: 768px) {
   .hero-section {
@@ -381,9 +498,14 @@ a {
   .hero-card .card-icon {
     padding: 6px 10px;
   }
-    
+
 }
 
-@media screen and (max-width: 767px) {.category-cards {
+@media screen and (max-width: 767px) {
+  .category-cards {
     grid-template-columns: repeat(1, 1fr);
-  }}
+  }
+    .guidline-card {
+      margin-bottom: 40px;
+    }
+}

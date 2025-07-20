@@ -68,7 +68,7 @@
   {{-- Guidline Section start here  --}}
   <section class="guidline-section">
     <div class="container">
-      
+      @include('templates.basic.sections.guideline_section')
     </div>
   </section>
   {{-- Guidline Section end here  --}}
