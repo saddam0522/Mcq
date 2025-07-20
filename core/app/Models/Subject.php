@@ -13,6 +13,16 @@ class Subject extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class);
+    }
+
+    public function topics()
+    {
+        return $this->hasManyThrough(Topic::class, Chapter::class);
+    }
+    
     public function exams()
     {
         return $this->hasMany(Exam::class, 'subject_id');
