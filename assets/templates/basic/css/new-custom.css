@@ -41,8 +41,10 @@ p,span,small,a {
 /* Header end */
 /* Hero section start */
 .hero-section {
-  padding: 190px 0 90px 0;
+  padding: 70px 0 35px 0;
   background-color: var(--light-bg);
+  margin: 70px 10px 0px;
+  border-radius: 20px;
 }
 .hero-content .hero-title {
   font-size: 55px;
@@ -102,15 +104,148 @@ p,span,small,a {
 
 /* Hero section end */
 
+/* Job section start */
+.job-section {
+  padding: 0px 0 50px 0;
+  background-color: var(--white);
+  overflow: hidden;
+}
+.job-title-area {
+}
+.job-title-middle {
+  background-color: var(--light-bg);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.job-section-title h2 {
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 45px;
+}
+.job-section-btn {
+  display: inline-flex;
+  padding: 12px 24px;
+  border-radius: 3px;
+  border: 1px solid var(--light-bg);
+  cursor: pointer;
+}
+.job-section-btn a {
+  color: var(--blue);
+  font-size: 16px;
+  font-family: var(--noto);
+  font-weight: 600;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+.job-section-btn i {
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.job-cards {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  
+}
+.job-card {
+  border-radius: 10px;
+  border: 1px solid var(--light-bg);
+  background: var(--white);
+  padding: 15px 15px 20px;
+  min-width: 360px;
+}
+.job-card .card-top {
+  padding: 15px;
+  border-radius: 10px;
+background: var(--light-bg);
+}
+.job-card .date {
+  padding: 8px 15px;
+  background-color: var(--white);
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 50px;
+}
+.job-card .bookmark svg {
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+}
+.job-card .job-title {
+  color: var(--dark);
+  font-size: 18px;
+  font-weight: 700;
+}
+.job-card .company {
+  color: var(--text-color);
+  font-size: 15px;
+  font-weight: 400;
+}
+.job-card .company-logo img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+.job-info span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+.job-card .job-require-btns .rq-btn {
+  display: flex;
+  padding: 6px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  border: 1px solid var(--dark);
+  color: var(--dark);
+}
+.card-top>p {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--dark);
+}
+.card-bottom p {
+color: var(--dark);
+font-size: 16px;
+font-weight: 700;
+}
+.card-bottom span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+.dark-btn a {
+  color: var(--white);
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 10px;
+  background: var(--dark);
+}
+/* Job section end */
+
 
 
 
 
 
 /* Media Quaries  */
+@media screen and (max-width: 1024px) {
+
+}
 @media screen and (max-width: 768px) {
     .hero-section {
-      padding: 120px 0 90px 0;
+      padding: 70px 0 35px 0;
   }
   .hero-content .hero-title {
       font-size: 30px;
