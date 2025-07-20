@@ -72,4 +72,11 @@
     </div>
   </section>
   {{-- Guidline Section end here  --}}
+  {{-- Features Section start here  --}}
+  <section class="features-section">
+    <div class="container">
+      @include('templates.basic.sections.features_section')
+    </div>
+  </section>
+  {{-- Features Section end here  --}}
 @endsection

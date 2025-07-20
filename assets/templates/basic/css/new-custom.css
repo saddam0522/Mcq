@@ -463,6 +463,41 @@ a {
 }
 
 /* Guidline section end */
+/* Features section start */
+.features-section {
+  margin: 0 10px;
+  background-color: var(--light-bg);
+  padding-bottom: 120px;
+  border-radius: 20px;
+}
+.features-section .section-title {
+  padding: 20px 70px;
+  background-color: var(--light-bg);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  margin-top: -75px;
+  display: inline-block;
+}
+.feature-card {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+}
+.feature-card h4 {
+  color: var(--dark);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: capitalize;
+}
+.feature-card p {
+  color: var(--text-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: capitalize;
+}
+/* Features section end */
 
 
 
