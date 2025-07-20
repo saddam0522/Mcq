@@ -1993,8 +1993,8 @@ textarea.form--control {
 
 .header-bottom-area {
   position: relative;
-  background-color: #040a2c;
-  padding: 5px 0;
+  background-color: var(--white);
+  padding: 10px 0 0 0;
 }
 
 .header-bottom-area .navbar-expand-lg {
@@ -2028,7 +2028,7 @@ textarea.form--control {
   }
 
   .header-bottom-area .navbar-collapse .main-menu li a {
-    color: var(--white) !important;
+    color: var(--text-color) !important;
   }
 
   .header-bottom-area .navbar-collapse .main-menu li .sub-menu li a {
@@ -2095,8 +2095,7 @@ textarea.form--control {
 
 .header-bottom-area .navbar-collapse .main-menu li a {
   position: relative;
-  padding: 20px 0 20px 0;
-  color: var(--white);
+  color: var(--text-color);
   font-weight: 600;
   align-items: center;
   display: inline-block;
@@ -2283,7 +2282,7 @@ textarea.form--control {
 
 .header-action a {
   font-size: 12px;
-  padding: 3px 20px;
+  padding: 6px 25px;
   display: flex;
   margin: 5px;
 }

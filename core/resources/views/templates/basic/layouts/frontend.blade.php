@@ -36,13 +36,13 @@
 <body>
     @stack('fbComment')
 
-    <div class="preloader">
+    {{-- <div class="preloader">
         <div class="loader book">
             <figure class="page"></figure>
             <figure class="page"></figure>
             <figure class="page"></figure>
         </div>
-    </div>
+    </div> --}}
 
     @include($activeTemplate . 'partials.header')
 

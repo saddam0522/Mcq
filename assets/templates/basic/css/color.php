@@ -157,7 +157,7 @@ background:<?php echo $color; ?> !important;
 background-color:<?php echo $color . '4d'; ?>
 }
 
-.language .dropdown-menu, .section--bg,.footer-section,.blog-content .blog-date,.contact-info-icon i, .header-bottom-area, .feature-item, .statistics-section, .footer-bottom-area, .bg-overlay-white:before, .account-form-area, .page-container .sidebar-menu{
+.language .dropdown-menu, .section--bg,.footer-section,.blog-content .blog-date,.contact-info-icon i, .feature-item, .statistics-section, .footer-bottom-area, .bg-overlay-white:before, .account-form-area, .page-container .sidebar-menu{
 background-color:<?php echo $color2; ?> !important
 
 }

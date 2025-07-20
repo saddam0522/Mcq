@@ -14,6 +14,31 @@ h1,h2,h3,h4,h5,h6 {
 p,span,small,a {
   font-family: "Noto Sans Bengali", sans-serif;
 }
+
+/* Header start */
+.header-section .navbar .logo-area {
+  width: 20%;
+}
+.header-section .navbar .collapse.navbar-collapse {
+  width: 80%;
+}
+.header-section .navbar .header-nav-menus {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-bg);
+    padding: 20px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.header-section .navbar .header-nav-btns {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+/* Header end */
 /* Hero section start */
 .hero-section {
   padding: 190px 0 90px 0;
@@ -103,11 +128,5 @@ p,span,small,a {
   }
 }
 @media screen and (max-width: 767px) {
-  .hero-section {
-      padding: 120px 0 90px 0;
-  }
-  .hero-content .hero-title {
-      font-size: 32px;
-      line-height: 48px;
-  }
+
 }
