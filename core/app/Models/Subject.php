@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class, 'category_subject');
+    }
+
+    public function getFirstCategoryName()
+    {
+        return $this->categories()->first()?->name ?? 'Uncategorized';
     }
 
     public function chapters()
@@ -22,7 +27,7 @@ class Subject extends Model
     {
         return $this->hasManyThrough(Topic::class, Chapter::class);
     }
-    
+
     public function exams()
     {
         return $this->hasMany(Exam::class, 'subject_id');
