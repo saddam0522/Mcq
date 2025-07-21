@@ -22,12 +22,12 @@ class SubjectController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:subjects',
-            'category_id' => 'required|numeric',
+            // 'category_id' => 'required|numeric',
             'short_details' => 'required'
         ]);
 
         $subject = new Subject();
-        $subject->category_id = $request->category_id;
+        // $subject->category_id = $request->category_id;
         $subject->name = $request->name;
         $subject->slug = Str::slug($request->name);
         $subject->short_details = $request->short_details;
@@ -41,12 +41,12 @@ class SubjectController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:subjects,name,' . $id,
-            'category_id' => 'required|numeric',
+            // 'category_id' => 'required|numeric',
             'short_details' => 'required'
         ]);
 
         $subject = Subject::findOrFail($id);
-        $subject->category_id = $request->category_id;
+        // $subject->category_id = $request->category_id;
         $subject->name = $request->name;
         $subject->short_details = $request->short_details;
         $subject->status = $request->status ? 1 : 0;

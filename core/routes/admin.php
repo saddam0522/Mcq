@@ -330,8 +330,16 @@ Route::middleware('admin')->group(function ()
             Route::post('subject/store', 'SubjectController@store')->name('subject.store');
             Route::post('subject/update/{id}', 'SubjectController@update')->name('subject.update');
         });
+
     });
 
+    //chapter routes
+    Route::controller('ChapterController')->prefix('chapter')->name('chapter.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('store', 'store')->name('store');
+        Route::post('update/{id}', 'update')->name('update');
+    });
+    
     //exam category manage
     Route::get('exam/categories', 'CategoryController@allCategories')->name('exam.categories');
     Route::post('exam/categories/store', 'CategoryController@store')->name('exam.categories.store');

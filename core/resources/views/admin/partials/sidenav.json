@@ -40,6 +40,13 @@
         "route_name": "admin.exam.subjects",
         "menu_active": "admin.exam.subjects"
     },
+    "subject_chapter": {
+        "keyword": ["subject chapter", "chapter", "subject", "chapter management"],
+        "title": "Subject Chapter",
+        "icon": "las la-layer-group",
+        "route_name": "admin.chapter.index",
+        "menu_active": "admin.chapter.index"
+    },
     "exam_manage": {
         "keyword": ["manage exam", "exam", "manage"],
         "title": "Manage Exam",
