@@ -295,7 +295,15 @@ a {
   background-color: var(--light-bg);
   border-radius: 20px;
 }
-
+.mcq-section .section-top .s-middle {
+  background-color: var(--white);
+}
+.mcq-section .s-middle::before {
+  box-shadow: 6px -12px var(--white);
+}
+.mcq-section .s-middle::after {
+  box-shadow: -3px -8px var(--white);
+}
 .mcq-section .job-section-btn {
   border: 1px solid var(--white);
 }

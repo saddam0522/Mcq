@@ -54,23 +54,6 @@
           </div>
         </div>
       </div>
-      {{-- <div class="row job-title-area px-3">
-        <div class="col-md-3 p-0">
-          <div class="job-section-title pt-3">
-            <h2 class="m-0">চাকরির বিজ্ঞপ্তি</h2>
-          </div>
-        </div>
-        <div class="col-md-6 job-title-middle p-0">
-        </div>
-        <div class="col-md-3 p-0">
-          <div class="d-flex justify-content-end pt-2">
-            <div class="job-section-btn align-items-center justify-content-center gap-3">
-              <a href="#">View All</a>
-              <i class="fa-solid fa-arrow-right"></i>
-            </div>
-          </div>
-        </div>
-      </div> --}}
     </div>
     @include('templates.basic.sections.job_section')
   </section>

@@ -1,4 +1,31 @@
-<div class="row mb-2">
+<div class="section-top">
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="s-middle">
+      <ul class="nav nav-pills" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+          type="button" role="tab" aria-controls="pills-home" aria-selected="true">সাবজেক্ট</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+          type="button" role="tab" aria-controls="pills-profile" aria-selected="false">প্রশ্ন ব্যাংক</button>
+      </li>
+    </ul>
+    </div>
+  </div>
+  <div class="section-both-side d-flex align-items-center justify-content-between gap-3">
+    <div class="s-left">
+      <h2 class="s-title text-start">এমসিকিউ টেস্ট</h2>
+    </div>
+    <div class="s-right">
+      <div class="job-section-btn align-items-center justify-content-center gap-3">
+        <a href="#">View All</a>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </div>
+  </div>
+</div>
+{{-- <div class="row mb-2">
   <div class="col-md-4">
     <div class="job-section-title pt-3">
       <h2 class="m-0">চাকরির বিজ্ঞপ্তি</h2>
@@ -24,7 +51,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 <div class="row pt-5">
   <div class="tab-content" id="pills-tabContent">
@@ -105,7 +132,8 @@
         </a>
       </div>
     </div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+      tabindex="0">
       <div class="category-cards">
         <a href="#" class="category-card">
           <div class="d-flex align-items-center gap-3 justify-content-between">
