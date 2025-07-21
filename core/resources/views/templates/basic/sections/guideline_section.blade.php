@@ -3,7 +3,7 @@
     <h2 class="section-title text-center">অনঙ্গোয়িং গাইডলাইন্স</h2>
   </div>
   <div class="col-md-9 mx-auto  pt-5">
-    <div class="row align-items-end pt-3">
+    <div class="row align-items-end pt-3 gy-4">
       <div class="col-lg-4">
         <div class="guidline-card">
           <h2 class="price">$50<span> /month</span></h2>
