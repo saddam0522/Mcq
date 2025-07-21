@@ -2434,9 +2434,11 @@ textarea.form--control {
 /*--------------------------------------------------------------
 # Footer-block
 --------------------------------------------------------------*/
-.footer-section {
-  background-color: #040a2c;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
+.footer-top-area {
+  background-color: var(--blue);
+  border-radius: 20px;
+  margin: 0 10px;
+  padding: 40px 0;
 }
 
 .footer-widget p {
@@ -2474,11 +2476,10 @@ textarea.form--control {
 }
 
 .footer-bottom-area {
-  background-color: #040a2c;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
-  margin-top: 60px;
+  background-color: var(--dark);
   padding: 15px 0;
-  position: relative;
+  margin: 0 10px 10px;
+  border-radius: 20px;
 }
 
 .footer-bottom-area p {

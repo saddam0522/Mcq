@@ -699,7 +699,16 @@ a {
 }
 /* FAQS Section end  */
 
-
+/* Footer section start  */
+.copyright p {
+  color: var(--white);
+  font-weight: 400;
+}
+.copyright p a {
+ color: var(--orange);
+ font-weight: 700;
+}
+/* Footer section end  */
 
 /* Media Quaries  */
 @media screen and (max-width: 1024px) {
