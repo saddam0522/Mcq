@@ -1433,7 +1433,7 @@ input[type="number"] {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: none;
   height: 38px;
-  padding: 0 10px;
+  padding: 10px;
   border-radius: 5px;
   font-size: 16px;
   width: 100%;
@@ -1574,7 +1574,6 @@ textarea.form--control {
 
 .submit-btn {
   padding: 6px 30px;
-  width: 100%;
   color: var(--white);
   background-color: var(--blue);
   font-family: "Josefin Sans", sans-serif;

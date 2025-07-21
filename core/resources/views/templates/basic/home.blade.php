@@ -99,4 +99,11 @@
       @include('templates.basic.sections.blog_section')
   </section>
   {{-- Blog Section end here  --}}
+  {{-- FAQS Section start here  --}}
+  <section class="faqs-section">
+    <div class="container">
+      @include('templates.basic.sections.faq_section')
+    </div>
+  </section>
+  {{-- FAQS Section end here  --}}
 @endsection
