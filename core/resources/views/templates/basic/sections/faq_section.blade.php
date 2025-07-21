@@ -19,7 +19,7 @@
   </div>
   <div class="section-both-side">
     <div class="s-left">
-      <h2 class="s-title text-start">FAQ</h2>
+      <h2 class="s-title text-center text-md-start">FAQ</h2>
     </div>
   </div>
 </div>

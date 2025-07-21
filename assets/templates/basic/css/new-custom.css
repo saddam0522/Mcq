@@ -945,6 +945,51 @@ a {
   }
 
   .guidline-card {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
+
+  .job-section .s-middle {
+    display: none;
+  }
+
+  .job-section .section-top .section-both-side {
+    margin-top: 0px;
+    padding-top: 20px;
+  }
+
+  .mcq-section .section-top .s-middle {
+    margin-top: 100px;
+  }
+
+  .job-cards {
+    padding-top: 30px;
+  }
+
+  .mcq-section .section-top .section-both-side {
+    margin-top: -150px;
+    padding-bottom: 70px;
+  }
+
+  .mcq-section .s-middle::after,
+  .mcq-section .s-middle::before {
+    display: none;
+  }
+
+  .mcq-section .s-middle {
+    border-radius: 20px;
+  }
+
+  .faqs-section .section-both-side {
+    margin-top: -120px;
+    padding-bottom: 55px;
+  }
+
+  .faqs-section .section-top .s-middle {
+    margin-top: 70px;
+    border-radius: 20px;
+  }
+    .faqs-section .s-middle::after,
+        .faqs-section .s-middle::before {
+          display: none;
+        }
 }
