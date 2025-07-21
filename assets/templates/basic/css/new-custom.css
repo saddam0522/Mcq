@@ -136,8 +136,6 @@ a {
   overflow: hidden;
 }
 
-.job-title-area {}
-
 .job-title-middle {
   background-color: var(--light-bg);
   border-bottom-left-radius: 20px;
@@ -511,6 +509,45 @@ a {
     color: var(--white);
 }
 /* Features section end */
+/* Advisor section start */
+.advisor-section {
+  padding: 0 0px 120px 0;
+    background-color: var(--white);
+}
+
+.advisor-section .section-title {
+  padding: 20px 70px;
+  background-color: var(--white);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  margin-top: -75px;
+  display: inline-block;
+}
+
+.advisor-list {
+  padding-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 20px;overflow: hidden;
+}
+.advisor-list .advisor-item {
+  border-radius: 10px;
+    border: 1px solid var(--light-bg);
+    background: var(--white);
+    padding: 15px 15px 20px;
+    min-width: 360px;
+}
+.advisor-item h5 {
+  color: var(--dark);
+    font-size: 17px;
+    font-weight: 700;
+}
+.advisor-item span {
+  font-size: 16px;
+  color: var(--text-color);
+}
+/* Advisor section end */
 
 
 

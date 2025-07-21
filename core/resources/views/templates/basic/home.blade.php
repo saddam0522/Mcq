@@ -79,4 +79,14 @@
     </div>
   </section>
   {{-- Features Section end here  --}}
+  {{-- Advisor Section start here  --}}
+  <section class="advisor-section">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-center">
+        <h2 class="section-title text-center">এয়াডভাইসার প্যানেল</h2>
+      </div>
+    </div>
+      @include('templates.basic.sections.advisor_section')
+  </section>
+  {{-- Advisor Section end here  --}}
 @endsection
