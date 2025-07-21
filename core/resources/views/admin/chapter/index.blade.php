@@ -15,6 +15,9 @@
                             </select>
                         </div>
                         <div class="col-md-8 text-end">
+                            <button type="button" id="clearFilter" class="btn btn-outline--danger {{ request()->has('subject_id') ? ' ' : ' d-none' }}">
+                                <i class="las la-times"></i> @lang('Clear Filter')
+                            </button>
                             <button type="button" class="btn btn-outline--primary" data-bs-toggle="modal" data-bs-target="#chapterModal">
                                 <i class="las la-plus"></i> @lang('Add New Chapter')
                             </button>
@@ -153,6 +156,12 @@
 
                 $('#chapterModalLabel').text('@lang("Edit Chapter")');
                 $('#chapterModal').modal('show');
+            });
+
+            $('#clearFilter').on('click', function() {
+                $('#subjectFilter').val('').change();
+                let url = '{{ route('admin.chapter.index') }}';
+                window.location.href = url;
             });
         });
     </script>

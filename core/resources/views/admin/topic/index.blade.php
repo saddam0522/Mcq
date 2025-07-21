@@ -10,19 +10,26 @@
                             <select id="subjectFilter" class="form-control select2">
                                 <option value="">@lang('All Subjects')</option>
                                 @foreach ($subjects as $subject)
-                                    <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                    <option value="{{ $subject->id }}" {{ request('subject_id') == $subject->id ? 'selected' : '' }}>
+                                        {{ $subject->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <select id="chapterFilter" class="form-control select2" disabled>
+                            <select id="chapterFilter" class="form-control select2" {{ request('chapter_id') ? '' : 'disabled' }}>
                                 <option value="">@lang('All Chapters')</option>
                                 @foreach ($chapters as $chapter)
-                                    <option value="{{ $chapter->id }}">{{ $chapter->name }}</option>
+                                    <option value="{{ $chapter->id }}" {{ request('chapter_id') == $chapter->id ? 'selected' : '' }}>
+                                        {{ $chapter->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="col-md-4 text-end">
+                            <button type="button" id="clearFilter" class="btn btn-outline--danger {{ (request()->has('subject_id') || request()->has('chapter_id')) ? ' ' : ' d-none' }}">
+                                <i class="las la-times"></i> @lang('Clear Filter')
+                            </button>
                             <button type="button" class="btn btn-outline--primary" data-bs-toggle="modal" data-bs-target="#topicModal">
                                 <i class="las la-plus"></i> @lang('Add New Topic')
                             </button>
@@ -126,6 +133,13 @@
     <script>
         $(function() {
             'use strict';
+
+            $('#clearFilter').on('click', function() {
+                $('#subjectFilter').val('').change();
+                $('#chapterFilter').val('').prop('disabled', true).html('<option value="">@lang("All Chapters")</option>');
+                let url = '{{ route('admin.topic.index') }}';
+                window.location.href = url;
+            });
 
             $('#subjectFilter').on('change', function() {
                 let subjectId = $(this).val();
