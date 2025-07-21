@@ -86,7 +86,17 @@
         <h2 class="section-title text-center">এয়াডভাইসার প্যানেল</h2>
       </div>
     </div>
-      @include('templates.basic.sections.advisor_section')
+    @include('templates.basic.sections.advisor_section')
   </section>
   {{-- Advisor Section end here  --}}
+  {{-- Blog Section start here  --}}
+  <section class="blog-section">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-center">
+        <h2 class="section-title text-center">ব্লগ</h2>
+      </div>
+    </div>
+      @include('templates.basic.sections.blog_section')
+  </section>
+  {{-- Blog Section end here  --}}
 @endsection
