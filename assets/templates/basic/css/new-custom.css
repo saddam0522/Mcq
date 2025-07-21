@@ -475,7 +475,7 @@ a {
 .g-btn:hover {
   color: var(--blue);
 }
-
+.guidline-card.active,
 .guidline-card:hover {
   border-radius: 10px;
   background: var(--blue);
@@ -486,20 +486,24 @@ a {
   background-size: cover;
   box-shadow: 0px 42px 34px 0px rgba(58, 101, 199, 0.20);
 }
-
+.guidline-card.active .g-btn,
 .guidline-card:hover .g-btn {
   background-color: var(--orange);
   color: var(--white);
 }
-
+.guidline-card.active .g-info span,
 .guidline-card:hover .g-info span,
+.guidline-card.active .price,
 .guidline-card:hover .price,
 .guidline-card:hover .price span,
+.guidline-card.active .price span,
 .guidline-card:hover .g-title,
+.guidline-card.active .g-title,
+.guidline-card.active p,
 .guidline-card:hover p {
   color: var(--white);
 }
-
+.guidline-card.active svg path,
 .guidline-card:hover svg path {
   fill: var(--white);
 }
