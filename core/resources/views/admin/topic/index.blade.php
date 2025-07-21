@@ -7,14 +7,22 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col-md-4">
-                            <select id="chapterFilter" class="form-control select2">
+                            <select id="subjectFilter" class="form-control select2">
+                                <option value="">@lang('All Subjects')</option>
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select id="chapterFilter" class="form-control select2" disabled>
                                 <option value="">@lang('All Chapters')</option>
                                 @foreach ($chapters as $chapter)
                                     <option value="{{ $chapter->id }}">{{ $chapter->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md-8 text-end">
+                        <div class="col-md-4 text-end">
                             <button type="button" class="btn btn-outline--primary" data-bs-toggle="modal" data-bs-target="#topicModal">
                                 <i class="las la-plus"></i> @lang('Add New Topic')
                             </button>
@@ -114,19 +122,35 @@
             </form>
         </div>
     </div>
-@endsection
-
-@push('script')
+@push('scripts')
     <script>
         $(function() {
             'use strict';
 
+            $('#subjectFilter').on('change', function() {
+                let subjectId = $(this).val();
+                $('#chapterFilter').prop('disabled', true).html('<option value="">@lang("All Chapters")</option>');
+                if (subjectId) {
+                    $.get('{{ route('admin.topic.chapterbySubject') }}', { subject_id: subjectId }, function(data) {
+                        if (data.success) {
+                            let options = '<option value="">@lang("All Chapters")</option>';
+                            data.chapters.forEach(chapter => {
+                                options += `<option value="${chapter.id}">${chapter.name}</option>`;
+                            });
+                            $('#chapterFilter').html(options).prop('disabled', false);
+                        }
+                    });
+                }
+            });
+
             $('#chapterFilter').on('change', function() {
                 let chapterId = $(this).val();
+                let subjectId = $('#subjectFilter').val();
                 let url = '{{ route('admin.topic.index') }}';
-                if (chapterId) {
-                    url += '?chapter_id=' + chapterId;
-                }
+                let params = [];
+                if (subjectId) params.push('subject_id=' + subjectId);
+                if (chapterId) params.push('chapter_id=' + chapterId);
+                if (params.length) url += '?' + params.join('&');
                 window.location.href = url;
             });
 
@@ -152,3 +176,5 @@
         });
     </script>
 @endpush
+@endsection
+

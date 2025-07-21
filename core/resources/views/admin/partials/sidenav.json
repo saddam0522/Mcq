@@ -42,14 +42,14 @@
     },
     "subject_chapter": {
         "keyword": ["subject chapter", "chapter", "subject", "chapter management"],
-        "title": "Subject Chapter",
+        "title": "Manage Chapter",
         "icon": "las la-layer-group",
         "route_name": "admin.chapter.index",
         "menu_active": "admin.chapter.index"
     },
     "topic_management": {
         "keyword": ["topic management", "topics", "manage topics"],
-        "title": "Topic Management",
+        "title": "Manage Topic",
         "icon": "las la-book",
         "route_name": "admin.topic.index",
         "menu_active": "admin.topic.index"

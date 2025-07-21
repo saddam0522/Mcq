@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Chapter;
 use App\Models\Topic;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class TopicController extends Controller
@@ -12,7 +13,14 @@ class TopicController extends Controller
     public function index(Request $request)
     {
         $pageTitle = 'All Topics';
-        $chapters = Chapter::all();
+        $subjects = Subject::all();
+        $chapters = Chapter::query();
+
+        if ($request->subject_id) {
+            $chapters->where('subject_id', $request->subject_id);
+        }
+
+        $chapters = $chapters->get();
         $topics = Topic::with('chapter');
 
         if ($request->chapter_id) {
@@ -20,7 +28,7 @@ class TopicController extends Controller
         }
 
         $topics = $topics->latest()->paginate(getPaginate());
-        return view('admin.topic.index', compact('pageTitle', 'chapters', 'topics'));
+        return view('admin.topic.index', compact('pageTitle', 'subjects', 'chapters', 'topics'));
     }
 
     public function store(Request $request)
@@ -66,5 +74,11 @@ class TopicController extends Controller
 
         $notify[] = ['success', 'Topic updated successfully'];
         return back()->withNotify($notify);
+    }
+
+    public function getChaptersBySubject(Request $request)
+    {
+        $chapters = Chapter::where('subject_id', $request->subject_id)->get();
+        return response()->json(['success' => true, 'chapters' => $chapters]);
     }
 }
