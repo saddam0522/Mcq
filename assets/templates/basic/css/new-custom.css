@@ -216,7 +216,7 @@ a {
   align-items: center;
   flex-wrap: nowrap;
   gap: 20px;
-
+  animation: SlideRightToLeft  35s linear 0s infinite;
 }
 
 .job-card {
@@ -670,7 +670,7 @@ a {
   align-items: center;
   flex-wrap: nowrap;
   gap: 20px;
-  overflow: hidden;
+  animation: SlideRightToLeft 35s linear 0s infinite;
 }
 
 .advisor-list .advisor-item {
@@ -740,7 +740,7 @@ a {
   align-items: center;
   flex-wrap: nowrap;
   gap: 20px;
-  overflow: hidden;
+  animation: SlideRightToLeft 35s linear 0s infinite;
 }
 
 .blog-items .blog-card {
@@ -879,6 +879,16 @@ a {
 }
 
 /* FAQS Section end  */
+/* Animation name   */
+@keyframes SlideRightToLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* Animation name   */
 
 /* Footer section start  */
 .copyright p {
