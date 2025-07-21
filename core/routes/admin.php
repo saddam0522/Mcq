@@ -339,6 +339,8 @@ Route::middleware('admin')->group(function ()
         Route::post('store', 'store')->name('store');
         Route::post('update/{id}', 'update')->name('update');
     });
+
+    // Topic routes
     
     //exam category manage
     Route::get('exam/categories', 'CategoryController@allCategories')->name('exam.categories');
@@ -394,5 +396,12 @@ Route::middleware('admin')->group(function ()
         Route::get('details/user/{userid}/{examid}', 'writtenDetailsUser')->name('details.user');
         Route::post('give/mark/{id}', 'giveMark')->name('give.mark');
         Route::post('give/correcr-ans/{id}', 'giveCorrectAns')->name('give.correctans');
+    });
+
+    // Topic routes
+    Route::controller('TopicController')->prefix('topic')->name('topic.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('store', 'store')->name('store');
+        Route::post('update/{id}', 'update')->name('update');
     });
 });
