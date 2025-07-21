@@ -31,7 +31,7 @@ class ChapterController extends Controller
             'slug' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'banner' => 'nullable|string',
-            'status' => 'nullable|boolean',
+            'status' => 'nullable',
         ]);
 
         Chapter::create([
@@ -55,7 +55,7 @@ class ChapterController extends Controller
             'slug' => 'nullable|string|max:255',
             'description' => 'nullable|string',
             'banner' => 'nullable|string',
-            'status' => 'nullable|boolean',
+            'status' => 'nullable',
         ]);
 
         $chapter = Chapter::findOrFail($id);

@@ -71,7 +71,7 @@
     <!-- Add/Edit Modal -->
     <div class="modal fade" id="chapterModal" tabindex="-1" role="dialog" aria-labelledby="chapterModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <form method="POST" ac>
+            <form method="POST" action="{{ route('admin.chapter.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">
