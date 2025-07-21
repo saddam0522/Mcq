@@ -330,8 +330,18 @@ Route::middleware('admin')->group(function ()
             Route::post('subject/store', 'SubjectController@store')->name('subject.store');
             Route::post('subject/update/{id}', 'SubjectController@update')->name('subject.update');
         });
+
     });
 
+    //chapter routes
+    Route::controller('ChapterController')->prefix('chapter')->name('chapter.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('store', 'store')->name('store');
+        Route::post('update/{id}', 'update')->name('update');
+    });
+
+    // Topic routes
+    
     //exam category manage
     Route::get('exam/categories', 'CategoryController@allCategories')->name('exam.categories');
     Route::post('exam/categories/store', 'CategoryController@store')->name('exam.categories.store');
@@ -386,5 +396,13 @@ Route::middleware('admin')->group(function ()
         Route::get('details/user/{userid}/{examid}', 'writtenDetailsUser')->name('details.user');
         Route::post('give/mark/{id}', 'giveMark')->name('give.mark');
         Route::post('give/correcr-ans/{id}', 'giveCorrectAns')->name('give.correctans');
+    });
+
+    // Topic routes
+    Route::controller('TopicController')->prefix('topic')->name('topic.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('store', 'store')->name('store');
+        Route::post('update/{id}', 'update')->name('update');
+        Route::get('chapter/by-subject', 'getChaptersBySubject')->name('chapterbySubject');
     });
 });

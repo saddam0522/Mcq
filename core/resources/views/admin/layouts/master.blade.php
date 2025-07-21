@@ -35,7 +35,7 @@
 
 @include('partials.notify')
 @stack('script-lib')
-
+@stack('scripts')
 <script src="{{ asset('assets/global/js/nicEdit.js') }}"></script>
 
 <script src="{{asset('assets/global/js/select2.min.js')}}"></script>

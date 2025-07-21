@@ -40,6 +40,20 @@
         "route_name": "admin.exam.subjects",
         "menu_active": "admin.exam.subjects"
     },
+    "subject_chapter": {
+        "keyword": ["subject chapter", "chapter", "subject", "chapter management"],
+        "title": "Manage Chapter",
+        "icon": "las la-layer-group",
+        "route_name": "admin.chapter.index",
+        "menu_active": "admin.chapter.index"
+    },
+    "topic_management": {
+        "keyword": ["topic management", "topics", "manage topics"],
+        "title": "Manage Topic",
+        "icon": "las la-book",
+        "route_name": "admin.topic.index",
+        "menu_active": "admin.topic.index"
+    },
     "exam_manage": {
         "keyword": ["manage exam", "exam", "manage"],
         "title": "Manage Exam",

@@ -23,7 +23,7 @@
                                     <tr>
                                         <td>{{ __($subject->name) }}</td>
 
-                                        <td>{{ __($subject->category->name) }}</td>
+                                        <td>{{ __($subject->category->name??"-") }}</td>
                                         <td>
                                             @if ($subject->is_popular == 1)
                                                 <span
@@ -67,8 +67,6 @@
                 @endif
             </div><!-- card end -->
         </div>
-
-
         <!-- Add Modal -->
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -83,16 +81,6 @@
                             </button>
                         </div>
                         <div class="modal-body">
-
-                            <div class="form-group">
-                                <label for="my-select-add">@lang('Category')</label>
-                                <select id="my-select--add" class="form-control select2"
-                                    data-minimum-results-for-search="-1" name="category_id" required>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
 
                             <div class="form-group">
                                 <label>@lang('Subject Name')</label>
@@ -143,16 +131,6 @@
                             </button>
                         </div>
                         <div class="modal-body">
-
-                            <div class="form-group">
-                                <label for="my-select">@lang('Category')</label>
-                                <select id="my-select" class="form-control select2" data-minimum-results-for-search="-1"
-                                    name="category_id">
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
 
                             <div class="form-group">
                                 <label>@lang('Subject Name')</label>
