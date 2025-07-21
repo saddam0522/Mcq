@@ -742,6 +742,7 @@ a {
   padding: 15px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  height: 75px;
   position: relative;
 }
 .s-middle::before {
