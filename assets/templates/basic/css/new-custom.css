@@ -773,8 +773,6 @@ a {
 /* Blog section end */
 
 /* Section To start  */
-.section-top {}
-
 .s-title {
   font-size: 30px;
   font-weight: 800;
@@ -903,6 +901,142 @@ a {
 
 /* Footer section end  */
 
+/* Auth Page style start  */
+.auth-section {
+  min-height: 100vh;
+  background-image: url('../../../../assets/images/img/auth-bg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.auth-slides {
+  overflow: hidden;
+}
+.auth-slide {
+  position: relative;
+}
+.auth-slides .swiper-pagination {
+  margin-top: 0px;
+  position: absolute !important;
+  bottom: 50px;
+}
+.auth-logo {
+  width: 170px;
+  height: auto;
+}
+.auth-tabs .nav {
+  background-color: #ECF0FF;
+  padding: 10px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.auth-tabs .nav-item .nav-link {
+  padding: 10px;
+  color: var(--text-color);
+  font-family: var(--balooda);
+  font-size: 16px;
+  font-weight:600;
+}
+.auth-tabs .nav-link.active {
+  color: var(--white);
+  background-color: var(--blue);
+}
+.auth-tab-content .form--label {
+  font-size: 15px;
+  color: var(--dark);
+  font-family: var(--noto);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+.auth-tab-content .form--control {
+  color: var(--text-color);
+border-radius: 8px;
+  border: 1px solid rgba(70, 95, 241, 0.40);
+  background: var(--white) !important;
+  box-shadow: 0px 4px 8px 0px rgba(70, 95, 241, 0.10);
+  height: 40px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+.auth-tab-content .form--control:focus {
+  color: var(--text-color);
+}
+.auth-tab-content .form-label {
+  font-family: var(--noto);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 2px;
+}
+.auth-tab-content .form-label span {
+  color: #E45270;
+  font-size: 20px;
+}
+.auth-tab-content .forgot-pass a {
+  color: #5E6670;
+  font-family: var(--noto);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration-line: underline;
+}
+.auth-tab-content .forgot-pass a:hover {
+  color: var(--orange);
+}
+.auth-tab-content .submit-btn {
+  padding: 10px 20px;
+  color: var(--white);
+  background-color: var(--blue);
+  font-family: var(--balooda);
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.auth-tab-content .pass-require span {
+  font-size: 14px;
+  color: var(--dark);
+  font-weight: 400;
+}
+.auth-tab-content .social-auth a {
+  border-radius: 8px;
+    border: 1px solid rgba(70, 95, 241, 0.40);
+    background: var(--white);
+    padding: 10px 20px;
+}
+.auth-tab-content .or {
+  height: 1px;
+  width: 250px;
+  max-width: 100%;
+  background-color: rgba(156, 154, 165, 0.30);
+  position: relative;
+  margin: 25px auto;
+}
+.auth-tab-content .or span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  padding: 5px 5px 3px;
+  font-size: 16px;
+  line-height: 15px;
+  font-weight: 700;
+  background-color: var(--orange);
+  color: #000;
+  text-transform: uppercase;
+}
+.auth-bottom p {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+/* Auth Page style end  */
+
 /* Media Quaries  */
 @media screen and (max-width: 1024px) {
   .category-cards {
@@ -947,6 +1081,9 @@ a {
     font-size: 25px;
     line-height: 30px;
   }
+    .header-section .navbar .logo-area {
+      width: auto;
+    }
 }
 
 @media screen and (max-width: 767px) {
