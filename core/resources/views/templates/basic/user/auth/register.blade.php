@@ -52,23 +52,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="swiper-slide h-100">
-                  <img src="../assets/images/img/slide1.png" alt="Slide Image">
-                  <div class="overlay">
-                    <div class="overlay-top">
-                      <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
-                      <p class="text-center">Your Gateway to Effortless Management.</p>
-                    </div>
-                    <div class="overlay-bottom">
-                      <h2 class="mb-0 text-center">Seamless Collaboration </h2>
-                      <p class="text-center">Effortlessly work together with your team in real-time.</p>
-                    </div>
-                  </div>
-                </div>
               </div>
               <div class="swiper-pagination"></div>
             </div>
-
           </div>
         </div>
         <div class="col-lg-6 mb-4 mb-lg-0">
