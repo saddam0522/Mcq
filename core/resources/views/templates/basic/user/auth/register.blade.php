@@ -14,57 +14,57 @@
             <div class="swiper auth-slide h-100">
               <div class="swiper-wrapper h-100">
                 <div class="swiper-slide h-100">
-                 <img src="../assets/images/img/slide1.png" alt="Slide Image">
-                 <div class="overlay">
-                  <div class="overlay-top">
-                    <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
-                    <p class="text-center">Your Gateway to Effortless Management.</p>
+                  <img src="../assets/images/img/slide1.png" alt="Slide Image">
+                  <div class="overlay">
+                    <div class="overlay-top">
+                      <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
+                      <p class="text-center">Your Gateway to Effortless Management.</p>
+                    </div>
+                    <div class="overlay-bottom">
+                      <h2 class="mb-0 text-center">Seamless Collaboration </h2>
+                      <p class="text-center">Effortlessly work together with your team in real-time.</p>
+                    </div>
                   </div>
-                  <div class="overlay-bottom">
-                    <h2 class="mb-0 text-center">Seamless Collaboration </h2>
-                    <p class="text-center">Effortlessly work together with your team in real-time.</p>
-                  </div>
-                 </div>
-                </div>                
+                </div>
                 <div class="swiper-slide h-100">
-                 <img src="../assets/images/img/slide1.png" alt="Slide Image">
-                 <div class="overlay">
-                  <div class="overlay-top">
-                    <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
-                    <p class="text-center">Your Gateway to Effortless Management.</p>
+                  <img src="../assets/images/img/slide1.png" alt="Slide Image">
+                  <div class="overlay">
+                    <div class="overlay-top">
+                      <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
+                      <p class="text-center">Your Gateway to Effortless Management.</p>
+                    </div>
+                    <div class="overlay-bottom">
+                      <h2 class="mb-0 text-center">Seamless Collaboration </h2>
+                      <p class="text-center">Effortlessly work together with your team in real-time.</p>
+                    </div>
                   </div>
-                  <div class="overlay-bottom">
-                    <h2 class="mb-0 text-center">Seamless Collaboration </h2>
-                    <p class="text-center">Effortlessly work together with your team in real-time.</p>
-                  </div>
-                 </div>
-                </div>                
+                </div>
                 <div class="swiper-slide h-100">
-                 <img src="../assets/images/img/slide1.png" alt="Slide Image">
-                 <div class="overlay">
-                  <div class="overlay-top">
-                    <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
-                    <p class="text-center">Your Gateway to Effortless Management.</p>
+                  <img src="../assets/images/img/slide1.png" alt="Slide Image">
+                  <div class="overlay">
+                    <div class="overlay-top">
+                      <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
+                      <p class="text-center">Your Gateway to Effortless Management.</p>
+                    </div>
+                    <div class="overlay-bottom">
+                      <h2 class="mb-0 text-center">Seamless Collaboration </h2>
+                      <p class="text-center">Effortlessly work together with your team in real-time.</p>
+                    </div>
                   </div>
-                  <div class="overlay-bottom">
-                    <h2 class="mb-0 text-center">Seamless Collaboration </h2>
-                    <p class="text-center">Effortlessly work together with your team in real-time.</p>
-                  </div>
-                 </div>
-                </div>                
+                </div>
                 <div class="swiper-slide h-100">
-                 <img src="../assets/images/img/slide1.png" alt="Slide Image">
-                 <div class="overlay">
-                  <div class="overlay-top">
-                    <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
-                    <p class="text-center">Your Gateway to Effortless Management.</p>
+                  <img src="../assets/images/img/slide1.png" alt="Slide Image">
+                  <div class="overlay">
+                    <div class="overlay-top">
+                      <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
+                      <p class="text-center">Your Gateway to Effortless Management.</p>
+                    </div>
+                    <div class="overlay-bottom">
+                      <h2 class="mb-0 text-center">Seamless Collaboration </h2>
+                      <p class="text-center">Effortlessly work together with your team in real-time.</p>
+                    </div>
                   </div>
-                  <div class="overlay-bottom">
-                    <h2 class="mb-0 text-center">Seamless Collaboration </h2>
-                    <p class="text-center">Effortlessly work together with your team in real-time.</p>
-                  </div>
-                 </div>
-                </div>                
+                </div>
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -313,6 +313,10 @@
   @push('script')
     <script>
       var swiper = new Swiper(".auth-slide", {
+        autoplay: {
+          delay: 4000,
+        },
+        speed: 800,
         loop: true,
         slidesPerView: 1,
         pagination: {
