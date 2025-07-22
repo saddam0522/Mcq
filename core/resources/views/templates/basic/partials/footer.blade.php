@@ -4,7 +4,7 @@
   $policies = getContent('policy_pages.element', false, 4);
 @endphp
 
-<footer class="footer-section pt-80">
+<footer class="footer-section">
   <div class="footer-top-area">
     <div class="container">
       <div class="row justify-content-center">

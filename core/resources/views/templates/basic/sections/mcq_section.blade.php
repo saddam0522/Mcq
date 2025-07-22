@@ -2,22 +2,22 @@
   <div class="d-flex align-items-center justify-content-center">
     <div class="s-middle">
       <ul class="nav nav-pills" id="pills-tab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-          type="button" role="tab" aria-controls="pills-home" aria-selected="true">সাবজেক্ট</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-          type="button" role="tab" aria-controls="pills-profile" aria-selected="false">প্রশ্ন ব্যাংক</button>
-      </li>
-    </ul>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+            type="button" role="tab" aria-controls="pills-home" aria-selected="true">সাবজেক্ট</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+            type="button" role="tab" aria-controls="pills-profile" aria-selected="false">প্রশ্ন ব্যাংক</button>
+        </li>
+      </ul>
     </div>
   </div>
   <div class="section-both-side d-flex align-items-center justify-content-between gap-3">
-    <div class="s-left">
-      <h2 class="s-title text-start">এমসিকিউ টেস্ট</h2>
+    <div class="s-left w-full">
+      <h2 class="s-title text-center text-md-start">এমসিকিউ টেস্ট</h2>
     </div>
-    <div class="s-right">
+    <div class="s-right m-hide">
       <div class="job-section-btn align-items-center justify-content-center gap-3">
         <a href="#">View All</a>
         <i class="fa-solid fa-arrow-right"></i>
@@ -132,8 +132,7 @@
         </a>
       </div>
     </div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-      tabindex="0">
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
       <div class="category-cards">
         <a href="#" class="category-card">
           <div class="d-flex align-items-center gap-3 justify-content-between">
@@ -156,8 +155,8 @@
         <a href="#" class="category-card">
           <div class="d-flex align-items-center gap-3 justify-content-between">
             <div class="d-flex flex-column gap-2">
-              <h5 class="mb-0">সরকারি ব্যাংক অফিসার (সোনালী/জনতা ইত্যাদি) 
-</h5>
+              <h5 class="mb-0">সরকারি ব্যাংক অফিসার (সোনালী/জনতা ইত্যাদি)
+              </h5>
               <span>357 Open position</span>
             </div>
             <img src="assets/images/img/international.svg" alt="">
@@ -212,3 +211,12 @@
     </div>
   </div>
 </div>
+
+      <div class="m-visible  d-none">
+        <div class="d-flex justify-content-center pt-4">
+        <div class="job-section-btn align-items-center justify-content-center gap-3">
+        <a href="#">View All</a>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+      </div>
+      </div>

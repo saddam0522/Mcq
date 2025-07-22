@@ -35,7 +35,7 @@
   </section>
   {{-- Hero Section end here  --}}
   {{-- Job Section start here  --}}
-  <section class="job-section">
+  <section class="job-section m-lf-10">
     <div class="container">
       <div class="section-top">
         <div class="d-flex align-items-center justify-content-center">
@@ -43,10 +43,10 @@
           </div>
         </div>
         <div class="section-both-side d-flex align-items-center justify-content-between gap-3">
-          <div class="s-left">
-            <h2 class="s-title text-start">চাকরির বিজ্ঞপ্তি</h2>
+          <div class="s-left w-full">
+            <h2 class="s-title text-center text-md-start">চাকরির বিজ্ঞপ্তি</h2>
           </div>
-          <div class="s-right">
+          <div class="s-right m-hide">
             <div class="job-section-btn align-items-center justify-content-center gap-3">
               <a href="#">View All</a>
               <i class="fa-solid fa-arrow-right"></i>
@@ -56,6 +56,16 @@
       </div>
     </div>
     @include('templates.basic.sections.job_section')
+    <div class="container">
+      <div class="m-visible  d-none">
+        <div class="d-flex justify-content-center pt-4">
+        <div class="job-section-btn align-items-center justify-content-center gap-3">
+        <a href="#">View All</a>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+      </div>
+      </div>
+    </div>
   </section>
   {{-- Job Section end here  --}}
   {{-- MCQ Section start here  --}}
@@ -66,7 +76,7 @@
   </section>
   {{-- MCQ Section end here  --}}
   {{-- Guidline Section start here  --}}
-  <section class="guidline-section">
+  <section class="guidline-section m-lf-10">
     <div class="container">
       @include('templates.basic.sections.guideline_section')
     </div>
@@ -80,7 +90,7 @@
   </section>
   {{-- Features Section end here  --}}
   {{-- Advisor Section start here  --}}
-  <section class="advisor-section">
+  <section class="advisor-section m-lf-10">
     <div class="container">
       <div class="d-flex align-items-center justify-content-center">
         <h2 class="section-title text-center">এয়াডভাইসার প্যানেল</h2>
@@ -90,7 +100,7 @@
   </section>
   {{-- Advisor Section end here  --}}
   {{-- Blog Section start here  --}}
-  <section class="blog-section">
+  <section class="blog-section m-lf-10">
     <div class="container">
       <div class="d-flex align-items-center justify-content-center">
         <h2 class="section-title text-center">ব্লগ</h2>
@@ -100,7 +110,7 @@
   </section>
   {{-- Blog Section end here  --}}
   {{-- FAQS Section start here  --}}
-  <section class="faqs-section">
+  <section class="faqs-section m-lf-10">
     <div class="container">
       @include('templates.basic.sections.faq_section')
     </div>

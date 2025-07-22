@@ -1,11 +1,11 @@
 @extends('templates.basic.layouts.auth')
 
 @php
-    $bg = getContent('login.content', true);
+  $bg = getContent('login.content', true);
 @endphp
 
 @section('content')
-<section class="auth-section d-flex align-items-center justify-content-center py-4 py-lg-0">
+  <section class="auth-section d-flex align-items-center justify-content-center py-4 py-lg-0">
     <div class="container">
       <div class="row flex-column-reverse flex-lg-row align-items-center g-5">
         <div class="col-lg-6">
@@ -79,9 +79,9 @@
                       <input type="email" class="form-control form--control checkUser" name="email" value=""
                         required="" placeholder="Email or Username" id="email">
                     </div>
-                   
-                    
-                     
+
+
+
                     <div class="col-12">
                       <button type="submit" id="recaptcha" class="submit-btn w-100">
                         Reset</button>
@@ -179,7 +179,7 @@
       </div>
     </div>
   </section>
-    {{-- <section class="account-section section--bg bg-overlay-white bg_img" data-background="{{ frontendImage('login', @$bg->data_values->background_image) }}">
+  {{-- <section class="account-section section--bg bg-overlay-white bg_img" data-background="{{ frontendImage('login', @$bg->data_values->background_image) }}">
         <div class="container">
             <div class="row account-area align-items-center justify-content-center">
                 <div class="col-lg-5">
@@ -219,19 +219,19 @@
         </div>
     </section> --}}
 @endsection
-  @push('script')
-    <script>
-      var swiper = new Swiper(".auth-slide", {
-        autoplay: {
-          delay: 4000,
-        },
-        speed: 800,
-        loop: true,
-        slidesPerView: 1,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
-    </script>
-  @endpush
+@push('script')
+  <script>
+    var swiper = new Swiper(".auth-slide", {
+      autoplay: {
+        delay: 4000,
+      },
+      speed: 800,
+      loop: true,
+      slidesPerView: 1,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+@endpush

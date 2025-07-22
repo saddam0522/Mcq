@@ -26,6 +26,14 @@ a {
   font-size: 16px;
 }
 
+.o-hidden {
+  overflow: hidden;
+}
+
+.m-lf-10 {
+  margin: 0 10px;
+}
+
 .section-title {
   padding: 20px;
   font-size: 30px;
@@ -934,19 +942,24 @@ a {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .auth-slides .overlay-top {
   padding-top: 75px;
 }
+
 .auth-slides .overlay-bottom {
   padding-bottom: 75px;
 }
-.auth-slides .overlay  :is(h2,p) {
+
+.auth-slides .overlay :is(h2, p) {
   color: var(--white);
 }
+
 .auth-slides .overlay h2 {
   font-size: 30px;
   font-weight: 700;
 }
+
 .auth-slides .overlay p {
   font-size: 16px;
   font-weight: 500;
@@ -1138,12 +1151,14 @@ a {
   .header-section .navbar .logo-area {
     width: auto;
   }
-    .swiper-slide .overlay {
-      padding: 30px;
-    }
-        .auth-slides .overlay h2 {
-          font-size: 25px;
-        }
+
+  .swiper-slide .overlay {
+    padding: 30px;
+  }
+
+  .auth-slides .overlay h2 {
+    font-size: 25px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1161,7 +1176,7 @@ a {
 
   .job-section .section-top .section-both-side {
     margin-top: 0px;
-    padding-top: 20px;
+    padding-top: 35px;
   }
 
   .mcq-section .section-top .s-middle {
@@ -1174,7 +1189,7 @@ a {
 
   .mcq-section .section-top .section-both-side {
     margin-top: -150px;
-    padding-bottom: 70px;
+    padding-bottom: 100px;
   }
 
   .mcq-section .s-middle::after,
@@ -1199,5 +1214,42 @@ a {
   .faqs-section .s-middle::after,
   .faqs-section .s-middle::before {
     display: none;
+  }
+  .m-visible {
+    display: block !important;
+  }
+  .m-hide {
+    display: none;
+  }
+  .w-full {
+    width: 100%;
+  }
+    .guidline-section {
+      padding: 0px;
+    }
+  .advisor-section {
+    padding: 0 0px 70px 0;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .features-section .section-title {
+    margin-top: 0;
+    padding-top: 35px;
+  }
+
+  .blog-section .section-title {
+    margin-top: 0;
+      padding-top: 35px;
+  }
+    .blog-items {
+      padding-top: 30px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+  .hero-content .hero-title {
+    font-size: 28px;
+    line-height: 45px;
   }
 }
