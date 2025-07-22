@@ -6,35 +6,72 @@
 @endphp
 
 @section('content')
-  <section class="auth-section d-flex align-items-center justify-content-center">
+  <section class="auth-section d-flex align-items-center justify-content-center py-4 py-lg-0">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
+      <div class="row flex-column-reverse flex-lg-row align-items-center g-5">
+        <div class="col-lg-6">
           <div class="auth-slides h-100">
             <div class="swiper auth-slide h-100">
               <div class="swiper-wrapper h-100">
                 <div class="swiper-slide h-100">
                  <img src="../assets/images/img/slide1.png" alt="Slide Image">
-                </div>
+                 <div class="overlay">
+                  <div class="overlay-top">
+                    <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
+                    <p class="text-center">Your Gateway to Effortless Management.</p>
+                  </div>
+                  <div class="overlay-bottom">
+                    <h2 class="mb-0 text-center">Seamless Collaboration </h2>
+                    <p class="text-center">Effortlessly work together with your team in real-time.</p>
+                  </div>
+                 </div>
+                </div>                
                 <div class="swiper-slide h-100">
-                 <img src="../assets/images/img/slide1.png" alt="">
-                </div>
+                 <img src="../assets/images/img/slide1.png" alt="Slide Image">
+                 <div class="overlay">
+                  <div class="overlay-top">
+                    <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
+                    <p class="text-center">Your Gateway to Effortless Management.</p>
+                  </div>
+                  <div class="overlay-bottom">
+                    <h2 class="mb-0 text-center">Seamless Collaboration </h2>
+                    <p class="text-center">Effortlessly work together with your team in real-time.</p>
+                  </div>
+                 </div>
+                </div>                
                 <div class="swiper-slide h-100">
-                 <img src="../assets/images/img/slide1.png" alt="">
-                </div>
+                 <img src="../assets/images/img/slide1.png" alt="Slide Image">
+                 <div class="overlay">
+                  <div class="overlay-top">
+                    <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
+                    <p class="text-center">Your Gateway to Effortless Management.</p>
+                  </div>
+                  <div class="overlay-bottom">
+                    <h2 class="mb-0 text-center">Seamless Collaboration </h2>
+                    <p class="text-center">Effortlessly work together with your team in real-time.</p>
+                  </div>
+                 </div>
+                </div>                
                 <div class="swiper-slide h-100">
-                 <img src="../assets/images/img/slide1.png" alt="">
-                </div>
-                <div class="swiper-slide h-100">
-                 <img src="../assets/images/img/slide1.png" alt="">
-                </div>
+                 <img src="../assets/images/img/slide1.png" alt="Slide Image">
+                 <div class="overlay">
+                  <div class="overlay-top">
+                    <h2 class="mb-0 text-center">Welcome to SimpleFlow</h2>
+                    <p class="text-center">Your Gateway to Effortless Management.</p>
+                  </div>
+                  <div class="overlay-bottom">
+                    <h2 class="mb-0 text-center">Seamless Collaboration </h2>
+                    <p class="text-center">Effortlessly work together with your team in real-time.</p>
+                  </div>
+                 </div>
+                </div>                
               </div>
               <div class="swiper-pagination"></div>
             </div>
 
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6 mb-4 mb-lg-0">
           <div class="auth-tabs d-flex flex-column gap-3">
             <img class="auth-logo" src="{{ siteLogo() }}" alt="Logo">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
