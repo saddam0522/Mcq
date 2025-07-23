@@ -775,8 +775,7 @@ a {
   transform: translateY(-30px);
   background-color: transparent;
   background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: 0px 42px 34px 0px rgba(58, 101, 199, 0.20);
+  background-size: cover;box-shadow: rgba(58, 101, 199, 0.10) 0 42px 60px 0px, rgba(58, 101, 199, 0.10) 0px 7px 29px 0px;
 }
 
 .guidline-card.active {
@@ -787,7 +786,8 @@ a {
   background-image: url('../../../../assets/images/img/premium.png') !important;
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: 0px 42px 34px 0px rgba(58, 101, 199, 0.20);
+}
+.guidline-card.active:hover {box-shadow: rgba(58, 101, 199, 0.10) 0 42px 60px 0px, rgba(58, 101, 199, 0.10) 0px 7px 29px 0px;
 }
 
 .guidline-card:hover .g-btn {
