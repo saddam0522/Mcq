@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/style.css') }}">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/new-custom.css') }}">
 
     @stack('style-lib')
     @stack('style')
@@ -45,13 +46,13 @@
 
 <body>
 
-    <div class="preloader">
+    {{-- <div class="preloader">
         <div class="loader book">
             <figure class="page"></figure>
             <figure class="page"></figure>
             <figure class="page"></figure>
         </div>
-    </div>
+    </div> --}}
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     End Preloader
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
