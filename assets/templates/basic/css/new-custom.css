@@ -514,39 +514,54 @@ a {
   color: var(--blue);
 }
 
-.guidline-card.active,
+
 .guidline-card:hover {
   border-radius: 10px;
   background: var(--blue);
   box-shadow: 0px 42px 34px 0px #f1f1f1;
   transform: translateY(-30px);
-  background-image: url('../../../../assets/images/img/premium.png');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 42px 34px 0px rgba(58, 101, 199, 0.20);
+}
+.guidline-card.active {
+  border-radius: 10px;
+  background: var(--blue);
+  box-shadow: 0px 42px 34px 0px #f1f1f1;
+  transform: translateY(-30px);
+  background-image: url('../../../../assets/images/img/premium.png') !important;
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 0px 42px 34px 0px rgba(58, 101, 199, 0.20);
 }
 
-.guidline-card.active .g-btn,
 .guidline-card:hover .g-btn {
   background-color: var(--orange);
   color: var(--white);
 }
 
-.guidline-card.active .g-info span,
-.guidline-card:hover .g-info span,
-.guidline-card.active .price,
-.guidline-card:hover .price,
-.guidline-card:hover .price span,
-.guidline-card.active .price span,
-.guidline-card:hover .g-title,
-.guidline-card.active .g-title,
-.guidline-card.active p,
-.guidline-card:hover p {
+.guidline-card.active .g-btn {
+  background-color: transparent;
+  border: 1px solid var(--white);
   color: var(--white);
 }
 
-.guidline-card.active svg path,
-.guidline-card:hover svg path {
+.guidline-card.active:hover .g-btn {
+  background-color: var(--orange);
+  color: var(--white);
+  border: 1px solid var(--orange);
+}
+
+.guidline-card.active .g-info span,
+.guidline-card.active .price,
+.guidline-card.active .price span,
+.guidline-card.active .g-title,
+.guidline-card.active p {
+  color: var(--white);
+}
+
+.guidline-card.active svg path {
   fill: var(--white);
 }
 
@@ -883,7 +898,12 @@ a {
 .faqs-section .submit-btn {
   font-family: var(--noto) !important;
 }
-
+.faqs-section .contact-form-area {
+  box-shadow: 0px 6px 30px 5px rgb(58 101 199 / 10%);
+}
+.faqs-section .contact-form-area :is(input,textarea) {
+border: 1px solid var(--light-bg);
+}
 /* FAQS Section end  */
 /* Animation name   */
 @keyframes SlideRightToLeft {
@@ -1215,18 +1235,23 @@ a {
   .faqs-section .s-middle::before {
     display: none;
   }
+
   .m-visible {
     display: block !important;
   }
+
   .m-hide {
     display: none;
   }
+
   .w-full {
     width: 100%;
   }
-    .guidline-section {
-      padding: 0px;
-    }
+
+  .guidline-section {
+    padding: 0px;
+  }
+
   .advisor-section {
     padding: 0 0px 70px 0;
   }
@@ -1240,11 +1265,12 @@ a {
 
   .blog-section .section-title {
     margin-top: 0;
-      padding-top: 35px;
+    padding-top: 35px;
   }
-    .blog-items {
-      padding-top: 30px;
-    }
+
+  .blog-items {
+    padding-top: 30px;
+  }
 }
 
 @media screen and (max-width: 375px) {
