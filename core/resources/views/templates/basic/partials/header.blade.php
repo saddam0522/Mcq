@@ -28,12 +28,82 @@
                     </clipPath>
                   </defs>
                 </svg></a>
-              <ul class="sub-menu">
-                <li><a href="#">বাংলা ভাষা ও সাহিত্য</a></li>
-                <li><a href="#">English Language and Literature</a></li>
-                <li><a href="#">বাংলা ভাষা ও সাহিত্য</a></li>
-                <li><a href="#">ভুগল( বাংলাদেশ ও বিশব ), পরিবেশ ও দুর্যোগ ব্যবসহাপনা</a></li>
-              </ul>
+              <div class="mega-menu">
+                <div class="mega-menu-items">
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">বাংলা ভাষা ও সাহিত্য</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/bangla.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">বাংলাদেশ বিষয়াবলি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/bangladesh.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">আন্তর্জাতিক বিষয়াবলি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/international.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">সাধারন গ্যান</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/common.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">নইতিকতা , মুল্যবোধ, অ সু-শাসন</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/noitikota.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">কম্পিউটার ও তথ্য প্রযুক্তি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/computer.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">গাণিতিক যুক্তি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/math.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">মানসিক দক্ষতা</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/skill.svg" alt="">
+                    </div>
+                  </a>
+                </div>
+              </div>
             </li>
             <li class="nav-item"><a class="nav-link" href="#">MCQ এক্সাম
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
@@ -49,8 +119,174 @@
                   </defs>
                 </svg>
               </a>
+              <div class="mega-menu">
+                <div class="mega-menu-items">
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">বাংলা ভাষা ও সাহিত্য</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/bangla.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">বাংলাদেশ বিষয়াবলি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/bangladesh.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">আন্তর্জাতিক বিষয়াবলি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/international.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">সাধারন গ্যান</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/common.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">নইতিকতা , মুল্যবোধ, অ সু-শাসন</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/noitikota.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">কম্পিউটার ও তথ্য প্রযুক্তি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/computer.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">গাণিতিক যুক্তি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/math.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">মানসিক দক্ষতা</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/skill.svg" alt="">
+                    </div>
+                  </a>
+                </div>
+              </div>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">সাবজেক্ট</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">সাবজেক্ট
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                  fill="none">
+                  <g clip-path="url(#clip0_184_31)">
+                    <path d="M6 9L12 15L18 9" stroke="#9A9A9A" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_184_31">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+              <div class="mega-menu">
+                <div class="mega-menu-items">
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">বাংলা ভাষা ও সাহিত্য</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/bangla.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">বাংলাদেশ বিষয়াবলি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/bangladesh.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">আন্তর্জাতিক বিষয়াবলি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/international.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">সাধারন গ্যান</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/common.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">নইতিকতা , মুল্যবোধ, অ সু-শাসন</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/noitikota.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">কম্পিউটার ও তথ্য প্রযুক্তি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/computer.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">গাণিতিক যুক্তি</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/math.svg" alt="">
+                    </div>
+                  </a>
+                  <a href="#" class="mega-menu-card">
+                    <div class="d-flex align-items-center gap-3 justify-content-between">
+                      <div class="d-flex flex-column gap-2">
+                        <h5 class="mb-0">মানসিক দক্ষতা</h5>
+                        <span>357 Open position</span>
+                      </div>
+                      <img src="assets/images/img/skill.svg" alt="">
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </li>
             <li class="nav-item"><a class="nav-link" href="#">আমাদের সম্পর্কে</a></li>
             <li class="nav-item"><a class="nav-link" href="#">ব্লগ</a></li>
             <li class="nav-item"><a class="nav-link" href="#">যোগাযোগ </a></li>
@@ -70,10 +306,107 @@
             <a href="{{ route('user.logout') }}" class="btn--base active"><span>@lang('Logout')</span></a>
           @endauth
         </div>
+        <div class="toggle">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </div>
+    <div class="header-mobile-menus">
+      <div class="h-100 mobile-wrapper">
+        <div class="close"><i class="fa-solid fa-xmark"></i></div>
+        <nav class="pt-4">
+          <ul class="header-nav">
+            <li class="nav-item"><a class="nav-link" href="#">হোম</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">চাকরির বিজ্ঞপ্তি
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                  fill="none">
+                  <g clip-path="url(#clip0_184_31)">
+                    <path d="M6 9L12 15L18 9" stroke="#9A9A9A" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_184_31">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg></a>
+              <ul class="sub-menu-items">
+                <li><a href="#">বাংলা ভাষা ও সাহিত্য</a></li>
+                <li><a href="#">বাংলাদেশ বিষয়াবলি</a></li>
+                <li><a href="#">আন্তর্জাতিক বিষয়াবলি</a></li>
+                <li><a href="#">সাধারন গ্যান</a></li>
+                <li><a href="#">নইতিকতা , মুল্যবোধ, অ সু-শাসন</a></li>
+                <li><a href="#">কম্পিউটার ও তথ্য প্রযুক্তি</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">MCQ এক্সাম
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                  fill="none">
+                  <g clip-path="url(#clip0_184_31)">
+                    <path d="M6 9L12 15L18 9" stroke="#9A9A9A" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_184_31">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+              <ul class="sub-menu-items">
+                <li><a href="#">বাংলা ভাষা ও সাহিত্য</a></li>
+                <li><a href="#">বাংলাদেশ বিষয়াবলি</a></li>
+                <li><a href="#">আন্তর্জাতিক বিষয়াবলি</a></li>
+                <li><a href="#">সাধারন গ্যান</a></li>
+                <li><a href="#">নইতিকতা , মুল্যবোধ, অ সু-শাসন</a></li>
+                <li><a href="#">কম্পিউটার ও তথ্য প্রযুক্তি</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">সাবজেক্ট
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                  fill="none">
+                  <g clip-path="url(#clip0_184_31)">
+                    <path d="M6 9L12 15L18 9" stroke="#9A9A9A" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_184_31">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+              <ul class="sub-menu-items">
+                <li><a href="#">বাংলা ভাষা ও সাহিত্য</a></li>
+                <li><a href="#">বাংলাদেশ বিষয়াবলি</a></li>
+                <li><a href="#">আন্তর্জাতিক বিষয়াবলি</a></li>
+                <li><a href="#">সাধারন গ্যান</a></li>
+                <li><a href="#">নইতিকতা , মুল্যবোধ, অ সু-শাসন</a></li>
+                <li><a href="#">কম্পিউটার ও তথ্য প্রযুক্তি</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">আমাদের সম্পর্কে</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">ব্লগ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">যোগাযোগ </a></li>
+          </ul>
+        </nav>
+        <div class="header-action pt-4">
+          @guest
+            @if (gs('registration'))
+              <a href="{{ route('user.register') }}" class="btn--base"><span>@lang('Register')</span></a>
+            @endif
+            <a href="{{ route('user.login') }}" class="btn--base active"><span>@lang('Login')</span></a>
+          @endguest
+          @auth
+            <a href="{{ route('user.home') }}" class="btn--base"><span>@lang('Dashboard')</span></a>
+            <a href="{{ route('user.logout') }}" class="btn--base active"><span>@lang('Logout')</span></a>
+          @endauth
+        </div>
       </div>
     </div>
   </div>
 </header>
+
 
 {{-- <header class="header-section">
   <div class="header">
@@ -165,6 +498,36 @@
 
     $(".langSel").on("click", function() {
       window.location.href = "{{ route('home') }}/change/" + $(this).data('code');
+    });
+
+    // mobile dropdown 
+    const navLinks = document.querySelectorAll('.header-mobile-menus .nav-item');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // If this one is already active, remove it and exit
+        if (this.classList.contains('active')) {
+          this.classList.remove('active');
+          return;
+        }
+
+        // Otherwise, remove 'active' from all and add to this one
+        navLinks.forEach(item => item.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Toggle menu 
+    const toggle = document.querySelector('.toggle');
+    const closeMenu = document.querySelector('.close');
+    const mobileMenuContainer = document.querySelector('.header-mobile-menus');
+    toggle.addEventListener('click', () => {
+      mobileMenuContainer.classList.toggle('show');
+    });
+    closeMenu.addEventListener('click', () => {
+      mobileMenuContainer.classList.remove('show');
     });
   </script>
 @endpush
