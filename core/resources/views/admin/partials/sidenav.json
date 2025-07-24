@@ -98,6 +98,19 @@
             }
         ]
     },
+    "question_list": {
+        "keyword": [
+            "question list",
+            "mcq list",
+            "questions",
+            "multiple choice questions",
+            "question management"
+        ],
+        "title": "Question List",
+        "icon": "las la-list-ul",
+        "route_name": "admin.question.mcq.list",
+        "menu_active": "admin.question.mcq.list"
+    },
     "exam_manage": {
         "keyword": ["manage exam", "exam", "manage"],
         "title": "Manage Exam",

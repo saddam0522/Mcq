@@ -17,6 +17,7 @@ return new class extends Migration
             $table->json('options');
             $table->string('correct_answer');
             $table->text('explanation')->nullable();
+            $table->tinyInteger('status')->default(1)->comment('0=>inactive, 1=>active');
             $table->timestamps();
         });
     }

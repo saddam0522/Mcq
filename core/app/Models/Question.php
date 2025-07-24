@@ -57,7 +57,7 @@ class Question extends Model
         if (!empty($data['question_bank_ids'])) {
             $question->questionBanks()->attach($data['question_bank_ids'], ['created_by' => $adminId]);
         }
-
+        session()->push('questions', $data);
         return $question;
     }
 

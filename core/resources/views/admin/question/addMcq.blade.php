@@ -1,96 +1,192 @@
 @extends('admin.layouts.app')
 
 @section('panel')
-    <div class="container-fluid">
-        <form action="{{ route('admin.exam.question.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="card b-radius--10 p-4">
+    <div class="row">
+        <!-- Left Column: Question Form -->
+        <div class="col-md-8">
+            <form action="{{ route('admin.question.store') }}" method="POST" id="questionForm">
+                @csrf
+                <div id="questionContainer">
+                    <div class="card question-card mb-3">
                         <div class="card-body">
-                            <input type="hidden" name="examid" value="{{ $exam->id }}">
                             <div class="form-group">
-                                <label class="font-weight-bold">@lang('Question')</label>
-                                <textarea class="form-control nicEdit" name="question" rows="6" placeholder="@lang('Question')">{{ old('question') }}</textarea>
+                                <label>@lang('Question Type')</label>
+                                <select class="form-control question-type" name="questions[0][type]" required>
+                                    <option value="both">@lang('Both')</option>
+                                    <option value="question_bank">@lang('Question Bank')</option>
+                                    <option value="subjective">@lang('Subjective')</option>
+                                </select>
+                            </div>
+                            <div class="form-group question-bank-group">
+                                <label>@lang('Question Bank')</label>
+                                <select class="form-control" name="questions[0][question_bank_ids][]" multiple>
+                                    @foreach ($questionBanks as $questionBank)
+                                        <option value="{{ $questionBank->id }}">{{ $questionBank->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group subject-group">
+                                <label>@lang('Subject')</label>
+                                <select class="form-control subject-select" name="questions[0][subject_id]">
+                                    <option value="" disabled selected>@lang('Select Subject')</option>
+                                    @foreach ($subjects as $subject)
+                                        <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group chapter-group">
+                                <label>@lang('Chapter')</label>
+                                <select class="form-control chapter-select" name="questions[0][chapter_id]">
+                                    <option value="" disabled selected>@lang('Select Chapter')</option>
+                                </select>
+                            </div>
+                            <div class="form-group topic-group">
+                                <label>@lang('Topic')</label>
+                                <select class="form-control" name="questions[0][topic_ids][]" multiple>
+                                    <option value="" disabled>@lang('Select Topic')</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label class="font-weight-bold">@lang('Mark')</label>
-                                <input class="form-control" type="text" name="mark" placeholder="@lang('Mark')"
-                                    value="{{ old('mark') }}" required>
+                                <label>@lang('Question Text')</label>
+                                <textarea class="form-control" name="questions[0][question_text]" rows="3" required></textarea>
                             </div>
-
-                            <label class="font-weight-bold" for="exampleInputnumber1">@lang('Options')</label>
                             <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-text bg-transparent" id="my-addon">
-                                        <div
-                                            class="custom-control custom-radio form-check-primary d-flex align-items-center">
-                                            <input type="radio" id="customRadio21" name="correct"
-                                                class="custom-control-input" value="1" required>
-                                            <label class="custom-control-label text-secondary m-0 ps-2"
-                                                for="customRadio21">@lang('Correct')</label>
-                                        </div>
-                                    </span>
-
-                                    <input type="text" class="form-control me-1" name="option[1]"
-                                        placeholder="@lang('Option')" required>
+                                <label>@lang('Options')</label>
+                                <div class="options-container">
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control" name="questions[0][options][]" placeholder="@lang('Option')" required>
+                                        <button type="button" class="btn btn-danger remove-option">@lang('Remove')</button>
+                                    </div>
                                 </div>
-
+                                <button type="button" class="btn btn-primary add-option">@lang('Add Option')</button>
                             </div>
-                            <div class="append"></div>
-                            <div class="form-group text-right">
-                                <button type="button" class="btn btn-sm btn-outline--primary mt-2" id="add"> <i
-                                        class="las la-plus"></i> @lang('Add More')</button>
+                            <div class="form-group">
+                                <label>@lang('Correct Answer')</label>
+                                <select class="form-control" name="questions[0][correct_answer]" required>
+                                    <option value="" disabled selected>@lang('Select Correct Answer')</option>
+                                </select>
                             </div>
-                            <button type="submit" class="btn btn--primary w-100 h-45 mt-3">@lang('Submit')</button>
+                            <div class="form-group">
+                                <label>@lang('Explanation')</label>
+                                <textarea class="form-control nicEdit" name="questions[0][explanation]"></textarea>
+                            </div>
                         </div>
-
+                        <div class="card-footer text-end">
+                            <button type="button" class="btn btn-danger remove-question">@lang('Remove Question')</button>
+                        </div>
                     </div>
+                </div>
+                <button type="button" class="btn btn-success add-question">@lang('Add Question')</button>
+                <button type="submit" class="btn btn-primary">@lang('Submit')</button>
+            </form>
+        </div>
 
+        <!-- Right Column: Search Similar Questions -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>@lang('Similar Questions')</h5>
+                </div>
+                <div class="card-body">
+                    <input type="text" class="form-control" id="searchQuestion" placeholder="@lang('Search Question')">
+                    <ul class="list-group mt-3" id="similarQuestionsList">
+                        <!-- Similar questions will be dynamically populated here -->
+                    </ul>
                 </div>
             </div>
-
-
-        </form>
+        </div>
     </div>
-    <!-- card end -->
 @endsection
 
-
-@push('breadcrumb-plugins')
-    <x-back route="{{ route('admin.exam.questions', $exam->id) }}" />
-@endpush
-
 @push('script')
-    <script>
-        'use strict'
-        var i = 22;
-        var j = 2;
-        $(document).on('click', '#add', function() {
+<script>
+    (function($) {
+        'use strict';
 
-            var element = `
-            <div class="form-group d-flex justify-content-between">
-                <div class="input-group">
-                    <span class="input-group-text bg-transparent" id="my-addon">
-                        <div class="custom-control custom-radio form-check-primary d-flex align-items-center">
-                            <input type="radio" id="customRadio${i}" name="correct" class="custom-control-input" value="${j}" required>
-                            <label class="custom-control-label text-secondary m-0 px-2" for="customRadio${i}">@lang('Correct')</label>
-                          </div>
-                    </span>
+        let questionIndex = 1;
 
-                        <input type="text" class="form-control me-1" name="option[${j}]" placeholder="@lang('Option')"  required>
+        // Add new question block
+        $('.add-question').on('click', function() {
+            let newQuestion = $('.question-card:first').clone();
+            newQuestion.find('textarea, input').val('');
+            newQuestion.find('select').val('').trigger('change');
+            newQuestion.find('.options-container').html(`
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" name="questions[${questionIndex}][options][]" placeholder="@lang('Option')" required>
+                    <button type="button" class="btn btn-danger remove-option">@lang('Remove')</button>
                 </div>
-                <button type="button" class="icon-btn btn--danger  text-center text-nowrap remove"><i class="las la-minus-circle text--white"></i></button>
-            </div>`;
+            `);
+            newQuestion.find('.remove-question').show();
+            newQuestion.find('.nicEdit').removeClass('nicEdit').addClass('nicEdit-clone');
+            newQuestion.appendTo('#questionContainer');
+            questionIndex++;
+        });
 
-            $('.append').append(element);
-            i++
-            j++
-        })
+        // Remove question block
+        $(document).on('click', '.remove-question', function() {
+            $(this).closest('.question-card').remove();
+        });
 
+        // Add new option
+        $(document).on('click', '.add-option', function() {
+            let optionsContainer = $(this).siblings('.options-container');
+            let optionIndex = optionsContainer.find('.input-group').length;
+            optionsContainer.append(`
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" name="questions[${optionIndex}][options][]" placeholder="@lang('Option')" required>
+                    <button type="button" class="btn btn-danger remove-option">@lang('Remove')</button>
+                </div>
+            `);
+        });
 
-        $(document).on('click', '.remove', function() {
-            $(this).parent('.form-group').remove()
-        })
-    </script>
+        // Remove option
+        $(document).on('click', '.remove-option', function() {
+            $(this).closest('.input-group').remove();
+        });
+
+        // Handle dependent dropdowns
+        $(document).on('change', '.subject-select', function() {
+            let subjectId = $(this).val();
+            let chapterSelect = $(this).closest('.question-card').find('.chapter-select');
+            let topicSelect = $(this).closest('.question-card').find('.topic-group select');
+            chapterSelect.html('<option value="" disabled selected>@lang("Select Chapter")</option>');
+            topicSelect.html('<option value="" disabled>@lang("Select Topic")</option>');
+            if (subjectId) {
+                $.get('{{ route("admin.topic.chapterbySubject") }}', { subject_id: subjectId }, function(data) {
+                    data.forEach(chapter => {
+                        chapterSelect.append(`<option value="${chapter.id}">${chapter.name}</option>`);
+                    });
+                });
+            }
+        });
+
+        $(document).on('change', '.chapter-select', function() {
+            let chapterId = $(this).val();
+            let topicSelect = $(this).closest('.question-card').find('.topic-group select');
+            topicSelect.html('<option value="" disabled>@lang("Select Topic")</option>');
+            if (chapterId) {
+                $.get('{{ route("admin.topic.getTopicsByChapter") }}', { chapter_id: chapterId }, function(data) {
+                    data.forEach(topic => {
+                        topicSelect.append(`<option value="${topic.id}">${topic.name}</option>`);
+                    });
+                });
+            }
+        });
+
+        // Search similar questions
+        $('#searchQuestion').on('input', function() {
+            let query = $(this).val();
+            if (query.length > 2) {
+                $.get('{{ route("admin.question.search") }}', { query: query }, function(data) {
+                    let list = $('#similarQuestionsList');
+                    list.empty();
+                    data.forEach(question => {
+                        list.append(`<li class="list-group-item">${question.question_text}</li>`);
+                    });
+                });
+            }
+        });
+
+    })(jQuery);
+</script>
 @endpush

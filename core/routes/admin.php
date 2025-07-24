@@ -413,4 +413,10 @@ Route::middleware('admin')->group(function ()
         Route::post('update/{id}', 'update')->name('update');
         Route::delete('delete/{id}', 'delete')->name('delete');
     });
+    // mcq question manage routes
+    Route::controller('Question\QuestionController')->prefix('question')->name('question.')->group(function () {
+        Route::get('mcq-list', 'mcqList')->name('mcq.list');
+        Route::post('store', 'store')->name('store');
+        Route::get('search', 'search')->name('search');
+    });
 });
