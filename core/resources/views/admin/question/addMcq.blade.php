@@ -62,7 +62,7 @@
                             </div>
                             <div class="form-group">
                                 <label>@lang('Correct Answer')</label>
-                                <select class="form-control" name="questions[0][correct_answer]" required>
+                                <select class="form-control correct-answer-select" name="questions[0][correct_answer]" required>
                                     <option value="" disabled selected>@lang('Select Correct Answer')</option>
                                 </select>
                             </div>
@@ -116,6 +116,7 @@
                     <button type="button" class="btn btn-danger remove-option">@lang('Remove')</button>
                 </div>
             `);
+            newQuestion.find('.correct-answer-select').html('<option value="" disabled selected>@lang("Select Correct Answer")</option>');
             newQuestion.find('.remove-question').show();
             newQuestion.find('.nicEdit').removeClass('nicEdit').addClass('nicEdit-clone');
             newQuestion.appendTo('#questionContainer');
@@ -130,18 +131,35 @@
         // Add new option
         $(document).on('click', '.add-option', function() {
             let optionsContainer = $(this).siblings('.options-container');
+            let correctAnswerSelect = $(this).closest('.question-card').find('.correct-answer-select');
             let optionIndex = optionsContainer.find('.input-group').length;
-            optionsContainer.append(`
+
+            let newOption = `
                 <div class="input-group mb-2">
                     <input type="text" class="form-control" name="questions[${optionIndex}][options][]" placeholder="@lang('Option')" required>
                     <button type="button" class="btn btn-danger remove-option">@lang('Remove')</button>
                 </div>
-            `);
+            `;
+            optionsContainer.append(newOption);
+
+            // Update the correct answer dropdown
+            correctAnswerSelect.append(`<option value="${optionIndex}">@lang('Option') ${optionIndex + 1}</option>`);
         });
 
         // Remove option
         $(document).on('click', '.remove-option', function() {
-            $(this).closest('.input-group').remove();
+            let optionGroup = $(this).closest('.input-group');
+            let optionsContainer = optionGroup.closest('.options-container');
+            let correctAnswerSelect = optionGroup.closest('.question-card').find('.correct-answer-select');
+
+            // Remove the option
+            optionGroup.remove();
+
+            // Rebuild the correct answer dropdown
+            correctAnswerSelect.html('<option value="" disabled selected>@lang("Select Correct Answer")</option>');
+            optionsContainer.find('.input-group').each(function(index) {
+                correctAnswerSelect.append(`<option value="${index}">@lang('Option') ${index + 1}</option>`);
+            });
         });
 
         // Handle question type visibility
