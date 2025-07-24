@@ -22,11 +22,18 @@ class QuestionController extends Controller
         });
 
         foreach ($questions as $data) {
+            // Ensure options are grouped and encoded as JSON
+            $data['options'] = array_values(array_filter($data['options'], function ($option) {
+                return !empty($option); // Remove empty options
+            }));
+
+            // Pass the complete options array to the model
             Question::storeWithRelations($data, $adminId);
         }
 
         Session::forget('questions');
-        return back()->with('success', 'Questions stored successfully.');
+        $notify[] = ['success', 'Questions stored successfully'];
+        return back()->withNotify($notify);
     }
 
     public function search(Request $request)
