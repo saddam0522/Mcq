@@ -404,6 +404,7 @@ Route::middleware('admin')->group(function ()
         Route::post('store', 'store')->name('store');
         Route::post('update/{id}', 'update')->name('update');
         Route::get('chapter/by-subject', 'getChaptersBySubject')->name('chapterbySubject');
+        Route::get('topics/by-chapter', 'getTopicsByChapter')->name('getTopicsByChapter'); // Added route
     });
     
     // Question bank routes
@@ -415,6 +416,7 @@ Route::middleware('admin')->group(function ()
     });
     // mcq question manage routes
     Route::controller('Question\QuestionController')->prefix('question')->name('question.')->group(function () {
+        Route::get('add-mcq', 'addMcq')->name('add.mcq');
         Route::get('mcq-list', 'mcqList')->name('mcq.list');
         Route::post('store', 'store')->name('store');
         Route::get('search', 'search')->name('search');

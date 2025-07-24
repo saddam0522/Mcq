@@ -81,4 +81,11 @@ class TopicController extends Controller
         $chapters = Chapter::where('subject_id', $request->subject_id)->get();
         return response()->json(['success' => true, 'chapters' => $chapters]);
     }
+
+    public function getTopicsByChapter(Request $request)
+    {
+        $chapterId = $request->input('chapter_id');
+        $topics = Topic::where('chapter_id', $chapterId)->get(['id', 'title']);
+        return response()->json($topics);
+    }
 }

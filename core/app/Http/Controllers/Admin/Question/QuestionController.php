@@ -37,4 +37,12 @@ class QuestionController extends Controller
         $questions = Question::with(['topics', 'chapters', 'questionBanks'])->paginate(10);
         return view('admin.question.mcqList', compact('pageTitle', 'questions'));
     }
+
+    public function addMcq()
+    {
+        $pageTitle = 'Add New MCQ Question';
+        $questionBanks = \App\Models\QuestionBank::all();
+        $subjects = \App\Models\Subject::all();
+        return view('admin.question.addMcq', compact('pageTitle', 'questionBanks', 'subjects'));
+    }
 }

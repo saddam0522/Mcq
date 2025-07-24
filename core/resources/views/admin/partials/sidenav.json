@@ -111,6 +111,20 @@
         "route_name": "admin.question.mcq.list",
         "menu_active": "admin.question.mcq.list"
     },
+    "add_question": {
+        "keyword": [
+            "add question",
+            "new question",
+            "create question",
+            "question add",
+            "add mcq",
+            "add multiple choice question"
+        ],
+        "title": "Add Question",
+        "icon": "las la-plus-circle",
+        "route_name": "admin.question.add.mcq",
+        "menu_active": "admin.question.add.mcq"
+    },
     "exam_manage": {
         "keyword": ["manage exam", "exam", "manage"],
         "title": "Manage Exam",
