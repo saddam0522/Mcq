@@ -36,7 +36,7 @@ class Question extends Model
         // Create the question
         $question = self::create([
             'question_text'   => $data['question_text'],
-            'options'         => $data['options'],
+            'options'         => json_encode($data['options']), // Encode options as JSON
             'correct_answer'  => $data['correct_answer'],
             'explanation'     => $data['explanation'] ?? null,
             'created_by'      => $adminId,
