@@ -25,12 +25,14 @@ class QuestionbankController extends Controller
             'name' => 'required|unique:question_banks',
             'category_id' => 'required|exists:categories,id',
             'year' => 'nullable|integer',
+            'status' => 'nullable',
         ]);
 
         QuestionBank::create([
             'name' => $request->name,
             'category_id' => $request->category_id,
             'year' => $request->year,
+            'status' => $request->status ? 1 : 0,
             'created_by' => Auth::guard('admin')->id(),
         ]);
 
@@ -44,6 +46,7 @@ class QuestionbankController extends Controller
             'name' => 'required|unique:question_banks,name,' . $id,
             'category_id' => 'required|exists:categories,id',
             'year' => 'nullable|integer',
+            'status' => 'nullable',
         ]);
 
         $questionBank = QuestionBank::findOrFail($id);
@@ -51,6 +54,7 @@ class QuestionbankController extends Controller
             'name' => $request->name,
             'category_id' => $request->category_id,
             'year' => $request->year,
+            'status' => $request->status ? 1 : 0,
             'updated_by' => Auth::id(),
         ]);
 

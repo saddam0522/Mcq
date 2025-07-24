@@ -12,6 +12,7 @@
                                     <th>@lang('Name')</th>
                                     <th>@lang('Category')</th>
                                     <th>@lang('Year')</th>
+                                    <th>@lang('Status')</th>
                                     <th>@lang('Created By')</th>
                                     <th>@lang('Updated By')</th>
                                     <th>@lang('Action')</th>
@@ -23,6 +24,15 @@
                                         <td>{{ $questionBank->name }}</td>
                                         <td>{{ $questionBank->category->name }}</td>
                                         <td>{{ $questionBank->year }}</td>
+                                        <td>
+                                            @if ($questionBank->status == 1)
+                                                <span class="text--small badge font-weight-normal badge--success">@lang('Active')
+                                                </span>
+                                            @else
+                                                <span class="text--small badge font-weight-normal badge--warning">@lang('Inactive')
+                                                </span>
+                                            @endif
+                                        </td>
                                         <td>{{ $questionBank->createdBy->name }}</td>
                                         <td>{{ optional($questionBank->updatedBy)->name }}</td>
                                         <td>
@@ -82,6 +92,12 @@
                                 <label>@lang('Year')</label>
                                 <input type="number" class="form-control" name="year" placeholder="@lang('Enter year')">
                             </div>
+                            <div class="form-group">
+                                <label class="form-control-label font-weight-bold">@lang('Status')</label>
+                                <input type="checkbox" data-width="100%" data-onstyle="-success" data-offstyle="-danger"
+                                    data-bs-toggle="toggle" data-on="@lang('Active')" data-off="@lang('Inactive')"
+                                    name="status" checked>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn--primary w-100 h-45">@lang('Submit')</button>
@@ -119,6 +135,12 @@
                                 <label>@lang('Year')</label>
                                 <input type="number" class="form-control" name="year" placeholder="@lang('Enter year')">
                             </div>
+                            <div class="form-group">
+                                <label class="form-control-label font-weight-bold">@lang('Status')</label>
+                                <input type="checkbox" data-width="100%" data-onstyle="-success" data-offstyle="-danger"
+                                    data-bs-toggle="toggle" data-on="@lang('Active')" data-off="@lang('Inactive')"
+                                    name="status">
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn--primary w-100 h-45">@lang('Submit')</button>
@@ -131,7 +153,7 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <x-search-form placeholder="Search by name" />
+    <x-search-form placeholder="Search by name or status" />
     <button type="button" class="btn btn-outline--primary" data-bs-toggle="modal" data-bs-target="#addModal">
         <i class="las la-plus"></i>@lang('Add New')
     </button>
@@ -148,6 +170,11 @@
                 $('#editModal').find('input[name=name]').val(questionBank.name);
                 $('#editModal').find('select[name=category_id]').val(questionBank.category_id);
                 $('#editModal').find('input[name=year]').val(questionBank.year);
+                if (questionBank.status == 1) {
+                    $('#editModal').find('input[name=status]').bootstrapToggle('on');
+                } else {
+                    $('#editModal').find('input[name=status]').bootstrapToggle('off');
+                }
                 $('#editModal').find('form').attr('action', route);
                 $('#editModal').modal('show');
             });
