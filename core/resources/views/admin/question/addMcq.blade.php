@@ -153,9 +153,11 @@
             topicSelect.html('<option value="" disabled>@lang("Select Topic")</option>');
             if (subjectId) {
                 $.get('{{ route("admin.topic.chapterbySubject") }}', { subject_id: subjectId }, function(data) {
-                    data.forEach(chapter => {
-                        chapterSelect.append(`<option value="${chapter.id}">${chapter.name}</option>`);
-                    });
+                    if (Array.isArray(data)) {
+                        data.forEach(chapter => {
+                            chapterSelect.append(`<option value="${chapter.id}">${chapter.name}</option>`);
+                        });
+                    }
                 });
             }
         });
@@ -166,9 +168,11 @@
             topicSelect.html('<option value="" disabled>@lang("Select Topic")</option>');
             if (chapterId) {
                 $.get('{{ route("admin.topic.getTopicsByChapter") }}', { chapter_id: chapterId }, function(data) {
-                    data.forEach(topic => {
-                        topicSelect.append(`<option value="${topic.id}">${topic.name}</option>`);
-                    });
+                    if (Array.isArray(data)) {
+                        data.forEach(topic => {
+                            topicSelect.append(`<option value="${topic.id}">${topic.name}</option>`);
+                        });
+                    }
                 });
             }
         });
@@ -180,9 +184,11 @@
                 $.get('{{ route("admin.question.search") }}', { query: query }, function(data) {
                     let list = $('#similarQuestionsList');
                     list.empty();
-                    data.forEach(question => {
-                        list.append(`<li class="list-group-item">${question.question_text}</li>`);
-                    });
+                    if (Array.isArray(data)) {
+                        data.forEach(question => {
+                            list.append(`<li class="list-group-item">${question.question_text}</li>`);
+                        });
+                    }
                 });
             }
         });
