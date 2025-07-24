@@ -28,10 +28,17 @@
     },
     "exam_category": {
         "keyword": ["exam category", "exam", "category"],
-        "title": "Exam Category",
+        "title": "QB Category",
         "icon": "las la-list",
         "route_name": "admin.exam.categories",
         "menu_active": "admin.exam.categories"
+    },
+    "question_bank": {
+        "keyword": ["question bank", "questions", "bank", "question management", "question library"],
+        "title": "Question Bank",
+        "icon": "las la-question-circle",
+        "route_name": "admin.questionbank.index",
+        "menu_active": "admin.questionbank.index"
     },
     "exam_subjects": {
         "keyword": ["exam subjects", "exam", "subjects"],

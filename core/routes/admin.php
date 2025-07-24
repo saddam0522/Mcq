@@ -405,4 +405,12 @@ Route::middleware('admin')->group(function ()
         Route::post('update/{id}', 'update')->name('update');
         Route::get('chapter/by-subject', 'getChaptersBySubject')->name('chapterbySubject');
     });
+    
+    // Question bank routes
+    Route::controller('Questionbank\QuestionbankController')->prefix('questionbank')->name('questionbank.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('store', 'store')->name('store');
+        Route::post('update/{id}', 'update')->name('update');
+        Route::delete('delete/{id}', 'delete')->name('delete');
+    });
 });
