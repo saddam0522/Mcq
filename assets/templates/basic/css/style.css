@@ -1573,10 +1573,9 @@ textarea.form--control {
 }
 
 .submit-btn {
-  padding: 6px 30px;
+  padding: 10px 30px;
   color: var(--white);
   background-color: var(--blue);
-  font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
   font-size: 16px;
   border-radius: 3px;
@@ -3166,9 +3165,9 @@ textarea.form--control {
   right: 20px;
   width: auto;
   border-radius: 100px;
+  font-family: var(--noto);
   padding: 8px 60px;
   font-size: 14px;
-  font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
 }
 

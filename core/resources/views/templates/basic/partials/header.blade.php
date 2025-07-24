@@ -312,7 +312,7 @@
       </div>
     </div>
     <div class="header-mobile-menus">
-      <div class="h-100 mobile-wrapper">
+      <div class="mobile-wrapper">
         <div class="close"><i class="fa-solid fa-xmark"></i></div>
         <nav class="pt-4">
           <ul class="header-nav">
