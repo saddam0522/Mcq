@@ -144,6 +144,39 @@
             $(this).closest('.input-group').remove();
         });
 
+        // Handle question type visibility
+        $(document).on('change', '.question-type', function() {
+            let type = $(this).val();
+            let questionCard = $(this).closest('.question-card');
+            let questionBankGroup = questionCard.find('.question-bank-group');
+            let subjectGroup = questionCard.find('.subject-group');
+            let chapterGroup = questionCard.find('.chapter-group');
+            let topicGroup = questionCard.find('.topic-group');
+
+            if (type === 'both') {
+                questionBankGroup.show();
+                subjectGroup.show();
+                chapterGroup.show();
+                topicGroup.show();
+                subjectGroup.find('select').prop('required', true);
+                chapterGroup.find('select').prop('required', true);
+            } else if (type === 'question_bank') {
+                questionBankGroup.show();
+                subjectGroup.hide();
+                chapterGroup.hide();
+                topicGroup.hide();
+                subjectGroup.find('select').prop('required', false);
+                chapterGroup.find('select').prop('required', false);
+            } else if (type === 'subjective') {
+                questionBankGroup.hide();
+                subjectGroup.show();
+                chapterGroup.show();
+                topicGroup.show();
+                subjectGroup.find('select').prop('required', true);
+                chapterGroup.find('select').prop('required', true);
+            }
+        }).trigger('change');
+
         // Handle dependent dropdowns
         $(document).on('change', '.subject-select', function() {
             let subjectId = $(this).val();
@@ -170,7 +203,7 @@
                 $.get('{{ route("admin.topic.getTopicsByChapter") }}', { chapter_id: chapterId }, function(data) {
                     if (Array.isArray(data)) {
                         data.forEach(topic => {
-                            topicSelect.append(`<option value="${topic.id}">${topic.name}</option>`);
+                            topicSelect.append(`<option value="${topic.id}">${topic.title}</option>`);
                         });
                     }
                 });
