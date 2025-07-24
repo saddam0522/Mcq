@@ -1,4 +1,4 @@
-  <div class="advisor-item">
+  <article class="advisor-item">
     <img src="assets/images/img/advisor.png" alt="">
     <div class="d-flex flex-column gap-1 mt-3">
       <h5 class="mb-0">সালেহ আহমেদ</h5>
@@ -6,4 +6,4 @@
       <span>প্রভাষক, ইংরেজী বিভাগ</span>
       <span>মৌলভীবাজার সরকারি কলেজ, সিলেট</span>
     </div>
-  </div>
+  </article>

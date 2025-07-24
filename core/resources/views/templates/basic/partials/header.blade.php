@@ -287,9 +287,13 @@
                 </div>
               </div>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">আমাদের সম্পর্কে</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">ব্লগ</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">যোগাযোগ </a></li>
+            @foreach ($pages as $k => $data)
+                    <li class="nav-item {{ menuActive('pages') }}">
+                      <li class="nav-item"><a class="nav-link" href="{{ route('pages', [$data->slug]) }}">আমাদের সম্পর্কে</a></li>
+                    </li>
+                  @endforeach
+            <li class="nav-item"><a class="nav-link" href="{{ route('blog') }}">ব্লগ</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">যোগাযোগ </a></li>
           </ul>
         </nav>
       </div>
@@ -386,8 +390,8 @@
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="#">আমাদের সম্পর্কে</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">ব্লগ</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">যোগাযোগ </a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('blog') }}">ব্লগ</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">যোগাযোগ </a></li>
           </ul>
         </nav>
         <div class="header-action pt-4">
