@@ -519,6 +519,7 @@
       });
     });
 
+
     // Toggle menu 
     const toggle = document.querySelector('.toggle');
     const closeMenu = document.querySelector('.close');
