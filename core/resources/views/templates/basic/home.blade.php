@@ -100,7 +100,7 @@
   </section>
   {{-- Advisor Section end here  --}}
   {{-- Blog Section start here  --}}
-  <section class="blog-section m-lf-10">
+  <section class="new-blog-section m-lf-10">
     <div class="container">
       <div class="d-flex align-items-center justify-content-center">
         <h2 class="section-title text-center">ব্লগ</h2>
