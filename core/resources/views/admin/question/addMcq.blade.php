@@ -162,6 +162,21 @@
             });
         });
 
+        // Ensure correct answer dropdown starts without an extra blank option
+        $(document).on('input', '.options-container input', function() {
+            let optionsContainer = $(this).closest('.options-container');
+            let correctAnswerSelect = $(this).closest('.question-card').find('.correct-answer-select');
+
+            // Rebuild the correct answer dropdown
+            correctAnswerSelect.html('<option value="" disabled selected>@lang("Select Correct Answer")</option>');
+            optionsContainer.find('.input-group input').each(function(index) {
+                let optionValue = $(this).val();
+                if (optionValue.trim() !== '') {
+                    correctAnswerSelect.append(`<option value="${index}">${optionValue}</option>`);
+                }
+            });
+        });
+
         // Handle question type visibility
         $(document).on('change', '.question-type', function() {
             let type = $(this).val();
