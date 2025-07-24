@@ -190,7 +190,11 @@
                         data.forEach(chapter => {
                             chapterSelect.append(`<option value="${chapter.id}">${chapter.name}</option>`);
                         });
+                    } else {
+                        console.error('Invalid data format for chapters:', data);
                     }
+                }).fail(function() {
+                    console.error('Failed to fetch chapters for subject ID:', subjectId);
                 });
             }
         });
@@ -205,7 +209,11 @@
                         data.forEach(topic => {
                             topicSelect.append(`<option value="${topic.id}">${topic.title}</option>`);
                         });
+                    } else {
+                        console.error('Invalid data format for topics:', data);
                     }
+                }).fail(function() {
+                    console.error('Failed to fetch topics for chapter ID:', chapterId);
                 });
             }
         });
