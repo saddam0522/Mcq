@@ -10,6 +10,7 @@
                             <thead>
                                 <tr>
                                     <th>@lang('Name')</th>
+                                    <th>@lang('Category')</th>
                                     <th>@lang('Year')</th>
                                     <th>@lang('Created By')</th>
                                     <th>@lang('Updated By')</th>
@@ -20,6 +21,7 @@
                                 @forelse($questionBanks as $questionBank)
                                     <tr>
                                         <td>{{ $questionBank->name }}</td>
+                                        <td>{{ $questionBank->category->name }}</td>
                                         <td>{{ $questionBank->year }}</td>
                                         <td>{{ $questionBank->createdBy->name }}</td>
                                         <td>{{ optional($questionBank->updatedBy)->name }}</td>
@@ -68,6 +70,15 @@
                                 <input type="text" class="form-control" name="name" placeholder="@lang('Enter name')" required>
                             </div>
                             <div class="form-group">
+                                <label>@lang('Category')</label>
+                                <select class="form-control" name="category_id" required>
+                                    <option value="" disabled selected>@lang('Select Category')</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>@lang('Year')</label>
                                 <input type="number" class="form-control" name="year" placeholder="@lang('Enter year')">
                             </div>
@@ -94,6 +105,15 @@
                             <div class="form-group">
                                 <label>@lang('Name')</label>
                                 <input type="text" class="form-control" name="name" placeholder="@lang('Enter name')" required>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Category')</label>
+                                <select class="form-control" name="category_id" required>
+                                    <option value="" disabled>@lang('Select Category')</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>@lang('Year')</label>
@@ -126,6 +146,7 @@
                 var route = $(this).data('route');
 
                 $('#editModal').find('input[name=name]').val(questionBank.name);
+                $('#editModal').find('select[name=category_id]').val(questionBank.category_id);
                 $('#editModal').find('input[name=year]').val(questionBank.year);
                 $('#editModal').find('form').attr('action', route);
                 $('#editModal').modal('show');

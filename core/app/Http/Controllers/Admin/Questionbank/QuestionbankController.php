@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Questionbank;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\QuestionBank;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 
 class QuestionbankController extends Controller
@@ -12,22 +13,25 @@ class QuestionbankController extends Controller
     public function index()
     {
         $pageTitle = 'Question Banks';
-        $questionBanks = QuestionBank::with(['createdBy', 'updatedBy'])->paginate(getPaginate());
+        $categories = Category::all();
+        $questionBanks = QuestionBank::with(['category', 'createdBy', 'updatedBy'])->paginate(getPaginate());
         $emptyMessage = 'No question banks found.';
-        return view('admin.question-bank.index', compact('pageTitle', 'questionBanks', 'emptyMessage'));
+        return view('admin.question-bank.index', compact('pageTitle', 'categories', 'questionBanks', 'emptyMessage'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|unique:question_banks',
+            'category_id' => 'required|exists:categories,id',
             'year' => 'nullable|integer',
         ]);
 
         QuestionBank::create([
             'name' => $request->name,
+            'category_id' => $request->category_id,
             'year' => $request->year,
-            'created_by' => Auth::id(),
+            'created_by' => Auth::guard('admin')->id(),
         ]);
 
         $notify[] = ['success', 'Question Bank Created Successfully'];
@@ -38,12 +42,14 @@ class QuestionbankController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:question_banks,name,' . $id,
+            'category_id' => 'required|exists:categories,id',
             'year' => 'nullable|integer',
         ]);
 
         $questionBank = QuestionBank::findOrFail($id);
         $questionBank->update([
             'name' => $request->name,
+            'category_id' => $request->category_id,
             'year' => $request->year,
             'updated_by' => Auth::id(),
         ]);

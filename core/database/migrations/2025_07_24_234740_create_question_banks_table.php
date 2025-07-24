@@ -18,6 +18,7 @@ return new class extends Migration
             $table->year('year')->nullable();
             $table->foreignId('created_by')->constrained('admins')->onDelete('cascade');
             $table->foreignId('updated_by')->nullable()->constrained('admins')->onDelete('set null');
+            $table->tinyInteger('status')->default(1)->comment('1=> Active, 0=> Inactive');
             $table->timestamps();
         });
     }
