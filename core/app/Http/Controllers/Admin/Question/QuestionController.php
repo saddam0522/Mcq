@@ -16,6 +16,11 @@ class QuestionController extends Controller
         $questions = $request->input('questions');
         $adminId = auth()->id();
 
+        // Filter out invalid entries
+        $questions = array_filter($questions, function ($question) {
+            return isset($question['question_text']) && isset($question['options']) && is_array($question['options']);
+        });
+
         foreach ($questions as $data) {
             Question::storeWithRelations($data, $adminId);
         }
