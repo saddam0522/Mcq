@@ -51,7 +51,7 @@
       <span>Sheba XYZ</span>
     </div>
     <div class="dark-btn">
-      <a href="#">বিস্তারিত</a>
+      <a href="{{ route('job.details', ['id' => 1]) }}">বিস্তারিত</a>
     </div>
   </div>
 </div>

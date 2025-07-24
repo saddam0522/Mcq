@@ -228,17 +228,21 @@ a {
   transition: right .4s ease-in-out;
   z-index: 999;
 }
+
 .mobile-wrapper {
-    padding: 20px;
+  padding: 20px;
   position: relative;
 }
+
 .mobile-wrapper .header-action {
   position: absolute;
   bottom: 0;
 }
+
 .header-mobile-menus.show {
   right: 0;
 }
+
 .toggle {
   display: none;
   font-size: 22px;
@@ -264,30 +268,42 @@ a {
   gap: 10px;
 
 }
+
 .header-mobile-menus .header-nav .nav-item {
- position: relative;
+  position: relative;
 }
 
 .header-mobile-menus .sub-menu-items {
   height: 0;
-  visibility: hidden;
   opacity: 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 8px;
   padding-left: 10px;
   padding-top: 10px;
-  transition: all .3s ease-in-out;
+  transition: opacity .5s ease;
+  overflow: hidden;
 }
+
 .header-mobile-menus .header-nav .nav-item.active .sub-menu-items {
   height: auto;
-    visibility: visible;
-    opacity: 1;
+  opacity: 1;
+  display: flex;
 }
+
+.header-mobile-menus .header-nav .nav-item svg {
+  transition: transform .3s ease-in-out;
+}
+
+.header-mobile-menus .header-nav .nav-item.active svg {
+  transform: rotate(180deg);
+}
+
 .header-mobile-menus .sub-menu-items li {
   border-bottom: 1px solid #e8f2ff;
   padding-bottom: 10px;
 }
+
 .header-mobile-menus .sub-menu-items li a {
   font-size: 15px;
   font-weight: 500;
@@ -296,53 +312,6 @@ a {
 
 /* Mobile Menu style  */
 
-
-
-
-
-/* .header-section .navbar .logo-area {
-  width: 20%;
-}
-
-.header-section .navbar .collapse.navbar-collapse {
-  width: 80%;
-} */
-
-/* .header-section .navbar .header-nav-menus {
-  width: 75%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--light-bg);
-  padding: 20px 0;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  position: relative;
-} */
-
-/* .header-section .navbar .header-nav-menus::after {
-  content: "";
-  position: absolute;
-  height: 25px;
-  width: 25px;
-  background: transparent;
-  bottom: 0;
-  right: 100%;
-  border-bottom-right-radius: 20px;
-  box-shadow: 10px 2px var(--light-bg);
-}
-
-.header-section .navbar .header-nav-menus::before {
-  content: "";
-  position: absolute;
-  height: 25px;
-  width: 25px;
-  background: transparent;
-  bottom: 0;
-  left: 100%;
-  border-bottom-left-radius: 20px;
-  box-shadow: -2px 10px var(--light-bg);
-} */
 
 .header-section .navbar .header-nav-btns {
   width: 25%;
@@ -478,6 +447,12 @@ a {
   flex-wrap: nowrap;
   gap: 20px;
   animation: SlideRightToLeft 35s linear 0s infinite;
+  -webkit-animation: SlideRightToLeft 35s linear 0s infinite;
+}
+
+.job-cards:hover {
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
 }
 
 .job-card {
@@ -775,7 +750,8 @@ a {
   transform: translateY(-30px);
   background-color: transparent;
   background-repeat: no-repeat;
-  background-size: cover;box-shadow: rgba(58, 101, 199, 0.10) 0 42px 60px 0px, rgba(58, 101, 199, 0.10) 0px 7px 29px 0px;
+  background-size: cover;
+  box-shadow: rgba(58, 101, 199, 0.10) 0 42px 60px 0px, rgba(58, 101, 199, 0.10) 0px 7px 29px 0px;
 }
 
 .guidline-card.active {
@@ -787,7 +763,9 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.guidline-card.active:hover {box-shadow: rgba(58, 101, 199, 0.10) 0 42px 60px 0px, rgba(58, 101, 199, 0.10) 0px 7px 29px 0px;
+
+.guidline-card.active:hover {
+  box-shadow: rgba(58, 101, 199, 0.10) 0 42px 60px 0px, rgba(58, 101, 199, 0.10) 0px 7px 29px 0px;
 }
 
 .guidline-card:hover .g-btn {
@@ -948,6 +926,12 @@ a {
   flex-wrap: nowrap;
   gap: 20px;
   animation: SlideRightToLeft 35s linear 0s infinite;
+  -webkit-animation: SlideRightToLeft 35s linear 0s infinite;
+}
+
+.advisor-list:hover {
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
 }
 
 .advisor-list .advisor-item {
@@ -1018,6 +1002,13 @@ a {
   flex-wrap: nowrap;
   gap: 20px;
   animation: SlideRightToLeft 35s linear 0s infinite;
+  -webkit-animation: SlideRightToLeft 35s linear 0s infinite;
+}
+
+.blog-items:hover {
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+  ani
 }
 
 .blog-items .blog-card {
@@ -1150,7 +1141,7 @@ a {
 }
 
 .faqs-section .submit-btn {
-  font-family: var(--noto) !important;
+  font-family: var(--noto);
 }
 
 .faqs-section .contact-form-area {
@@ -1386,49 +1377,62 @@ a {
     padding: 10px 18px;
     margin: 0px;
   }
-    .mega-menu-items {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      align-items: center;
-      gap: 20px;
-    }
+
+  .mega-menu-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .category-cards {
     grid-template-columns: repeat(2, 1fr);
   }
-.header-middle {
-  display: none;
-}
-.header-left,
-.header-right {
-  width: 50%;
-}
-.main-header {
-  padding: 0;
-}
-.header-items {
-  padding: 15px 0;
-}
-.main-header .header-action {
-  display: none;
-}
-.toggle {
-  display: block;
-}
-.header-mobile-menus .header-action {
-  display: flex;
-  margin-left: 10px;
-}
-.mobile-wrapper .header-action a {
-  padding: 10px 25px;
-  margin: 0px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
+  .header-middle {
+    display: none;
+  }
+
+  .header-left,
+  .header-right {
+    width: 50%;
+  }
+
+  .main-header {
+    padding: 0;
+  }
+
+  .header-items {
+    padding: 15px 0;
+  }
+
+  .main-header .header-action {
+    display: none;
+  }
+
+  .toggle {
+    display: block;
+  }
+
+    .header-mobile-menus .header-action {
+      display: flex;
+      margin-left: 10px;
+      margin-bottom: 0px;
+      bottom: 32px;
+    }
+    .mobile-wrapper {
+      height: 100vh;
+    }
+  .mobile-wrapper .header-action a {
+    padding: 10px 25px;
+    margin: 0px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1506,6 +1510,11 @@ a {
 
   .job-cards {
     padding-top: 30px;
+    animation: SlideRightToLeft 7s linear 0s infinite;
+  }
+  .blog-items,
+  .advisor-list {
+    animation: SlideRightToLeft 7s linear 0s infinite;
   }
 
   .mcq-section .section-top .section-both-side {

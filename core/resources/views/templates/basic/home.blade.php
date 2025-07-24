@@ -48,7 +48,7 @@
           </div>
           <div class="s-right m-hide">
             <div class="job-section-btn align-items-center justify-content-center gap-3">
-              <a href="#">View All</a>
+              <a href="{{ route('all.jobs') }}">View All</a>
               <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
