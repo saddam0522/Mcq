@@ -1433,7 +1433,7 @@ input[type="number"] {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: none;
   height: 38px;
-  padding: 0 10px;
+  padding: 10px;
   border-radius: 5px;
   font-size: 16px;
   width: 100%;
@@ -1574,7 +1574,6 @@ textarea.form--control {
 
 .submit-btn {
   padding: 6px 30px;
-  width: 100%;
   color: var(--white);
   background-color: var(--blue);
   font-family: "Josefin Sans", sans-serif;
@@ -2293,7 +2292,7 @@ textarea.form--control {
 
 .header-action a {
   font-size: 12px;
-  padding: 6px 25px;
+  padding: 10px 25px;
   display: flex;
   margin: 5px;
 }
@@ -2435,9 +2434,11 @@ textarea.form--control {
 /*--------------------------------------------------------------
 # Footer-block
 --------------------------------------------------------------*/
-.footer-section {
-  background-color: #040a2c;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
+.footer-top-area {
+  background-color: var(--blue);
+  border-radius: 20px;
+  margin: 0 10px;
+  padding: 40px 0;
 }
 
 .footer-widget p {
@@ -2475,11 +2476,10 @@ textarea.form--control {
 }
 
 .footer-bottom-area {
-  background-color: #040a2c;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
-  margin-top: 60px;
+  background-color: var(--dark);
   padding: 15px 0;
-  position: relative;
+  margin: 0 10px 10px;
+  border-radius: 20px;
 }
 
 .footer-bottom-area p {
