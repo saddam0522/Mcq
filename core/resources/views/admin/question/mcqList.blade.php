@@ -36,7 +36,7 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.question.edit.mcq', $question->id) }}" class="btn btn-sm btn-outline--primary">
+                                            <a href="" class="btn btn-sm btn-outline--primary">
                                                 <i class="las la-edit"></i> @lang('Edit')
                                             </a>
                                             <a href="javascript:void(0)" data-route="{{ route('admin.question.remove', $question->id) }}" class="btn btn-sm btn-outline--danger delete">

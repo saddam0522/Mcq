@@ -17,7 +17,7 @@ class Question extends Model
 
     public function chapters()
     {
-        return $this->belongsToMany(Chapter::class)->withTimestamps();
+        return $this->belongsToMany(Chapter::class, 'question_chapter')->withTimestamps();
     }
 
     public function questionBanks()

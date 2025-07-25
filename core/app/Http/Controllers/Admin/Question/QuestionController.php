@@ -13,6 +13,7 @@ class QuestionController extends Controller
 {
     public function store(Request $request)
     {
+        dd($request->all());
         $questions = $request->input('questions');
         $adminId = auth()->id();
 
