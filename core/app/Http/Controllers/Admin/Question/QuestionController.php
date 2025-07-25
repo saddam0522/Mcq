@@ -20,9 +20,10 @@ class QuestionController extends Controller
             'questions' => 'required|array|min:1',
             'questions.*.question_text' => 'required|string',
             'questions.*.options' => 'required|array|min:2',
-            'questions.*.correct_answer' => 'required',
+            'questions.*.correct_answer' => 'required|array|min:1',
         ]);
 
+        // Shared assignment data from the top section
         $shared = [
             'question_bank_ids' => $request->input('question_bank_ids', []),
             'subject_id'        => $request->input('subject_id'),
@@ -31,14 +32,20 @@ class QuestionController extends Controller
         ];
 
         foreach ($request->input('questions') as $q) {
-            // Filter empty options
-            $q['options'] = array_values(array_filter($q['options'], fn($opt) => !empty($opt)));
+            // Clean options
+            $options = array_values(array_filter($q['options'], fn($opt) => !empty($opt)));
 
-            // Map correct_answer index to actual value
-            $correctIndex = intval($q['correct_answer']);
-            $q['correct_answer'] = $q['options'][$correctIndex] ?? null;
+            // Map correct answers from indexes to ensure they're valid
+            $correctIndexes = array_map('intval', $q['correct_answer'] ?? []);
 
+            // Prevent invalid indexes (e.g., out of bounds)
+            $correctIndexes = array_filter($correctIndexes, fn($i) => isset($options[$i]));
+
+            // Merge shared and per-question data
             $data = array_merge($q, $shared);
+            $data['options'] = $options;
+            $data['correct_answer'] = json_encode($correctIndexes); // store as JSON
+
             \App\Models\Question::storeWithRelations($data, $adminId);
         }
         $notify[] = ['success', 'Questions stored successfully'];

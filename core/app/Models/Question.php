@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use HasFactory;
+
     protected $guarded = ['id'];
+    
+    protected $casts = [
+        'options' => 'array',
+        'correct_answer' => 'array', // now storing JSON array of indexes
+    ];
 
     public function topics()
     {

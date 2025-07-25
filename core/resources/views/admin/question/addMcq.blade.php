@@ -81,8 +81,8 @@
 
                         <div class="form-group">
                             <label>Correct Answer</label>
-                            <select class="form-control correct-answer-select" name="questions[0][correct_answer]" required>
-                                <option value="" disabled selected>Select Correct Answer</option>
+                            <select class="form-control correct-answer-select" name="questions[0][correct_answer][]" multiple required>
+                                <option value="" disabled>Select Correct Answer</option>
                             </select>
                         </div>
 
@@ -168,7 +168,7 @@
         base.find('[name^="questions[0][question_text]"]').attr('name', `questions[${questionIndex}][question_text]`);
         base.find('[name^="questions[0][explanation]"]').attr('name', `questions[${questionIndex}][explanation]`);
         base.find('.correct-answer-select')
-            .attr('name', `questions[${questionIndex}][correct_answer]`)
+            .attr('name', `questions[${questionIndex}][correct_answer][]`)
             .html('<option value="" disabled selected>Select Correct Answer</option>');
 
         base.find('.remove-question').show();
