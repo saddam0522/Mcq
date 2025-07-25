@@ -13,26 +13,27 @@ class QuestionController extends Controller
 {
     public function store(Request $request)
     {
-        dd($request->all());
-        $questions = $request->input('questions');
         $adminId = auth()->id();
+        $type = $request->input('type');
+        $shared = [
+            'question_bank_ids' => $request->input('question_bank_ids', []),
+            'subject_id' => $request->input('subject_id'),
+            'chapter_id' => $request->input('chapter_id'),
+            'topic_ids' => $request->input('topic_ids', []),
+        ];
 
-        // Filter out invalid entries
-        $questions = array_filter($questions, function ($question) {
-            return isset($question['question_text']) && isset($question['options']) && is_array($question['options']);
+        $questions = array_filter($request->input('questions', []), function ($q) {
+            return !empty($q['question_text']) && 
+                !empty($q['options']) && 
+                count(array_filter($q['options'])) >= 2 &&
+                isset($q['correct_answer']);
         });
 
-        foreach ($questions as $data) {
-            // Ensure options are grouped and encoded as JSON
-            $data['options'] = array_values(array_filter($data['options'], function ($option) {
-                return !empty($option); // Remove empty options
-            }));
-
-            // Pass the complete options array to the model
-            Question::storeWithRelations($data, $adminId);
+        foreach ($questions as $q) {
+            $q = array_merge($q, $shared);
+            Question::storeWithRelations($q, $adminId);
         }
 
-        Session::forget('questions');
         $notify[] = ['success', 'Questions stored successfully'];
         return back()->withNotify($notify);
     }
