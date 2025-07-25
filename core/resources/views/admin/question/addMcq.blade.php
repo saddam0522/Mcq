@@ -6,7 +6,7 @@
         <form action="{{ route('admin.question.store') }}" method="POST">
             @csrf
 
-            <!-- Shared Question Settings -->
+            <!-- Shared Question Assignment Section -->
             <div class="card mb-4">
                 <div class="card-body row">
                     <div class="col-md-4">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-4 topic-group">
                         <div class="form-group">
-                            <label>Topics</label>
+                            <label>Topics (Optional)</label>
                             <select class="form-control" name="topic_ids[]" id="topicSelect" multiple>
                                 <option value="">Select Topics</option>
                             </select>
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <!-- Questions -->
+            <!-- Question Blocks -->
             <div id="questionContainer">
                 <div class="card question-card mb-3" data-index="0">
                     <div class="card-body">
@@ -87,9 +87,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Explanation</label>
+                            <label>Explanation (Optional)</label>
                             <textarea class="form-control nicEdit" name="questions[0][explanation]"></textarea>
                         </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <button type="button" class="btn btn-danger remove-question" style="display: none;">Remove Question</button>
                     </div>
                 </div>
             </div>
@@ -120,38 +123,41 @@
         });
     }
 
-    $('.add-option').on('click', function () {
-        let card = $(this).closest('.question-card');
-        let index = card.data('index');
-        let container = card.find('.options-container');
+    // Add option (event delegation)
+    $(document).on('click', '.add-option', function () {
+        const card = $(this).closest('.question-card');
+        const index = card.data('index');
+        const container = card.find('.options-container');
 
-        let html = `
+        const html = `
             <div class="input-group mb-2">
                 <input type="text" class="form-control" name="questions[${index}][options][]" placeholder="Option" required>
                 <button type="button" class="btn btn-danger remove-option">Remove</button>
             </div>
         `;
-
         container.append(html);
     });
 
+    // Remove option
     $(document).on('click', '.remove-option', function () {
-        let card = $(this).closest('.question-card');
+        const card = $(this).closest('.question-card');
         $(this).closest('.input-group').remove();
         updateCorrectAnswers(card);
     });
 
+    // Update correct answer dropdown
     $(document).on('input', '.options-container input', function () {
-        let card = $(this).closest('.question-card');
+        const card = $(this).closest('.question-card');
         updateCorrectAnswers(card);
     });
 
+    // Add new question
     $('.add-question').on('click', function () {
         let base = $('.question-card:first').clone();
         base.attr('data-index', questionIndex);
         base.find('textarea, input').val('');
         base.find('select').val('').trigger('change');
-
+        base.find('.nicEdit-main').html(''); // reset nicEdit content
         base.find('.options-container').html(`
             <div class="input-group mb-2">
                 <input type="text" class="form-control" name="questions[${questionIndex}][options][]" placeholder="Option" required>
@@ -161,12 +167,22 @@
 
         base.find('[name^="questions[0][question_text]"]').attr('name', `questions[${questionIndex}][question_text]`);
         base.find('[name^="questions[0][explanation]"]').attr('name', `questions[${questionIndex}][explanation]`);
-        base.find('.correct-answer-select').attr('name', `questions[${questionIndex}][correct_answer]`);
+        base.find('.correct-answer-select')
+            .attr('name', `questions[${questionIndex}][correct_answer]`)
+            .html('<option value="" disabled selected>Select Correct Answer</option>');
+
+        base.find('.remove-question').show();
 
         $('#questionContainer').append(base);
         questionIndex++;
     });
 
+    // Remove question block
+    $(document).on('click', '.remove-question', function () {
+        $(this).closest('.question-card').remove();
+    });
+
+    // Handle question type toggle
     $('#questionType').on('change', function () {
         const val = $(this).val();
         $('.bank-group, .subject-group, .chapter-group, .topic-group').hide();
@@ -180,6 +196,7 @@
         }
     }).trigger('change');
 
+    // Load chapters based on subject
     $('#subjectSelect').on('change', function () {
         const subjectId = $(this).val();
         $('#chapterSelect').html('<option value="">Select Chapter</option>');
@@ -187,27 +204,27 @@
 
         if (subjectId) {
             $.get('{{ route("admin.topic.chapterbySubject") }}', { subject_id: subjectId }, function(data) {
-                data.forEach(chapter => {
+                data.forEach(function(chapter) {
                     $('#chapterSelect').append(`<option value="${chapter.id}">${chapter.name}</option>`);
                 });
             });
         }
     });
 
+    // Load topics based on chapter
     $('#chapterSelect').on('change', function () {
         const chapterId = $(this).val();
         $('#topicSelect').html('<option value="">Select Topics</option>');
 
         if (chapterId) {
             $.get('{{ route("admin.topic.getTopicsByChapter") }}', { chapter_id: chapterId }, function(data) {
-                data.forEach(topic => {
+                data.forEach(function(topic) {
                     $('#topicSelect').append(`<option value="${topic.id}">${topic.title}</option>`);
                 });
             });
         }
     });
 
-    // NicEdit init (already included in layout)
 })(jQuery);
 </script>
 @endpush

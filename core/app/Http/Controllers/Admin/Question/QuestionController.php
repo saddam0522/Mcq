@@ -14,26 +14,33 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $adminId = auth()->id();
-        $type = $request->input('type');
+
+        $request->validate([
+            'type' => 'required|in:both,question_bank,subjective',
+            'questions' => 'required|array|min:1',
+            'questions.*.question_text' => 'required|string',
+            'questions.*.options' => 'required|array|min:2',
+            'questions.*.correct_answer' => 'required',
+        ]);
+
         $shared = [
             'question_bank_ids' => $request->input('question_bank_ids', []),
-            'subject_id' => $request->input('subject_id'),
-            'chapter_id' => $request->input('chapter_id'),
-            'topic_ids' => $request->input('topic_ids', []),
+            'subject_id'        => $request->input('subject_id'),
+            'chapter_id'        => $request->input('chapter_id'),
+            'topic_ids'         => $request->input('topic_ids', []),
         ];
 
-        $questions = array_filter($request->input('questions', []), function ($q) {
-            return !empty($q['question_text']) && 
-                !empty($q['options']) && 
-                count(array_filter($q['options'])) >= 2 &&
-                isset($q['correct_answer']);
-        });
+        foreach ($request->input('questions') as $q) {
+            // Filter empty options
+            $q['options'] = array_values(array_filter($q['options'], fn($opt) => !empty($opt)));
 
-        foreach ($questions as $q) {
-            $q = array_merge($q, $shared);
-            Question::storeWithRelations($q, $adminId);
+            // Map correct_answer index to actual value
+            $correctIndex = intval($q['correct_answer']);
+            $q['correct_answer'] = $q['options'][$correctIndex] ?? null;
+
+            $data = array_merge($q, $shared);
+            \App\Models\Question::storeWithRelations($data, $adminId);
         }
-
         $notify[] = ['success', 'Questions stored successfully'];
         return back()->withNotify($notify);
     }
