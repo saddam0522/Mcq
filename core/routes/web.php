@@ -55,3 +55,9 @@ Route::controller('SiteController')->group(function ()
     Route::get('blog', 'blog')->name('blog');
     Route::get('/frequently-asked-question', 'faq')->name('faq');
 });
+
+Route::controller('JobController')->group(function ()
+{
+    Route::get('job/all', 'alljobs')->name('all.jobs');
+    Route::get('job/details/{id}', 'jobDetails')->name('job.details');
+});

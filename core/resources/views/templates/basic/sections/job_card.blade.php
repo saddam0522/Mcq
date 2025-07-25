@@ -1,4 +1,4 @@
-<div class="job-card d-flex flex-column gap-3">
+<article class="job-card d-flex flex-column gap-3">
   <div class="card-top d-flex flex-column gap-4">
     <div class="d-flex align-items-center justify-content-between gap-2">
       <div class="date">৪ ফেব্রুয়ারি ২০২৩</div>
@@ -51,7 +51,7 @@
       <span>Sheba XYZ</span>
     </div>
     <div class="dark-btn">
-      <a href="#">বিস্তারিত</a>
+      <a href="{{ route('job.details', ['id' => 1]) }}">বিস্তারিত</a>
     </div>
   </div>
-</div>
+</article>

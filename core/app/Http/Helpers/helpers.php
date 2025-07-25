@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Cache;
 
 function systemDetails()
 {
-    $system['name'] = 'exalab';
-    $system['version'] = '2.0';
-    $system['build_version'] = '5.0.9';
+    $system['name'] = env('APP_NAME', 'jobcoachbd');
+    $system['version'] = env('APP_VERSION', '1.0');
+    $system['build_version'] = env('APP_BUILD_VERSION', '1.0.0');
     return $system;
 }
 

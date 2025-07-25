@@ -26,33 +26,104 @@
         "route_name": "admin.dashboard",
         "menu_active": "admin.dashboard"
     },
-    "exam_category": {
-        "keyword": ["exam category", "exam", "category"],
-        "title": "Exam Category",
-        "icon": "las la-list",
-        "route_name": "admin.exam.categories",
-        "menu_active": "admin.exam.categories"
+    "question_bank": {
+        "keyword": [
+            "question bank",
+            "questions",
+            "bank",
+            "question management",
+            "question library"
+        ],
+        "title": "Question Bank",
+        "icon": "las la-question-circle",
+        "menu_active": [
+            "admin.exam.categories",
+            "admin.questionbank.index"
+        ],
+        "submenu": [
+            {
+                "keyword": [
+                    "exam category",
+                    "exam",
+                    "category"
+                ],
+                "title": "Question Bank Category",
+                "route_name": "admin.exam.categories",
+                "menu_active": "admin.exam.categories"
+            },
+            {
+                "keyword": [
+                    "question bank",
+                    "questions",
+                    "bank",
+                    "question management",
+                    "question library"
+                ],
+                "title": "Question Bank",
+                "route_name": "admin.questionbank.index",
+                "menu_active": "admin.questionbank.index"
+            }
+        ]
     },
-    "exam_subjects": {
-        "keyword": ["exam subjects", "exam", "subjects"],
-        "title": "Manage Subjects",
-        "icon": "las la-book-reader",
-        "route_name": "admin.exam.subjects",
-        "menu_active": "admin.exam.subjects"
+    "subjective": {
+        "keyword": ["subjective", "subjects", "chapter", "topic", "manage subjects", "manage chapter", "manage topic"],
+        "title": "Subjective",
+        "icon": "las la-book-open",
+        "menu_active": [
+            "admin.exam.subjects",
+            "admin.chapter.index",
+            "admin.topic.index"
+        ],
+        "submenu": [
+            {
+                "keyword": ["exam subjects", "exam", "subjects"],
+                "title": "Manage Subjects",
+                "icon": "las la-book-reader",
+                "route_name": "admin.exam.subjects",
+                "menu_active": "admin.exam.subjects"
+            },
+            {
+                "keyword": ["subject chapter", "chapter", "subject", "chapter management"],
+                "title": "Manage Chapter",
+                "icon": "las la-layer-group",
+                "route_name": "admin.chapter.index",
+                "menu_active": "admin.chapter.index"
+            },
+            {
+                "keyword": ["topic management", "topics", "manage topics"],
+                "title": "Manage Topic",
+                "icon": "las la-book",
+                "route_name": "admin.topic.index",
+                "menu_active": "admin.topic.index"
+            }
+        ]
     },
-    "subject_chapter": {
-        "keyword": ["subject chapter", "chapter", "subject", "chapter management"],
-        "title": "Manage Chapter",
-        "icon": "las la-layer-group",
-        "route_name": "admin.chapter.index",
-        "menu_active": "admin.chapter.index"
+    "question_list": {
+        "keyword": [
+            "question list",
+            "mcq list",
+            "questions",
+            "multiple choice questions",
+            "question management"
+        ],
+        "title": "Question List",
+        "icon": "las la-list-ul",
+        "route_name": "admin.question.mcq.list",
+        "menu_active": "admin.question.mcq.list"
     },
-    "topic_management": {
-        "keyword": ["topic management", "topics", "manage topics"],
-        "title": "Manage Topic",
-        "icon": "las la-book",
-        "route_name": "admin.topic.index",
-        "menu_active": "admin.topic.index"
+    "add_question": {
+        "keyword": [
+            "add question",
+            "new question",
+            "create question",
+            "question add",
+            "add mcq",
+            "add multiple choice question"
+        ],
+        "title": "Add Question",
+        "icon": "las la-plus-circle",
+        "route_name": "admin.question.add.mcq",
+        "menu_active": "admin.question.add.mcq"
     },
     "exam_manage": {
         "keyword": ["manage exam", "exam", "manage"],
