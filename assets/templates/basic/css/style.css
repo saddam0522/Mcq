@@ -1573,10 +1573,9 @@ textarea.form--control {
 }
 
 .submit-btn {
-  padding: 6px 30px;
+  padding: 10px 30px;
   color: var(--white);
   background-color: var(--blue);
-  font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
   font-size: 16px;
   border-radius: 3px;
@@ -2279,6 +2278,7 @@ textarea.form--control {
   display: flex;
   flex-wrap: wrap;
   margin: -5px;
+  gap: 10px;
 }
 
 @media only screen and (max-width: 991px) {
@@ -3165,9 +3165,9 @@ textarea.form--control {
   right: 20px;
   width: auto;
   border-radius: 100px;
+  font-family: var(--noto);
   padding: 8px 60px;
   font-size: 14px;
-  font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
 }
 
@@ -3223,9 +3223,12 @@ textarea.form--control {
 .faq-wrapper .faq-item {
   margin-bottom: 20px;
   transition: all 0.3s;
-  box-shadow: 0px 5px 24.25px 0.75px rgb(0 0 0 / 10%);
+  border: 1px solid var(--light-bg);
   border-radius: 3px;
   overflow: hidden;
+}
+.faq-item.open {
+  box-shadow: 0px 6px 25px -5px rgb(58 101 199 / 10%);
 }
 
 .faq-wrapper .faq-item .faq-title {

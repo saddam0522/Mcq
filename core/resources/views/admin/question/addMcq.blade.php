@@ -1,96 +1,230 @@
 @extends('admin.layouts.app')
 
 @section('panel')
-    <div class="container-fluid">
-        <form action="{{ route('admin.exam.question.store') }}" method="POST" enctype="multipart/form-data">
+<div class="row">
+    <div class="col-md-12">
+        <form action="{{ route('admin.question.store') }}" method="POST">
             @csrf
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="card b-radius--10 p-4">
-                        <div class="card-body">
-                            <input type="hidden" name="examid" value="{{ $exam->id }}">
-                            <div class="form-group">
-                                <label class="font-weight-bold">@lang('Question')</label>
-                                <textarea class="form-control nicEdit" name="question" rows="6" placeholder="@lang('Question')">{{ old('question') }}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">@lang('Mark')</label>
-                                <input class="form-control" type="text" name="mark" placeholder="@lang('Mark')"
-                                    value="{{ old('mark') }}" required>
-                            </div>
 
-                            <label class="font-weight-bold" for="exampleInputnumber1">@lang('Options')</label>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-text bg-transparent" id="my-addon">
-                                        <div
-                                            class="custom-control custom-radio form-check-primary d-flex align-items-center">
-                                            <input type="radio" id="customRadio21" name="correct"
-                                                class="custom-control-input" value="1" required>
-                                            <label class="custom-control-label text-secondary m-0 ps-2"
-                                                for="customRadio21">@lang('Correct')</label>
-                                        </div>
-                                    </span>
-
-                                    <input type="text" class="form-control me-1" name="option[1]"
-                                        placeholder="@lang('Option')" required>
-                                </div>
-
-                            </div>
-                            <div class="append"></div>
-                            <div class="form-group text-right">
-                                <button type="button" class="btn btn-sm btn-outline--primary mt-2" id="add"> <i
-                                        class="las la-plus"></i> @lang('Add More')</button>
-                            </div>
-                            <button type="submit" class="btn btn--primary w-100 h-45 mt-3">@lang('Submit')</button>
+            <!-- Shared Question Assignment Section -->
+            <div class="card mb-4">
+                <div class="card-body row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Question Type</label>
+                            <select class="form-control" name="type" id="questionType" required>
+                                <option value="both">Both</option>
+                                <option value="question_bank">Question Bank</option>
+                                <option value="subjective">Subjective</option>
+                            </select>
                         </div>
-
                     </div>
-
+                    <div class="col-md-4 bank-group">
+                        <div class="form-group">
+                            <label>Question Bank</label>
+                            <select class="form-control" name="question_bank_ids[]" multiple>
+                                @foreach ($questionBanks as $bank)
+                                    <option value="{{ $bank->id }}">{{ $bank->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 subject-group">
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <select class="form-control" name="subject_id" id="subjectSelect">
+                                <option value="">Select Subject</option>
+                                @foreach ($subjects as $subject)
+                                    <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 chapter-group">
+                        <div class="form-group">
+                            <label>Chapter</label>
+                            <select class="form-control" name="chapter_id" id="chapterSelect">
+                                <option value="">Select Chapter</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 topic-group">
+                        <div class="form-group">
+                            <label>Topics (Optional)</label>
+                            <select class="form-control" name="topic_ids[]" id="topicSelect" multiple>
+                                <option value="">Select Topics</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- Question Blocks -->
+            <div id="questionContainer">
+                <div class="card question-card mb-3" data-index="0">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Question Text</label>
+                            <textarea class="form-control" name="questions[0][question_text]" rows="3" required></textarea>
+                        </div>
 
+                        <div class="form-group">
+                            <label>Options</label>
+                            <div class="options-container">
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="questions[0][options][]" placeholder="Option" required>
+                                    <button type="button" class="btn btn-danger remove-option">Remove</button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary add-option">Add Option</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Correct Answer</label>
+                            <select class="form-control correct-answer-select" name="questions[0][correct_answer][]" multiple required>
+                                <option value="" disabled>Select Correct Answer</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Explanation (Optional)</label>
+                            <textarea class="form-control nicEdit" name="questions[0][explanation]"></textarea>
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        <button type="button" class="btn btn-danger remove-question" style="display: none;">Remove Question</button>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success add-question">Add Question</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-    <!-- card end -->
+</div>
 @endsection
 
-
-@push('breadcrumb-plugins')
-    <x-back route="{{ route('admin.exam.questions', $exam->id) }}" />
-@endpush
-
 @push('script')
-    <script>
-        'use strict'
-        var i = 22;
-        var j = 2;
-        $(document).on('click', '#add', function() {
+<script>
+(function($){
+    'use strict';
 
-            var element = `
-            <div class="form-group d-flex justify-content-between">
-                <div class="input-group">
-                    <span class="input-group-text bg-transparent" id="my-addon">
-                        <div class="custom-control custom-radio form-check-primary d-flex align-items-center">
-                            <input type="radio" id="customRadio${i}" name="correct" class="custom-control-input" value="${j}" required>
-                            <label class="custom-control-label text-secondary m-0 px-2" for="customRadio${i}">@lang('Correct')</label>
-                          </div>
-                    </span>
+    let questionIndex = 1;
 
-                        <input type="text" class="form-control me-1" name="option[${j}]" placeholder="@lang('Option')"  required>
-                </div>
-                <button type="button" class="icon-btn btn--danger  text-center text-nowrap remove"><i class="las la-minus-circle text--white"></i></button>
-            </div>`;
+    function updateCorrectAnswers(card) {
+        let index = card.data('index');
+        let select = card.find('.correct-answer-select');
+        select.html('<option value="" disabled selected>Select Correct Answer</option>');
+        card.find('.options-container input').each(function(i) {
+            let val = $(this).val();
+            if (val.trim()) {
+                select.append(`<option value="${i}">${val}</option>`);
+            }
+        });
+    }
 
-            $('.append').append(element);
-            i++
-            j++
-        })
+    // Add option (event delegation)
+    $(document).on('click', '.add-option', function () {
+        const card = $(this).closest('.question-card');
+        const index = card.data('index');
+        const container = card.find('.options-container');
 
+        const html = `
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" name="questions[${index}][options][]" placeholder="Option" required>
+                <button type="button" class="btn btn-danger remove-option">Remove</button>
+            </div>
+        `;
+        container.append(html);
+    });
 
-        $(document).on('click', '.remove', function() {
-            $(this).parent('.form-group').remove()
-        })
-    </script>
+    // Remove option
+    $(document).on('click', '.remove-option', function () {
+        const card = $(this).closest('.question-card');
+        $(this).closest('.input-group').remove();
+        updateCorrectAnswers(card);
+    });
+
+    // Update correct answer dropdown
+    $(document).on('input', '.options-container input', function () {
+        const card = $(this).closest('.question-card');
+        updateCorrectAnswers(card);
+    });
+
+    // Add new question
+    $('.add-question').on('click', function () {
+        let base = $('.question-card:first').clone();
+        base.attr('data-index', questionIndex);
+        base.find('textarea, input').val('');
+        base.find('select').val('').trigger('change');
+        base.find('.nicEdit-main').html(''); // reset nicEdit content
+        base.find('.options-container').html(`
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" name="questions[${questionIndex}][options][]" placeholder="Option" required>
+                <button type="button" class="btn btn-danger remove-option">Remove</button>
+            </div>
+        `);
+
+        base.find('[name^="questions[0][question_text]"]').attr('name', `questions[${questionIndex}][question_text]`);
+        base.find('[name^="questions[0][explanation]"]').attr('name', `questions[${questionIndex}][explanation]`);
+        base.find('.correct-answer-select')
+            .attr('name', `questions[${questionIndex}][correct_answer][]`)
+            .html('<option value="" disabled selected>Select Correct Answer</option>');
+
+        base.find('.remove-question').show();
+
+        $('#questionContainer').append(base);
+        questionIndex++;
+    });
+
+    // Remove question block
+    $(document).on('click', '.remove-question', function () {
+        $(this).closest('.question-card').remove();
+    });
+
+    // Handle question type toggle
+    $('#questionType').on('change', function () {
+        const val = $(this).val();
+        $('.bank-group, .subject-group, .chapter-group, .topic-group').hide();
+
+        if (val === 'both') {
+            $('.bank-group, .subject-group, .chapter-group, .topic-group').show();
+        } else if (val === 'question_bank') {
+            $('.bank-group').show();
+        } else if (val === 'subjective') {
+            $('.subject-group, .chapter-group, .topic-group').show();
+        }
+    }).trigger('change');
+
+    // Load chapters based on subject
+    $('#subjectSelect').on('change', function () {
+        const subjectId = $(this).val();
+        $('#chapterSelect').html('<option value="">Select Chapter</option>');
+        $('#topicSelect').html('<option value="">Select Topics</option>');
+
+        if (subjectId) {
+            $.get('{{ route("admin.topic.chapterbySubject") }}', { subject_id: subjectId }, function(data) {
+                data.forEach(function(chapter) {
+                    $('#chapterSelect').append(`<option value="${chapter.id}">${chapter.name}</option>`);
+                });
+            });
+        }
+    });
+
+    // Load topics based on chapter
+    $('#chapterSelect').on('change', function () {
+        const chapterId = $(this).val();
+        $('#topicSelect').html('<option value="">Select Topics</option>');
+
+        if (chapterId) {
+            $.get('{{ route("admin.topic.getTopicsByChapter") }}', { chapter_id: chapterId }, function(data) {
+                data.forEach(function(topic) {
+                    $('#topicSelect').append(`<option value="${topic.id}">${topic.title}</option>`);
+                });
+            });
+        }
+    });
+
+})(jQuery);
+</script>
 @endpush

@@ -48,7 +48,7 @@
           </div>
           <div class="s-right m-hide">
             <div class="job-section-btn align-items-center justify-content-center gap-3">
-              <a href="#">View All</a>
+              <a href="{{ route('all.jobs') }}">View All</a>
               <i class="fa-solid fa-arrow-right"></i>
             </div>
           </div>
@@ -100,7 +100,7 @@
   </section>
   {{-- Advisor Section end here  --}}
   {{-- Blog Section start here  --}}
-  <section class="blog-section m-lf-10">
+  <section class="new-blog-section m-lf-10">
     <div class="container">
       <div class="d-flex align-items-center justify-content-center">
         <h2 class="section-title text-center">ব্লগ</h2>

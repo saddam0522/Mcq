@@ -51,7 +51,7 @@
           <div class="faq-item open">
             <h3 class="faq-title"><span class="title">How to attend the exam?</span><span class="right-icon"></span>
             </h3>
-            <div class="faq-content">
+            <div class="faq-content" style="display: block;">
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts.&nbsp;</p>
             </div>
@@ -71,7 +71,7 @@
           <div class="faq-item open">
             <h3 class="faq-title"><span class="title">How will I get my result?</span><span class="right-icon"></span>
             </h3>
-            <div class="faq-content">
+            <div class="faq-content" style="display: block;">
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts.&nbsp;</p>
             </div>

@@ -19,4 +19,10 @@ class Chapter extends Model
     {
         return $this->hasMany(Topic::class);
     }
+    
+    public function questions()
+    {
+        return $this->belongsToMany(Question::class)->withTimestamps();
+    }
+
 }
