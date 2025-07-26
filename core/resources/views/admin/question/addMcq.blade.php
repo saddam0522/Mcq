@@ -1,5 +1,11 @@
 @extends('admin.layouts.app')
 
+<style>
+    select[multiple] {
+        min-height: 100px; /* Set a minimum height for multiple select dropdowns */
+    }
+</style>
+
 @section('panel')
 <div class="row">
     <div class="col-md-12">
@@ -88,7 +94,7 @@
 
                         <div class="form-group">
                             <label>Explanation (Optional)</label>
-                            <textarea class="form-control nicEdit" name="questions[0][explanation]"></textarea>
+                            <textarea class="form-control" name="questions[0][explanation]"></textarea>
                         </div>
                     </div>
                     <div class="card-footer text-end">

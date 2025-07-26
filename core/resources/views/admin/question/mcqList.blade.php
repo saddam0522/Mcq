@@ -21,18 +21,28 @@
                                     <tr>
                                         <td>{{ $question->question_text }}</td>
                                         <td>
-                                            @foreach ($question->topics as $topic)
+                                            @foreach ($question->topics->take(2) as $topic)
                                                 <span class="badge badge--primary">{{ $topic->title }}</span>
                                             @endforeach
+                                            @if ($question->topics->count() > 2)
+                                                <span class="badge badge--secondary">+{{ $question->topics->count() - 2 }}</span>
+                                            @endif
                                         </td>
                                         <td>
-                                            @foreach ($question->chapters as $chapter)
-                                                <span class="badge badge--info">{{ $chapter->name }}</span>
-                                            @endforeach
+                                            @if ($question->topics->count() > 0)
+                                                <span class="badge badge--info">
+                                                    {{ $question->topics[0]->chapter ? $question->topics[0]->chapter->name : __('No Chapter') }}
+                                                </span>
+                                                @if ($question->topics->count() > 1)
+                                                    <span class="badge badge--secondary">+{{ $question->topics->count() - 1 }}</span>
+                                                @endif
+                                            @else
+                                                <span class="badge badge--warning">@lang('No Chapter')</span>
+                                            @endif
                                         </td>
                                         <td>
                                             @foreach ($question->questionBanks as $bank)
-                                                <span class="badge badge--success">{{ $bank->name }}</span>
+                                                <span class="badge badge--success">{{ $bank->name }} - {{ $bank->year }}</span>
                                             @endforeach
                                         </td>
                                         <td>
