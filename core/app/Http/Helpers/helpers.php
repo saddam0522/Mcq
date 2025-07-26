@@ -524,3 +524,11 @@ function shortCodeReplacer($shortCode, $replace_with, $template_string)
 {
     return str_replace($shortCode, $replace_with, $template_string);
 }
+
+if (!function_exists('getChapterNameByTopicId')) {
+    function getChapterNameByTopicId($topic_id)
+    {
+        $topic = \App\Models\Topic::with('chapter')->find($topic_id);
+        dd($topic && $topic->chapter ? $topic->chapter->name : null);
+    }
+}
