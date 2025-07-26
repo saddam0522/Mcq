@@ -94,7 +94,7 @@
 
                         <div class="form-group">
                             <label>Explanation (Optional)</label>
-                            <textarea class="form-control nicEdit" name="questions[0][explanation]"></textarea>
+                            <textarea class="form-control" name="questions[0][explanation]"></textarea>
                         </div>
                     </div>
                     <div class="card-footer text-end">
