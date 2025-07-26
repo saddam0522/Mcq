@@ -1,5 +1,11 @@
 @extends('admin.layouts.app')
 
+<style>
+    select[multiple] {
+        min-height: 100px; /* Set a minimum height for multiple select dropdowns */
+    }
+</style>
+
 @section('panel')
 <div class="row">
     <div class="col-md-12">
