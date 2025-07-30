@@ -442,25 +442,15 @@ a {
 
 .job-cards {
   padding-top: 50px;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 20px;
-  animation: SlideRightToLeft 35s linear 0s infinite;
-  -webkit-animation: SlideRightToLeft 35s linear 0s infinite;
 }
 
-.job-cards:hover {
-  animation-play-state: paused;
-  -webkit-animation-play-state: paused;
-}
 
 .job-card {
   border-radius: 10px;
   border: 1px solid var(--light-bg);
   background: var(--white);
   padding: 15px 15px 20px;
-  min-width: 360px;
+  /* min-width: 360px; */
 }
 
 .job-card .card-top {
@@ -955,14 +945,14 @@ a {
 
 /* Advisor section end */
 /* Blog section start */
-.blog-section {
+.new-blog-section {
   padding: 0 0 60px;
   background-color: var(--light-bg);
   margin: 0 10px;
   border-radius: 20px;
 }
 
-.blog-section .section-title {
+.new-blog-section .section-title {
   background-color: var(--light-bg);
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
@@ -971,7 +961,7 @@ a {
   position: relative;
 }
 
-.blog-section .section-title::before {
+.new-blog-section .section-title::before {
   content: "";
   position: absolute;
   height: 25px;
@@ -983,7 +973,7 @@ a {
   box-shadow: 10px 2px var(--light-bg);
 }
 
-.blog-section .section-title::after {
+.new-blog-section .section-title::after {
   content: "";
   position: absolute;
   height: 25px;
@@ -1008,10 +998,9 @@ a {
 .blog-items:hover {
   animation-play-state: paused;
   -webkit-animation-play-state: paused;
-  ani
 }
 
-.blog-items .blog-card {
+.blog-card {
   border-radius: 10px;
   border: 1px solid var(--light-bg);
   background: var(--white);
@@ -1036,6 +1025,14 @@ a {
 .blog-card img {
   border-radius: 10px;
   border: 5px solid var(--light-bg);
+}
+.blog-card .blog-desc {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  box-orient: vertical;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Blog section end */
@@ -1371,6 +1368,58 @@ a {
 
 /* Auth Page style end  */
 
+/* job details page start */
+.job-dt-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--dark);
+}
+.job-share a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--text-color);
+  padding: 12px 20px;
+  border: 1px solid var(--light-bg);
+  border-radius: 8px;
+}
+.company-dt span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color);
+}
+.company-dt img {
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+}
+.job-rqs span {
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: 400;
+  font-size: 15px;
+  background-color: var(--light-bg);
+}
+.job-sidebar .widget-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+.job-desc {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+.job-desc h3 {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 5px 0;
+}
+.job-desc p {
+  padding-bottom: 5px;
+}
+/* job details page end */
+
 /* Media Quaries  */
 @media screen and (max-width: 1366px) {
   .header-action a {
@@ -1510,7 +1559,6 @@ a {
 
   .job-cards {
     padding-top: 30px;
-    animation: SlideRightToLeft 7s linear 0s infinite;
   }
   .blog-items,
   .advisor-list {
@@ -1565,6 +1613,12 @@ a {
   .advisor-section {
     padding: 0 0px 70px 0;
   }
+    .job-rqs span {
+      padding: 5px 6px;
+    }
+        .job-dt-title {
+          font-size: 30px;
+        }
 }
 
 @media screen and (max-width: 512px) {
@@ -1573,7 +1627,7 @@ a {
     padding-top: 35px;
   }
 
-  .blog-section .section-title {
+  .new-blog-section .section-title {
     margin-top: 0;
     padding-top: 35px;
   }
