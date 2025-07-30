@@ -1418,6 +1418,10 @@ a {
 .job-desc p {
   padding-bottom: 5px;
 }
+.job-details-page .job-card .job-require-btns .rq-btn {
+  font-size: 14px;
+  padding: 4px 10px;
+}
 /* job details page end */
 
 /* Media Quaries  */

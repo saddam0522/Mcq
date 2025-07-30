@@ -1,7 +1,7 @@
 @extends($activeTemplate . 'layouts.frontend')
 @section('content')
 @include($activeTemplate . 'partials.breadcrumb')
-<section class="blog-details-section blog-section ptb-80">
+<section class="blog-details-section job-details-page blog-section ptb-80">
   <div class="container">
     <div class="row justify-content-center mb-30-none">
       <div class="col-xl-9 mb-30">
