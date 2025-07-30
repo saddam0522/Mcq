@@ -538,6 +538,38 @@ a {
   border-radius: 10px;
   background: var(--dark);
 }
+.all-jobs-category {
+  padding-top: 50px;
+}
+.all-jobs-category .job-category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.all-jobs-category .job-category-list a {
+  padding: 8px 5px;
+  border-radius: 5px;
+  transition: all .3s ease-in-out;
+}
+
+.all-jobs-category .job-category-list a:hover {
+  background-color: #F9F9F9;
+}
+
+.all-jobs-category .job-category-list a i {
+  font-size: 14px;
+  transition: all .3s ease-in-out;
+}
+
+.all-jobs-category .job-category-list a span {
+  font-size: 16px;
+  transition: all .3s ease-in-out;
+}
+
+.all-jobs-category .job-category-list a:hover :is(i, span) {
+  color: var(--blue);
+}
 
 /* Job section end */
 /* mcq section start */
@@ -1026,6 +1058,7 @@ a {
   border-radius: 10px;
   border: 5px solid var(--light-bg);
 }
+
 .blog-card .blog-desc {
   display: -webkit-box;
   line-clamp: 3;
@@ -1374,6 +1407,7 @@ a {
   font-weight: 700;
   color: var(--dark);
 }
+
 .job-share a {
   display: flex;
   align-items: center;
@@ -1384,16 +1418,19 @@ a {
   border: 1px solid var(--light-bg);
   border-radius: 8px;
 }
+
 .company-dt span {
   font-size: 16px;
   font-weight: 400;
   color: var(--text-color);
 }
+
 .company-dt img {
   height: 80px;
   width: 80px;
   object-fit: contain;
 }
+
 .job-rqs span {
   padding: 5px 10px;
   border-radius: 2px;
@@ -1401,27 +1438,33 @@ a {
   font-size: 15px;
   background-color: var(--light-bg);
 }
+
 .job-sidebar .widget-title {
   font-size: 24px;
   font-weight: 600;
 }
+
 .job-desc {
   display: flex;
   flex-direction: column;
   padding-top: 20px;
 }
+
 .job-desc h3 {
   font-size: 20px;
   font-weight: 600;
   padding: 5px 0;
 }
+
 .job-desc p {
   padding-bottom: 5px;
 }
+
 .job-details-page .job-card .job-require-btns .rq-btn {
   font-size: 14px;
   padding: 4px 10px;
 }
+
 /* job details page end */
 
 /* Media Quaries  */
@@ -1469,15 +1512,17 @@ a {
     display: block;
   }
 
-    .header-mobile-menus .header-action {
-      display: flex;
-      margin-left: 10px;
-      margin-bottom: 0px;
-      bottom: 32px;
-    }
-    .mobile-wrapper {
-      height: 100vh;
-    }
+  .header-mobile-menus .header-action {
+    display: flex;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    bottom: 32px;
+  }
+
+  .mobile-wrapper {
+    height: 100vh;
+  }
+
   .mobile-wrapper .header-action a {
     padding: 10px 25px;
     margin: 0px;
@@ -1564,6 +1609,7 @@ a {
   .job-cards {
     padding-top: 30px;
   }
+
   .blog-items,
   .advisor-list {
     animation: SlideRightToLeft 7s linear 0s infinite;
@@ -1617,12 +1663,14 @@ a {
   .advisor-section {
     padding: 0 0px 70px 0;
   }
-    .job-rqs span {
-      padding: 5px 6px;
-    }
-        .job-dt-title {
-          font-size: 30px;
-        }
+
+  .job-rqs span {
+    padding: 5px 6px;
+  }
+
+  .job-dt-title {
+    font-size: 30px;
+  }
 }
 
 @media screen and (max-width: 512px) {
