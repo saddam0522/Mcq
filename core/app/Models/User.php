@@ -124,4 +124,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(WrittenPreview::class, 'user_id');
     }
+
+    
+    public function applications()
+    {
+        return $this->hasMany(Application::class);
+    }
+
+    public function hasAppliedTo(Job $job): bool
+    {
+        return $this->applications()->where('job_id', $job->id)->exists();
+    }
 }
