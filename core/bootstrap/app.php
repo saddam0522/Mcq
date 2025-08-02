@@ -8,6 +8,7 @@ use App\Http\Middleware\RedirectIfAdmin;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\RedirectIfNotAdmin;
 use App\Http\Middleware\RegistrationStep;
+use App\Http\Middleware\EmployerMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -21,7 +22,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         using: function ()
         {
-            Route::namespace('App\Http\Controllers')->middleware([VugiChugi::mdNm()])->group(function ()
+            Route::namespace('App\Http\Controllers')->group(function ()
             {
 
                 Route::middleware(['web'])
@@ -29,6 +30,13 @@ return Application::configure(basePath: dirname(__DIR__))
                     ->prefix('admin')
                     ->name('admin.')
                     ->group(base_path('routes/admin.php'));
+
+
+                Route::middleware(['web'])
+                    ->namespace('Employer')
+                    ->prefix('employer')
+                    ->name('employer.')
+                    ->group(base_path('routes/employer.php'));
 
                 Route::middleware(['web', 'maintenance'])
                     ->namespace('Gateway')
@@ -71,6 +79,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'demo' => Demo::class,
             'registration.complete' => RegistrationStep::class,
             'maintenance' => MaintenanceMode::class,
+
+            'employer.auth' => EmployerMiddleware::class,
         ]);
 
         $middleware->validateCsrfTokens(
