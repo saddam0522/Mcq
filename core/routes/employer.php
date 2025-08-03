@@ -18,6 +18,15 @@ Route::namespace('Auth')->group(function () {
     });
 });
 
-Route::middleware('auth:employer')->controller('DashboardController')->group(function () {
-    Route::get('/dashboard', 'index')->name('dashboard');
+Route::middleware('auth:employer')->group(function () {
+    Route::controller('DashboardController')->group(function () {
+        Route::get('/dashboard', 'index')->name('dashboard');
+    });
+
+    Route::controller('ProfileController')->group(function () {
+        Route::get('/change-password', 'changePasswordForm')->name('change.password');
+        Route::post('/change-password', 'updatePassword');
+        Route::get('/profile-setting', 'profileForm')->name('profile.setting');
+        Route::post('/profile-setting', 'updateProfile');
+    });
 });
