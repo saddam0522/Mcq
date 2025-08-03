@@ -43,12 +43,29 @@ class ProfileController extends Controller
     {
         $request->validate([
             'company_name' => 'required|string|max:255',
+            'industry' => 'nullable|string|max:255',
+            'website' => 'nullable|url|max:255',
+            'company_address' => 'nullable|string|max:255',
+            'company_city' => 'nullable|string|max:255',
+            'company_country' => 'nullable|string|max:255',
             'representative_name' => 'required|string|max:255',
-            'email' => 'required|email|unique:employers,email,' . auth()->id(),
+            'representative_designation' => 'nullable|string|max:255',
+            'representative_email' => 'nullable|email|max:255',
+            'representative_phone' => 'nullable|string|max:255',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $employer = auth()->guard('employer')->user();
-        $employer->update($request->only('company_name', 'representative_name', 'email'));
+
+        // Handle logo upload
+        if ($request->hasFile('logo')) {
+            $logoPath = 'uploads/employer/logo/';
+            $logoName = uniqid() . '.' . $request->logo->extension();
+            $request->logo->move(public_path($logoPath), $logoName);
+            $employer->logo = $logoPath . $logoName;
+        }
+
+        $employer->update($request->except(['logo', 'email']));
 
         return back()->with('success', 'Profile updated successfully.');
     }
