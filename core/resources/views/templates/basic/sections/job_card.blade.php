@@ -15,7 +15,7 @@
         <span class="mb-0 company">Sheba XYZ</span>
       </div>
       <div class="company-logo">
-        <img src="assets/images/img/company-logo.png" alt="">
+        <img src="../assets/images/img/company-logo.png" alt="">
       </div>
     </div>
     <div class="d-flex flex-column gap-2 job-info">
