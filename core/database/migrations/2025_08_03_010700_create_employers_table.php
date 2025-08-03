@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('password'); // Password field
             $table->timestamp('email_verified_at')->nullable(); // Email verification
             $table->rememberToken(); // For "remember me" feature
-
+            $table->boolean('is_approved')->default(false)->comment('Admin approval status');
+            $table->boolean('is_active')->default(true)->comment('Account active status');
             // Company Info
             $table->string('company_name');
             $table->string('industry')->nullable();

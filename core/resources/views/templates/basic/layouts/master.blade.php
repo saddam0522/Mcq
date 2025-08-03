@@ -46,14 +46,23 @@
         </div>
     </div>
 
-    <section class="page-container">
-        @include($activeTemplate . 'partials.sidemenu')
-        <div class="body-wrapper">
-            @include($activeTemplate . 'partials.dashboardHeader')
-            @yield('content')
-        </div>
-    </section>
-
+    @if (Str::contains(request()->url(), 'user'))
+        <section class="page-container">
+            @include($activeTemplate . 'partials.sidemenu')
+            <div class="body-wrapper">
+                @include($activeTemplate . 'partials.dashboardHeader')
+                @yield('content')
+            </div>
+        </section>
+    @else
+        <section class="page-container">
+            @include($activeTemplate . 'employer.partials.sidebar')
+            <div class="body-wrapper">
+                @include($activeTemplate . 'employer.partials.dashboard-header')
+                @yield('content')
+            </div>
+        </section>
+    @endif
 
     <script src="{{ asset('assets/global/js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/global/js/bootstrap.bundle.min.js') }}"></script>
