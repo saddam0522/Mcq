@@ -71,6 +71,7 @@ class ProfileController extends Controller
 
         $employer->update($request->except(['logo', 'email']));
 
-        return back()->with('success', 'Profile updated successfully.');
+        $notify[] = ['success', 'Profile updated successfully.'];
+        return back()->withNotify($notify);
     }
 }
