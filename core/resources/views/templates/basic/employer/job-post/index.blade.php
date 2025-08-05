@@ -171,13 +171,40 @@
 
 @push('style')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        .select2-container {
+            z-index: 1055; /* Ensure it appears above the modal */
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #000 !important;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+        top: 8px !important;
+        color: #000 !important;
+        }
+        .nicEdit-main{
+            width: 99% !important;
+            min-height: 200px !important;
+            box-shadow: 0 0 0 2px #007bff !important;
+            outline: none !important;
+            border: none !important;
+        }
+    </style>
 @endpush
 
 @push('script')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
-            // $('.select2').select2();
+            // Initialize select2 with proper z-index for modal
+            $('#job_category_id').select2({
+                dropdownParent: $('#addJobModal'),
+                width: '100%',
+                placeholder: "@lang('Select Category')", // Set placeholder
+                allowClear: true // Allow clearing the selection
+            });
+
             // Populate job categories dynamically
             $.ajax({
                 url: "{{ route('employer.job.categories') }}",
@@ -187,7 +214,7 @@
                     response.forEach(function (category) {
                         options += `<option value="${category.id}">${category.name}</option>`;
                     });
-                    $('#job_category_id').html(options);
+                    $('#job_category_id').html(options).trigger('change'); // Trigger change to refresh select2
                 },
                 error: function () {
                     alert('@lang("Failed to load job categories.")');
