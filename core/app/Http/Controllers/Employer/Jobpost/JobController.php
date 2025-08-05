@@ -38,7 +38,10 @@ class JobController extends Controller
             'vacancies' => 'required|integer|min:1',
         ]);
 
-        JobPost::create(array_merge($request->all(), ['employer_id' => auth()->id()]));
+        $data = $request->all();
+        $data['skills'] = json_encode($request->skills);
+
+        JobPost::create(array_merge($data, ['employer_id' => auth()->id()]));
 
         return back()->with('success', 'Job created successfully.');
     }

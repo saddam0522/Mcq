@@ -11,6 +11,10 @@ class JobPost extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'skills' => 'array', // Cast skills as an array
+    ];
+
     public function category()
     {
         return $this->belongsTo(JobCategory::class, 'job_category_id');

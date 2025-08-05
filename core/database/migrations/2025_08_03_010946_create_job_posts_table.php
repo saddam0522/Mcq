@@ -32,7 +32,7 @@ return new class extends Migration
             $table->date('deadline');
 
             $table->text('short_description')->nullable();
-            $table->text('full_description');
+            $table->longText('full_description');
 
             $table->json('skills')->nullable();
             $table->string('education')->nullable();

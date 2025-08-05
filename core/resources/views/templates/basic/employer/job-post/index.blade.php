@@ -139,7 +139,7 @@
                             </div>
                             <div class="form-group">
                                 <label>@lang('Full Description')</label>
-                                <textarea id="full_description" name="full_description" class="form-control nicEdit" required></textarea>
+                                <textarea id="full_description" name="full_description" class="form-control nicEdit" ></textarea>
                             </div>
                             <div class="form-group">
                                 <label>@lang('Skills')</label>
@@ -201,8 +201,8 @@
             $('#job_category_id').select2({
                 dropdownParent: $('#addJobModal'),
                 width: '100%',
-                placeholder: "@lang('Select Category')", // Set placeholder
-                allowClear: true // Allow clearing the selection
+                placeholder: "@lang('Select Category')",
+                allowClear: true
             });
 
             // Populate job categories dynamically
@@ -214,16 +214,22 @@
                     response.forEach(function (category) {
                         options += `<option value="${category.id}">${category.name}</option>`;
                     });
-                    $('#job_category_id').html(options).trigger('change'); // Trigger change to refresh select2
+                    $('#job_category_id').html(options).trigger('change');
                 },
                 error: function () {
                     alert('@lang("Failed to load job categories.")');
                 }
             });
 
+            // Initialize nicEdit
             bkLib.onDomLoaded(function () {
                 const editor = new nicEditor({ fullPanel: true }).panelInstance('full_description');
                 $('.nicEdit-main').css({ 'width': '100%', 'min-height': '200px' });
+
+                // Synchronize nicEdit content with the hidden textarea before form submission
+                $('form').on('submit', function () {
+                    $('#full_description').val($('.nicEdit-main').html());
+                });
             });
         });
 
