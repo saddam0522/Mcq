@@ -23,6 +23,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>@lang('ID')</th>
                             <th>@lang('Title')</th>
                             <th>@lang('Category')</th>
                             <th>@lang('Location')</th>
@@ -34,6 +35,7 @@
                     <tbody>
                         @forelse ($jobPosts as $job)
                             <tr>
+                                <td>{{ $job->id }}</td>
                                 <td>{{ $job->title }}</td>
                                 <td>{{ $job->category->name ?? '-' }}</td>
                                 <td>{{ $job->location }}</td>
@@ -62,7 +64,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center">@lang('No jobs found.')</td>
+                                <td colspan="7" class="text-center">@lang('No jobs found.')</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -166,6 +168,102 @@
                 </form>
             </div>
         </div>
+
+        <!-- Edit Job Modal -->
+        <div class="modal fade" id="editJobModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <form method="POST">
+                    @csrf
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">@lang('Edit Job')</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal"><i class="las la-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form fields for editing job -->
+                            <div class="form-group">
+                                <label>@lang('Title')</label>
+                                <input type="text" name="title" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Category')</label>
+                                <select name="job_category_id" id="edit_job_category_id" class="form-control select2" required>
+                                    <option value="">@lang('Select Category')</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Location')</label>
+                                <input type="text" name="location" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Job Type')</label>
+                                <select name="job_type" class="form-control" required>
+                                    <option value="Full Time">@lang('Full Time')</option>
+                                    <option value="Part Time">@lang('Part Time')</option>
+                                    <option value="Contract">@lang('Contract')</option>
+                                    <option value="Internship">@lang('Internship')</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Work Mode')</label>
+                                <select name="work_mode" class="form-control" required>
+                                    <option value="Office">@lang('Office')</option>
+                                    <option value="Remote">@lang('Remote')</option>
+                                    <option value="Hybrid">@lang('Hybrid')</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Experience Required (Years)')</label>
+                                <input type="number" name="experience_required" class="form-control" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Salary')</label>
+                                <input type="number" name="salary" class="form-control" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Currency')</label>
+                                <input type="text" name="currency" class="form-control" value="BDT" required>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Published At')</label>
+                                <input type="date" name="published_at" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Deadline')</label>
+                                <input type="date" name="deadline" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Short Description')</label>
+                                <textarea name="short_description" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Full Description')</label>
+                                <textarea id="edit_full_description" name="full_description" class="form-control nicEdit"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Skills')</label>
+                                <input type="text" name="skills[]" class="form-control" placeholder="@lang('Comma-separated skills')">
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Education')</label>
+                                <input type="text" name="education" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Gender Preference')</label>
+                                <input type="text" name="gender_preference" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>@lang('Vacancies')</label>
+                                <input type="number" name="vacancies" class="form-control" min="1" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">@lang('Update')</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -237,6 +335,53 @@
             const jobId = $(this).data('id');
             const status = $(this).val();
             // Add AJAX request to update status dynamically
+        });
+
+        $(document).ready(function () {
+            // Populate edit modal with job data
+            $('.edit').on('click', function () {
+                const job = $(this).data('job');
+                const route = $(this).data('route');
+
+                $('#editJobModal').find('form').attr('action', route);
+                $('#editJobModal').find('input[name=title]').val(job.title);
+                $('#editJobModal').find('input[name=location]').val(job.location);
+                $('#editJobModal').find('select[name=job_type]').val(job.job_type);
+                $('#editJobModal').find('select[name=work_mode]').val(job.work_mode);
+                $('#editJobModal').find('input[name=experience_required]').val(job.experience_required);
+                $('#editJobModal').find('input[name=salary]').val(job.salary);
+                $('#editJobModal').find('input[name=currency]').val(job.currency);
+                $('#editJobModal').find('input[name=published_at]').val(job.published_at);
+                $('#editJobModal').find('input[name=deadline]').val(job.deadline);
+                $('#editJobModal').find('textarea[name=short_description]').val(job.short_description);
+
+                // Populate full description in nicEdit
+                const fullDescription = job.full_description || '';
+                bkLib.onDomLoaded(function () {
+                    const nicEditorInstance = nicEditors.findEditor('edit_full_description');
+                    nicEditorInstance.setContent(fullDescription);
+                });
+
+                // Handle skills field
+                const skills = Array.isArray(job.skills) ? job.skills.join(', ') : job.skills || '';
+                $('#editJobModal').find('input[name="skills[]"]').val(skills);
+
+                $('#editJobModal').find('input[name=education]').val(job.education);
+                $('#editJobModal').find('input[name=gender_preference]').val(job.gender_preference);
+                $('#editJobModal').find('input[name=vacancies]').val(job.vacancies);
+
+                $('#editJobModal').modal('show');
+            });
+
+            // Handle delete action
+            $('.delete').on('click', function () {
+                const route = $(this).data('route');
+                if (confirm('@lang("Are you sure you want to delete this job?")')) {
+                    $.post(route, { _token: '{{ csrf_token() }}' }, function (response) {
+                        location.reload();
+                    });
+                }
+            });
         });
     </script>
 @endpush
