@@ -59,9 +59,13 @@ class ProfileController extends Controller
 
         // Handle logo upload
         if ($request->hasFile('logo')) {
-            $logoPath = 'uploads/employer/logo/';
-            $logoName = uniqid() . '.' . $request->logo->extension();
-            $request->logo->move(public_path($logoPath), $logoName);
+            $logoPath = '/uploads/employer/logo/';
+            $logoName = "employer_logo_" . uniqid() . '.' . $request->logo->extension();
+            $destination = base_path('../uploads/employer/logo');
+            if (!file_exists($destination)) {
+                mkdir($destination, 0755, true);
+            }
+            $request->logo->move($destination, $logoName);
             $employer->logo = $logoPath . $logoName;
         }
 
