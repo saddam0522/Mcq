@@ -18,64 +18,27 @@
   </div>
   <div class="all-jobs-category">
     <div class="row">
-      <div class="col-md-6 col-lg-3">
-        <div class="job-category-list">
-          @foreach (range(1, 8) as $i)
-          <a href="#">
-            <i class="fa-solid fa-chevron-right"></i>
-            <span>
-              <span class="wr">Accounting/Finance</span>
-              <span class="wr">(439)</span>
-            </span>
-          </a>
-          @endforeach
+      @foreach ($jobCategories->chunk(4) as $chunk)
+        <div class="col-md-6 col-lg-3">
+          <div class="job-category-list">
+            @foreach ($chunk as $category)
+              <a href="{{ route('category.subjects', $category->slug) }}">
+                <i class="fa-solid fa-chevron-right"></i>
+                <span>
+                  <span class="wr">{{ $category->name }}</span>
+                  <span class="wr">({{ $category->job_posts_count }})</span>
+                </span>
+              </a>
+            @endforeach
+          </div>
         </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="job-category-list">
-          @foreach (range(1, 8) as $i)
-          <a href="#">
-            <i class="fa-solid fa-chevron-right"></i>
-            <span>
-              <span class="wr">Accounting/Finance</span>
-              <span class="wr">(439)</span>
-            </span>
-          </a>
-          @endforeach
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 d-none d-md-block">
-        <div class="job-category-list">
-          @foreach (range(1, 8) as $i)
-          <a href="#">
-            <i class="fa-solid fa-chevron-right"></i>
-            <span>
-              <span class="wr">Accounting/Finance</span>
-              <span class="wr">(439)</span>
-            </span>
-          </a>
-          @endforeach
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 d-none d-md-block">
-        <div class="job-category-list">
-          @foreach (range(1, 8) as $i)
-          <a href="#">
-            <i class="fa-solid fa-chevron-right"></i>
-            <span>
-              <span class="wr">Accounting/Finance</span>
-              <span class="wr">(439)</span>
-            </span>
-          </a>
-          @endforeach
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
-  <div class="m-visible  d-none">
+  <div class="m-visible d-none">
     <div class="d-flex justify-content-center pt-4">
       <div class="job-section-btn align-items-center justify-content-center gap-3">
-        <a href="#">View All</a>
+        <a href="{{ route('all.jobs') }}">View All</a>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </div>
