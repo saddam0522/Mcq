@@ -61,3 +61,9 @@ Route::controller('JobController')->group(function ()
     Route::get('job/all', 'alljobs')->name('all.jobs');
     Route::get('job/details/{id}', 'jobDetails')->name('job.details');
 });
+
+Route::controller('Admin\Jobportal\JobCategoryController')->prefix('admin/job-categories')->name('admin.job.categories.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/store', 'store')->name('store');
+    Route::post('/update/{id}', 'update')->name('update');
+});

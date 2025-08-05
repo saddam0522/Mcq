@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('job_posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('employer_id')->constrained()->onDelete('cascade');
-            $table->foreignId('job_category_id')->constrained()->onDelete('set null')->nullable();
+            $table->unsignedBigInteger('job_category_id')->nullable();
+            $table->foreign('job_category_id')
+                ->references('id')
+                ->on('job_categories')
+                ->onDelete('set null');
 
             $table->string('title');
             $table->string('location');
