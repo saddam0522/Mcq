@@ -73,7 +73,7 @@
 
         <!-- Add Job Modal -->
         <div class="modal fade" id="addJobModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <form action="{{ route('employer.jobs.store') }}" method="POST">
                     @csrf
                     <div class="modal-content">
@@ -88,11 +88,8 @@
                             </div>
                             <div class="form-group">
                                 <label>@lang('Category')</label>
-                                <select name="job_category_id" class="form-control select2" required>
+                                <select name="job_category_id" id="job_category_id" class="form-control select2" required>
                                     <option value="">@lang('Select Category')</option>
-                                    @foreach ($categories as $id => $name)
-                                        <option value="{{ $id }}">{{ $name }}</option>
-                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
@@ -142,7 +139,7 @@
                             </div>
                             <div class="form-group">
                                 <label>@lang('Full Description')</label>
-                                <textarea name="full_description" class="form-control editor" required></textarea>
+                                <textarea id="full_description" name="full_description" class="form-control nicEdit" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>@lang('Skills')</label>
@@ -180,8 +177,27 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('.select2').select2();
-            $('.editor').summernote();
+            // $('.select2').select2();
+            // Populate job categories dynamically
+            $.ajax({
+                url: "{{ route('employer.job.categories') }}",
+                method: "GET",
+                success: function (response) {
+                    let options = '<option value="">@lang("Select Category")</option>';
+                    response.forEach(function (category) {
+                        options += `<option value="${category.id}">${category.name}</option>`;
+                    });
+                    $('#job_category_id').html(options);
+                },
+                error: function () {
+                    alert('@lang("Failed to load job categories.")');
+                }
+            });
+
+            bkLib.onDomLoaded(function () {
+                const editor = new nicEditor({ fullPanel: true }).panelInstance('full_description');
+                $('.nicEdit-main').css({ 'width': '100%', 'min-height': '200px' });
+            });
         });
 
         $('.status-dropdown').on('change', function () {

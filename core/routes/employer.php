@@ -35,5 +35,6 @@ Route::middleware('auth:employer')->group(function () {
         Route::post('/jobs/store', 'store')->name('jobs.store');
         Route::post('/jobs/update/{id}', 'update')->name('jobs.update');
         Route::post('/jobs/delete/{id}', 'destroy')->name('jobs.delete');
+        Route::get('/job-categories', 'getJobCategories')->name('job.categories');
     });
 });

@@ -77,4 +77,10 @@ class JobController extends Controller
 
         return back()->with('success', 'Job deleted successfully.');
     }
+
+    public function getJobCategories()
+    {
+        $categories = JobCategory::where('is_active', true)->select('id', 'name')->get();
+        return response()->json($categories);
+    }
 }
