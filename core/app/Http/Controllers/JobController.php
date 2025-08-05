@@ -16,8 +16,18 @@ class JobController extends Controller
 
     public function jobDetails($id)
     {
-        $job = JobPost::with('category', 'employer')->where('id', $id)->firstOrFail();
+        $job = JobPost::with('category', 'employer')->findOrFail($id);
+
+        $similarJobs = JobPost::where('id', '!=', $job->id)
+            ->where('job_category_id', $job->job_category_id)
+            ->where('status', 'published')
+            ->latest()
+            ->take(5)
+            ->get();
+
         $pageTitle = $job->title;
-        return view('Template::jobs.details', compact('pageTitle', 'job'));
+
+        return view('Template::jobs.details', compact('pageTitle', 'job', 'similarJobs'));
     }
+
 }
