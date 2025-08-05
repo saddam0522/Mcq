@@ -25,6 +25,12 @@
                     <span class="title">@lang('Dashboard')</span>
                 </a>
             </li>
+            <li class="sidebar-single-menu nav-item {{ menuActive('employer.jobs.index') }}">
+                <a href="{{ route('employer.jobs.index') }}">
+                    <i class="las la-briefcase"></i>
+                    <span class="title">@lang('Job Post')</span>
+                </a>
+            </li>
             <li class="sidebar-single-menu nav-item {{ menuActive('employer.logout') }}">
                 <a href="{{ route('employer.logout') }}">
                     <i class="las la-sign-out-alt"></i>

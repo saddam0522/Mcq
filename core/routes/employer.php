@@ -29,4 +29,11 @@ Route::middleware('auth:employer')->group(function () {
         Route::get('/profile-setting', 'profileForm')->name('profile.setting');
         Route::post('/profile-setting', 'updateProfile');
     });
+
+    Route::controller('Jobpost\JobController')->group(function () {
+        Route::get('/jobs', 'index')->name('jobs.index');
+        Route::post('/jobs/store', 'store')->name('jobs.store');
+        Route::post('/jobs/update/{id}', 'update')->name('jobs.update');
+        Route::post('/jobs/delete/{id}', 'destroy')->name('jobs.delete');
+    });
 });
