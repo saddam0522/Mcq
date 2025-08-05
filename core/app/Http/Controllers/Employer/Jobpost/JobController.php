@@ -86,4 +86,17 @@ class JobController extends Controller
         $categories = JobCategory::where('is_active', true)->select('id', 'name')->get();
         return response()->json($categories);
     }
+
+    public function updateStatus(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|exists:job_posts,id',
+            'status' => 'required|in:draft,published,unpublished',
+        ]);
+
+        $jobPost = JobPost::where('employer_id', auth()->id())->findOrFail($request->id);
+        $jobPost->update(['status' => $request->status]);
+
+        return response()->json(['success' => true, 'message' => 'Status updated successfully.']);
+    }
 }
