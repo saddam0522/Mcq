@@ -155,11 +155,18 @@
             $('.edit').on('click', function() {
                 var category = $(this).data('category');
                 var route = $(this).data('route');
+
+                // Populate the edit modal fields
                 $('#editModal').find('input[name=name]').val(category.name);
                 $('#editModal').find('form').attr('action', route);
+
+                // Handle the toggle for the status field
                 if (category.is_active) {
                     $('#editModal').find('input[name=is_active]').bootstrapToggle('on');
+                } else {
+                    $('#editModal').find('input[name=is_active]').bootstrapToggle('off');
                 }
+
                 $('#editModal').modal('show');
             });
 

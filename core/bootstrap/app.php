@@ -9,6 +9,7 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\RedirectIfNotAdmin;
 use App\Http\Middleware\RegistrationStep;
 use App\Http\Middleware\EmployerMiddleware;
+use App\Http\Middleware\RedirectIfEmployer;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -81,6 +82,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'maintenance' => MaintenanceMode::class,
 
             'employer.auth' => EmployerMiddleware::class,
+            'employer.guest' => RedirectIfEmployer::class,
         ]);
 
         $middleware->validateCsrfTokens(
