@@ -269,6 +269,8 @@
 
 @push('style')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css" />
+
     <style>
         .select2-container {
             z-index: 1055; /* Ensure it appears above the modal */
@@ -293,6 +295,8 @@
 
 @push('script')
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+
     <script>
         $(document).ready(function () {
             // Initialize select2 with proper z-index for modal
@@ -329,15 +333,33 @@
                     $('#full_description').val($('.nicEdit-main').html());
                 });
             });
-        });
 
-        $('.status-dropdown').on('change', function () {
-            const jobId = $(this).data('id');
-            const status = $(this).val();
-            // Add AJAX request to update status dynamically
-        });
+            // Handle status change
+            $('.status-dropdown').on('change', function () {
+                const jobId = $(this).data('id');
+                const status = $(this).val();
 
-        $(document).ready(function () {
+                $.ajax({
+                    url: "{{ route('employer.jobs.update.status') }}",
+                    method: "POST",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        id: jobId,
+                        status: status
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            $.notify("@lang('Status updated successfully.')", "success");
+                        } else {
+                            toastr.error("@lang('Failed to update status.')");
+                        }
+                    },
+                    error: function () {
+                        toastr.error("@lang('Failed to update status.')");
+                    }
+                });
+            });
+
             // Populate edit modal with job data
             $('.edit').on('click', function () {
                 const job = $(this).data('job');
