@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobPost;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -9,11 +10,14 @@ class JobController extends Controller
     public function alljobs()
     {
         $pageTitle = "All Jobs";
-        return view('Template::jobs.all', compact('pageTitle'));
+        $jobs = JobPost::with('category', 'employer')->where('status', 'published')->paginate(6);
+        return view('Template::jobs.all', compact('pageTitle', 'jobs'));
     }
-    public function jobDetails()
+
+    public function jobDetails($id)
     {
-        $pageTitle = "Job Details";
-        return view('Template::jobs.details', compact('pageTitle'));
+        $job = JobPost::with('category', 'employer')->where('id', $id)->firstOrFail();
+        $pageTitle = $job->title;
+        return view('Template::jobs.details', compact('pageTitle', 'job'));
     }
 }

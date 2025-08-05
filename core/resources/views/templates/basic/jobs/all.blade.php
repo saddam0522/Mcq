@@ -4,21 +4,16 @@
 <section class="exam-section pt-20 pb-50">
     <div class="container">
         <div class="row job-cards g-4">
-            <div class="col-md-6 col-lg-4">
-                @include('templates.basic.sections.job_card')
-            </div>
-            <div class="col-md-6 col-lg-4">
-                @include('templates.basic.sections.job_card')
-            </div>
-            <div class="col-md-6 col-lg-4">
-                @include('templates.basic.sections.job_card')
-            </div>
-            <div class="col-md-6 col-lg-4">
-                @include('templates.basic.sections.job_card')
-            </div>
-            <div class="col-md-6 col-lg-4">
-                @include('templates.basic.sections.job_card')
-            </div>
+            @forelse ($jobs as $job)
+                <div class="col-md-6 col-lg-4">
+                    @include('templates.basic.sections.job_card', ['job' => $job])
+                </div>
+            @empty
+                <p class="text-center">@lang('No jobs found.')</p>
+            @endforelse
+        </div>
+        <div class="mt-4">
+            {{ $jobs->links() }}
         </div>
     </div>
 </section>
