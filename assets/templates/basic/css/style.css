@@ -1625,7 +1625,7 @@ textarea.form--control {
 .bg-overlay-white:before {
   content: "";
   position: absolute;
-  background-color: #040a2c;
+  background: linear-gradient(180deg, rgba(70, 95, 241, 0.60) 0%, #FE7000 100%);
   width: 100%;
   height: 100%;
   left: 0;
@@ -2342,8 +2342,10 @@ textarea.form--control {
 }
 
 .banner-section .banner-content .title {
-  font-family: "Fredericka the Great", cursive;
+  font-family:var(--balooda);
   margin-bottom: 20px;
+  color: var(--white);
+  font-weight: 700;
 }
 
 .banner-section .banner-content .sub-title {
@@ -2378,7 +2380,7 @@ textarea.form--control {
 
 @media only screen and (max-width: 991px) {
   .inner-banner-section {
-    padding-top: 130px;
+    padding-top: 80px;
     padding-bottom: 80px;
   }
 }
@@ -2409,12 +2411,13 @@ textarea.form--control {
   font-size: 16px;
   position: relative;
   z-index: 2;
-  color: var(--blue);
+  color: var(--white);
 }
 
 .breadcrumb-item.active {
+  font-family: var(--noto);
   font-weight: 600;
-  color: var(--blue);
+  color: var(--white);
   font-size: 16px;
   position: relative;
   z-index: 2;
@@ -2423,7 +2426,7 @@ textarea.form--control {
 .breadcrumb-item.active::before {
   content: "/";
   font-weight: 600;
-  color: var(--blue);
+  color: var(--white);
   font-size: 16px;
   left: 0;
 }
@@ -4794,6 +4797,10 @@ textarea.form--control {
   border-radius: 3px;
   overflow: hidden;
 }
+.single-popular-item .popular-item-thumb img {
+  border-radius: 10px;
+  border: 3px solid var(--light-bg);
+}
 
 .single-popular-item .popular-item-content {
   width: calc(100% - 90px);
@@ -4801,10 +4808,19 @@ textarea.form--control {
 }
 
 .single-popular-item .popular-item-content .title {
-  font-size: 15px;
+  font-size: 16px;
   margin-bottom: 0;
+  font-family: var(--balooda);
   font-weight: 600;
+    display: -webkit-box;
+      line-clamp: 1;
+      -webkit-line-clamp: 1;
+      box-orient: vertical;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
 }
+
+
 
 .single-popular-item .popular-item-content .blog-date {
   font-size: 13px;

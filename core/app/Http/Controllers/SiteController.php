@@ -27,7 +27,8 @@ class SiteController extends Controller
         $sections = Page::where('tempname', activeTemplate())->where('slug', 'home')->first();
         $seoContents = $sections->seo_content;
         $seoImage = @$seoContents->image ? getImage(getFilePath('seo') . '/' . @$seoContents->image, getFileSize('seo')) : null;
-        return view('Template::home', compact('pageTitle', 'sections', 'seoContents', 'seoImage'));
+        $jobCategories = \App\Models\JobCategory::where('is_active', true)->withCount('jobPosts')->get();
+        return view('Template::home', compact('pageTitle', 'sections', 'seoContents', 'seoImage', 'jobCategories'));
     }
 
     public function pages($slug)

@@ -297,17 +297,46 @@
           </ul>
         </nav>
       </div>
+      <style>
+        .dropdown-toggle::after {
+          margin-left: 0!important;
+        }
+      </style>
       <div class="header-right">
         <div class="header-action">
-          @guest
+          @guest('employer')
             @if (gs('registration'))
-              <a href="{{ route('user.register') }}" class="btn--base"><span>@lang('Register')</span></a>
+              <div class="dropdown">
+                <button class="btn--base dropdown-toggle" type="button" id="registerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  @lang('Register')
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="registerDropdown">
+                  <li><a class="dropdown-item" href="{{ route('user.register') }}">@lang('Register for User')</a></li>
+                  <li><a class="dropdown-item" href="{{ route('employer.register') }}">@lang('Become an Employer')</a></li>
+                </ul>
+              </div>
+              <div class="dropdown">
+                <button class="btn--base dropdown-toggle active" type="button" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  @lang('Login')
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                  <li><a class="dropdown-item" href="{{ route('user.login') }}">@lang('Login as User')</a></li>
+                  <li><a class="dropdown-item" href="{{ route('employer.login') }}">@lang('Login as Employer')</a></li>
+                </ul>
+              </div>
             @endif
-            <a href="{{ route('user.login') }}" class="btn--base active"><span>@lang('Login')</span></a>
           @endguest
-          @auth
+          @auth('employer')
+          <div class="d-flex">
+            <a href="{{ route('employer.dashboard') }}" class="btn--base"><span>@lang('Dashboard')</span></a>
+            <a href="{{ route('employer.logout') }}" class="btn--base active"><span>@lang('Logout')</span></a>
+          </div>
+          @endauth
+          @auth('web')
+          <div class="d-flex">
             <a href="{{ route('user.home') }}" class="btn--base"><span>@lang('Dashboard')</span></a>
             <a href="{{ route('user.logout') }}" class="btn--base active"><span>@lang('Logout')</span></a>
+          </div>
           @endauth
         </div>
         <div class="toggle">
@@ -394,12 +423,28 @@
             <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">যোগাযোগ </a></li>
           </ul>
         </nav>
-        <div class="header-action pt-4">
+        <div class="header-action pt-4 action-buttions">
           @guest
             @if (gs('registration'))
-              <a href="{{ route('user.register') }}" class="btn--base"><span>@lang('Register')</span></a>
+              <div class="dropdown">
+                <button class="btn--base dropdown-toggle" type="button" id="registerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  @lang('Register')
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="registerDropdown">
+                  <li><a class="dropdown-item" href="{{ route('user.register') }}">@lang('Register for User')</a></li>
+                  <li><a class="dropdown-item" href="{{ route('employer.register') }}">@lang('Become an Employer')</a></li>
+                </ul>
+              </div>
+              <div class="dropdown">
+                <button class="btn--base dropdown-toggle active" type="button" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  @lang('Login')
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                  <li><a class="dropdown-item" href="{{ route('user.login') }}">@lang('Login as User')</a></li>
+                  <li><a class="dropdown-item" href="{{ route('employer.login') }}">@lang('Login as Employer')</a></li>
+                </ul>
+              </div>
             @endif
-            <a href="{{ route('user.login') }}" class="btn--base active"><span>@lang('Login')</span></a>
           @endguest
           @auth
             <a href="{{ route('user.home') }}" class="btn--base"><span>@lang('Dashboard')</span></a>
@@ -452,7 +497,7 @@
                   </li>
                   <li class="{{ menuActive('subjects') }}"><a href="{{ route('subjects') }}">@lang('Subjects')</a>
                   </li>
-                  <li class="{{ menuActive('exams') }}"><a href="{{ route('exams') }}">@lang('Exams')</a></li>
+                  <li class="{{ menuActive('exams') }}"><a href="{{ route('exams') ">@lang('Exams')</a></li>
                   <li class="{{ menuActive(['blog', 'blog.details']) }}"><a
                       href="{{ route('blog') }}">@lang('Blog')</a></li>
                   <li class="{{ menuActive('faq') }}"><a href="{{ route('faq') }}">@lang('Faq')</a></li>

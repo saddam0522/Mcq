@@ -181,6 +181,25 @@
             }
         ]
     },
+    "job_portal": {
+        "title": "Job Portal",
+        "icon": "las la-briefcase",
+        "menu_active": "admin.job.categories.*",
+        "submenu": [
+            {
+                "keyword": [
+                    "job category",
+                    "job categories",
+                    "job portal",
+                    "job management",
+                    "job listing"
+                ],
+                "title": "Job Categories",
+                "route_name": "admin.job.categories.index",
+                "menu_active": "admin.job.categories.index"
+            }
+        ]
+    },
     "exam_certificate ": {
         "keyword": ["exam certificate ", "exam", "certificate "],
         "title": "Exam Certificate",
