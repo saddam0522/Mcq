@@ -66,4 +66,5 @@ Route::controller('Admin\Jobportal\JobCategoryController')->prefix('admin/job-ca
     Route::get('/', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
     Route::post('/update/{id}', 'update')->name('update');
+    Route::post('/delete/{id}', 'destroy')->name('delete');
 });

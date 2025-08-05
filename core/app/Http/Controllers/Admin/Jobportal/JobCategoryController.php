@@ -52,4 +52,18 @@ class JobCategoryController extends Controller
         $notify[] = ['success', 'Job Category Updated Successfully'];
         return back()->withNotify($notify);
     }
+
+    public function destroy($id)
+    {
+        $category = JobCategory::findOrFail($id);
+
+        if ($category->jobPosts()->count() > 0) {
+            $notify[] = ['error', 'Cannot delete category with associated job posts.'];
+            return back()->withNotify($notify);
+        }
+
+        $category->delete();
+        $notify[] = ['success', 'Job Category Deleted Successfully'];
+        return back()->withNotify($notify);
+    }
 }

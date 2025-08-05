@@ -35,6 +35,10 @@
                                                 class="btn btn-sm btn-outline--primary edit">
                                                 <i class="las la-edit"></i> @lang('Edit')
                                             </a>
+                                            <a href="javascript:void(0)" data-route="{{ route('admin.job.categories.delete', $category->id) }}"
+                                                class="btn btn-sm btn-outline--danger delete">
+                                                <i class="las la-trash"></i> @lang('Delete')
+                                            </a>
                                         </td>
                                     </tr>
                                 @empty
@@ -113,6 +117,27 @@
                 </form>
             </div>
         </div>
+
+        <!-- Delete Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <form method="POST">
+                    @csrf
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">@lang('Delete Job Category')</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal"><i class="las la-times"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>@lang('Are you sure you want to delete this job category?')</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn--danger w-100">@lang('Delete')</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection
 
@@ -136,6 +161,12 @@
                     $('#editModal').find('input[name=is_active]').bootstrapToggle('on');
                 }
                 $('#editModal').modal('show');
+            });
+
+            $('.delete').on('click', function() {
+                var route = $(this).data('route');
+                $('#deleteModal').find('form').attr('action', route);
+                $('#deleteModal').modal('show');
             });
         })(jQuery);
     </script>
